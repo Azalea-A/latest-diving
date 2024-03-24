@@ -1,0 +1,40 @@
+@use "global" as *;
+
+
+.global-navigation {
+}
+
+.global-navigation__items {
+}
+
+.global-navigation__item-link,
+.global-navigation__sub-item a {
+  color: $white;
+  font-size:   rem(16);
+  line-height: calc(18 / 16);
+  padding-left:  rem(22);
+}
+
+.global-navigation__item__link {
+  font-weight:  $bold;
+  display: block;
+}
+
+.global-navigation__item-link::before {
+  content: url(../../assets/images/common/starfish.svg);
+  width:  rem(18);
+  height:  rem(18);
+  display: inline-block;
+}
+
+.global-navigation__sub-item a {
+  font-weight: $regular;
+}
+
+
+.global-navigation__sub-items {
+}
+
+.global-navigation__sub-item {
+}
+

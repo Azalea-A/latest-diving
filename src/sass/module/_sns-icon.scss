@@ -1,0 +1,15 @@
+@use "global" as *;
+
+.sns-icon {
+  display: block;
+  aspect-ratio: 1 / 1;
+  width:  rem(19.5);
+  height:  rem(19.5);
+}
+
+
+.sns-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

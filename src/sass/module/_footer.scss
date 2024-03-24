@@ -1,0 +1,35 @@
+@use "global" as *;
+
+.footer {
+  background-color: $main-blue;
+  width: 100%;
+  padding-top: rem(48);
+}
+
+.footer__top {
+}
+
+.footer__logo {
+  width: rem(120);
+  height: auto;
+}
+
+.footer__logo img {
+  width: 100%;
+}
+
+.footer__sns-wrap {
+  width: rem(60);
+  display: flex;
+  justify-content: space-between;
+  @include mq("md") {
+    width: rem(74);
+  }
+}
+
+.fooer__sns-icon {
+}
+
+.footer__global-navigation {
+  margin-top: rem(40);
+}
