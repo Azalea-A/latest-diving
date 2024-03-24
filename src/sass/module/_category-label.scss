@@ -1,0 +1,9 @@
+@use "global" as *;
+
+.category-label {
+  padding: rem(4) rem(12);
+  border:  rem(1) solid $main-blue;
+  color: $main-blue;
+  font-size: rem(12);
+  font-weight: $regular;
+}

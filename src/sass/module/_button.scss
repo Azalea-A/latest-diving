@@ -9,7 +9,7 @@
   font-size: rem(14);
   color: $white;
   background-color: $main-blue;
-  border: 1px solid $main-blue;
+  border:  rem(1) solid $main-blue;
   padding: rem(16) 0;
   text-align: center;
   transition: 0.3s background-color;
@@ -22,7 +22,7 @@
   bottom: rem(-4);
   right: rem(-4);
   content: "";
-  border: 1px solid $main-blue;
+  border:  rem(1) solid $main-blue;
   z-index: -1;
 }
 

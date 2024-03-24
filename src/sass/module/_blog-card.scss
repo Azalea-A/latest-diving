@@ -1,0 +1,49 @@
+@use "global" as *;
+
+.blog-card {
+  width: 100%;
+  box-shadow:  rem(2)  rem(2)  rem(10) 0 rgba(0, 0, 0, 0.25);
+}
+
+.blog-card__inner {
+  padding:  rem(16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blog-card__img {
+  aspect-ratio: 301 / 201;
+}
+
+.blog-card__img figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-card__content {
+  margin-top:  rem(24);
+}
+
+.blog-card__head {
+  border-bottom:  rem(1) solid $main-blue;
+  width: 100%;
+}
+
+.blog-card__date {
+  font-family:$english-font-family02;
+  font-size:  rem(12);
+}
+
+.blog-card__title {
+  font-size:  rem(16);
+  font-weight: $medium;
+}
+
+.blog-card__text {
+  margin-top:  rem(16);
+  font-size:   rem(16);
+  line-height: calc(24 / 16);
+}
+
