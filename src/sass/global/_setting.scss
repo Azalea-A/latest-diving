@@ -18,17 +18,17 @@ $japanese-font-family02: "Noto Serif JP", serif;
 $english-font-family01: "Lato", sans-serif;
 $english-font-family02: "Gotu", sans-serif;
 
-
-
 // ※検証ツールでしっかり反映されているか確認する
 
 body {
   font-family: $japanese-font-family01;
+  color: $black;
 }
 
 // フォントウェイト
 $regular: 300;
 $normal: 400;
+$medium: 500;
 $bold: 700;
 
 ////////////////////
@@ -36,7 +36,7 @@ $bold: 700;
 ////////////////////
 
 //色指定（共通性のあるものは出来る限り指定すると良い）
-$black: #0D2936;
+$black: #0d2936;
 $white: #fff;
-$main-blue :#408F95;
-$light-blue: #DDF0F1;
+$main-blue: #408f95;
+$light-blue: #ddf0f1;

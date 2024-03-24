@@ -1,0 +1,28 @@
+@use "global" as *;
+
+.section-title {
+}
+
+.section-title__english {
+  font-size:   rem(32);
+  font-family: $english-font-family02;
+  text-align: center;
+  @include mq("md") {
+    font-size:  rem(40);
+  }
+}
+
+.section-title__english::first-letter {
+  color: $main-blue;
+}
+
+.section-title__japanese {
+  font-family: $japanese-font-family01;
+  text-align: center;
+  margin-top:  rem(8);
+  color: $main-blue;
+  @include mq("md") {
+    font-size:  rem(12);
+  }
+}
+
