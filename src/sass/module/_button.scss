@@ -1,0 +1,17 @@
+@use "global" as *;
+
+.button__span {
+  display: inline-block;
+  font-family: $english-font-family02;
+  font-weight: normal;
+  font-size:   rem(14);
+  color: $white;
+  background-color: $main-blue;
+  padding:  rem(16)  rem(40);
+}
+
+.button__span::after {
+  content: url(../images/common/arrow-btn.svg);
+  width:  rem(40);
+  height:  rem(6);
+}
