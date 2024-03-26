@@ -1,0 +1,21 @@
+@use "global" as *;
+
+.drawer-menu {
+  position: absolute;
+  z-index: 5000;
+  width: 100%;
+  height: 100vh;
+  background-color: $main-blue;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.drawer-menu__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: inherit;
+}

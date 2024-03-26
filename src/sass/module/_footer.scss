@@ -4,14 +4,25 @@
   background-color: $main-blue;
   width: 100%;
   padding-top: rem(48);
+  padding-bottom: rem(56);
+  @include mq("md") {
+    padding-top: rem(80);
+    padding-bottom: rem(80);
+  }
 }
 
 .footer__top {
+  @include mq("md") {
+    display: flex;
+  }
 }
 
 .footer__logo {
   width: rem(120);
   height: auto;
+  @include mq("md") {
+    width: rem(200);
+  }
 }
 
 .footer__logo img {
@@ -24,12 +35,40 @@
   justify-content: space-between;
   @include mq("md") {
     width: rem(74);
+    margin-left: rem(40);
+    align-items: flex-end;
+    padding-bottom: rem(25);
   }
 }
 
-.fooer__sns-icon {
+.footer__sns-wrap {
+  margin-top: rem(16);
+  @include mq("md") {
+  }
 }
 
 .footer__global-navigation {
-  margin-top: rem(40);
+  margin-top: rem(28);
+  @include mq("md") {
+    margin-top: rem(12);
+  }
+}
+
+.footer__copyright {
+  margin-top: rem(28);
+  text-align: center;
+  @include mq("md") {
+    margin-top: rem(68);
+  }
+}
+
+.footer__copyright small {
+  font-family: $english-font-family02;
+  font-size: rem(12);
+  white-space: nowrap;
+  color: $white;
+  @include mq("md") {
+    font-size: rem(14);
+    line-height: calc(18 / 14);
+  }
 }

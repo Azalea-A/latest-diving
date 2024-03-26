@@ -1,0 +1,75 @@
+@use "global" as *;
+
+.header__pc-nav {
+  @include mq("md") {
+    width: 100%;
+    height: inherit;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.header-nav {
+  @include mq("md") {
+    height: inherit;
+  }
+}
+
+.header-nav__items {
+  @include mq("md") {
+    height: inherit;
+    display: flex;
+    max-width: rem(880);
+    width: 100%;
+  }
+}
+
+.header-nav__item {
+  @include mq("md") {
+    font-family: $english-font-family02;
+    color: $white;
+    font-size: rem(18);
+    height: inherit;
+  }
+}
+
+.header-nav__item a {
+  @include mq("md") {
+    padding: 0 rem(20);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: inherit;
+    position: relative;
+  }
+}
+
+//ホバーアニメーション
+.header-nav__item a::after {
+  @include mq("md") {
+    content: "";
+    position: absolute;
+    bottom: rem(20);
+    left: rem(20);
+    width: calc(100% - rem(40));
+    height: rem(1);
+    background: $white;
+    transition: all 0.3s;
+    transform: scale(0, 1);
+    transform-origin: center top;
+  }
+}
+
+.header-nav__item a:hover::after {
+  @include mq("md") {
+    transform: scale(1, 1);
+  }
+}
+
+.header-nav__item span {
+  @include mq("md") {
+    font-family: $japanese-font-family01;
+    font-size: rem(10);
+  }
+}
