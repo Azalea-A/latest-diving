@@ -2,17 +2,19 @@
 
 .top-campaign__swiper-container {
   position: relative;
-  width: calc(100vw);
-  margin-left: calc(50% - 50vw);
+  // width: calc(100vw);
+  width: 100%; //ページに影響与えないための仮
+  // margin-left: calc(50% - 50vw);
   height: 100%;
   margin-top: rem(24);
   @include mq("md") {
     margin-top: rem(40);
-    width: calc(100vw - rem(180));
+    // width: calc(100vw - rem(180));
+    width: 100%; //ページに影響与えないための仮
   }
 }
 
-.top-campaign__button-wrap {
+.top-campaign__button-wrapper {
   margin-top: rem(40);
   @include mq("md") {
     margin-top: rem(80);

@@ -38,7 +38,11 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
         768: {
           spaceBetween: 40,
         },
-      }
+      },
+      navigation: {
+        nextEl: ".top-campaign__swiper-button-next",
+        prevEl: ".top-campaign__swiper-button-prev",
+    },
 
     });
 
