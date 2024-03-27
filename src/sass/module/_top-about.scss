@@ -1,16 +1,13 @@
 @use "global" as *;
 
 .top-about {
-  padding-bottom: rem(70);
-  @include mq("md") {
-    padding-bottom: rem(164);
-  }
 }
 
 .top-about__container {
   margin-top: rem(24);
   @include mq("md") {
     margin-top: rem(40);
+    position: relative;
   }
 }
 
@@ -19,6 +16,9 @@
   aspect-ratio: 345 / 212;
   width: 100%;
   height: 100%;
+  @include mq("md") {
+    aspect-ratio: 1080 / 661;
+  }
 }
 
 .top-about__img01 {
@@ -55,6 +55,16 @@
 }
 
 .top-about__body {
+  margin-top: rem(40);
+  @include mq("md") {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
 }
 
 .top-about__heading-wrapper {
@@ -63,6 +73,7 @@
 .top-about__heading {
   font-family: $english-font-family02;
   font-size: rem(40);
+  line-height: 1;
   color: $main-blue;
   @include mq("md") {
     font-size: rem(80);
@@ -72,11 +83,10 @@
 }
 
 .top-about__content-wrapper {
-  margin-top: rem(40);
+  margin-top: rem(16);
 }
 
 .top-about__text {
-  margin-top: rem(16);
   font-size: rem(16);
   line-height: calc(24 / 16);
   color: $black;
@@ -88,4 +98,5 @@
 
 .top-about__button-wrapper {
   margin-top: rem(50);
+  text-align: center;
 }
