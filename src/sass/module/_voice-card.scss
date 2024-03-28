@@ -1,29 +1,34 @@
 @use "global" as *;
 
 .voice-card {
-  width: 90%; //仮
+  width: 100%;
   box-shadow: rem(2) rem(2) rem(10) 0 rgba(0, 0, 0, 0.25);
 }
 
 .voice-card__inner {
   padding: rem(15) rem(16) rem(24);
   margin-inline: auto;
+  @include mq("md") {
+    padding: rem(24);
+  }
 }
 
 .voice-card__top {
   display: flex;
   gap: rem(13);
-  align-items: flex-end;
 }
 
 .voice-card__title-wrapper {
-  width: calc((100% - rem(13)) / 2);
+  // width: calc((100% - rem(13)) / 2);
   border-bottom: rem(1) solid $main-blue;
+  padding-bottom: rem(4);
+  flex: 1;
 }
 
 .voice-card__title-flex-box {
   @include mq("md") {
     display: flex;
+    justify-content: space-between;
   }
 }
 
@@ -37,12 +42,22 @@
   color: $black;
   font-size: rem(16);
   font-weight: $medium;
+  @include mq("md") {
+    font-size: rem(24);
+    line-height: 1.5;
+  }
 }
 
 .voice-card__img {
   max-width: rem(151);
   width: calc((100% - rem(13)) / 2);
   aspect-ratio: 151 / 117;
+  margin-top: rem(9);
+  @include mq("md") {
+    max-width: rem(180);
+    aspect-ratio: 180/ 140;
+    margin-top: 0;
+  }
 }
 
 .voice-card__img figure img {

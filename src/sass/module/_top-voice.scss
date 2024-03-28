@@ -1,0 +1,61 @@
+@use "global" as *;
+
+.top-voice {
+  padding: rem(80) 0;
+  @include mq("md") {
+    padding: rem(140) 0;
+    position: relative;
+  }
+}
+
+.top-voice__fish-illustration {
+  @include mq("md") {
+    aspect-ratio: 301 / 138;
+    position: absolute;
+    top: rem(20);
+    left: rem(100);
+  }
+}
+
+.top-voice__fish-illustration img,
+.top-voice__tatsunootoshigo-illustration img {
+  @include mq("md") {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.top-voice__tatsunootoshigo-illustration {
+  @include mq("md") {
+    aspect-ratio: 71 / 162;
+    position: absolute;
+    bottom: rem(40);
+    right: rem(160);
+  }
+}
+
+.top-voice__cards-wrap {
+  width: 100%;
+  margin-inline: auto;
+  margin-top: rem(40);
+  @include mq("md") {
+    margin-top: rem(30);
+  }
+}
+
+.top-voice__voice-cards {
+  width: 100%;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(rem(345), 1fr));
+  column-gap: rem(40);
+  row-gap: rem(40);
+}
+
+.top-voice__button-wrapper {
+  margin-top: rem(40);
+  @include mq("md") {
+    margin-top: rem(80);
+  }
+}

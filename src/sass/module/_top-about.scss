@@ -4,7 +4,22 @@
   padding-bottom: rem(70);
   @include mq("md") {
     padding-bottom: rem(164);
+    position: relative;
   }
+}
+
+.top-about__sango-illustration {
+  aspect-ratio: 194 / 181;
+  height: auto;
+  position: absolute;
+  bottom: rem(76);
+  right: rem(48);
+}
+
+.top-about__sango-illustration img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .top-about__container {
@@ -122,21 +137,4 @@
   @include mq("md") {
     margin-top: rem(40);
   }
-}
-
-.top-about__sango-illustration {
-  aspect-ratio: 194 / 181;
-  width: 20%;
-  height: auto;
-  position: absolute;
-  // right: rem(-97);
-  // bottom: rem(-90);
-  bottom: -13%;
-  right: -10%; //それよりサンゴに小さくなってほしいサンゴにwidth15%とかもダメ、padding-topのやりかた確認。
-}
-
-.top-about__sango-illustration img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
 }

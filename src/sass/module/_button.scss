@@ -1,9 +1,10 @@
 @use "global" as *;
 
 .button {
-  position: relative;
   width: rem(202);
-  display: block; //inline-blockじゃだめ？
+  height: rem(54);
+  position: relative;
+  display: inline-block;
   font-family: $english-font-family02;
   font-weight: normal;
   font-size: rem(14);
@@ -21,11 +22,10 @@
 .button::after {
   width: rem(202);
   height: rem(54);
-  display: block;
+  display: inline-block;
   position: absolute;
-  z-index: 5;
-  bottom: rem(-4);
-  right: rem(-4);
+  top: rem(4);
+  left: rem(4);
   content: "";
   border: rem(1) solid $main-blue;
 }
@@ -42,7 +42,6 @@
   transform: scale(0, 1);
   transform-origin: left top;
   transition: 0.2s cubic-bezier(0.45, 0, 0.55, 1);
-  z-index: -1;
 }
 
 .button:hover {
@@ -56,13 +55,14 @@
 
 //ホバー前後の矢印
 .button__span::after {
-  content: url(../images/common/arrow-btn_white.svg);
+  content: "";
   display: inline-block;
   width: rem(40);
   height: rem(6);
   margin-left: rem(8);
+  background-image: url(../images/common/arrow-btn_white.svg);
 }
 
 .button:hover .button__span::after {
-  content: url(../images/common/arrow-btn_blue.svg);
+  background-image: url(../images/common/arrow-btn_blue.svg);
 }
