@@ -12,6 +12,11 @@
   }
 }
 
+.section-title__english.section-title__english--large {
+  font-size: rem(80);
+  line-height: 1;
+}
+
 .section-title__english::first-letter {
   color: $main-blue;
 }
@@ -24,6 +29,10 @@
   @include mq("md") {
     font-size: rem(12);
   }
+}
+
+.section-title__japanese--english-large {
+  margin-top: 0;
 }
 
 .section-title__english--white,

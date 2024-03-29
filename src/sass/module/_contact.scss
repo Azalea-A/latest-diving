@@ -1,0 +1,25 @@
+@use "global" as *;
+
+.contact {
+  margin-top: rem(40);
+
+  @include mq("md") {
+    margin-top: 0;
+    padding: rem(20) 0;
+    width: 47.04%;
+  }
+}
+
+.contact__text {
+  font-size: rem(14);
+  font-weight: $regular;
+  line-height: calc(18 / 14);
+  text-align: center;
+  color: $main-blue;
+  margin-top: rem(8);
+}
+
+.contact__button-wrapper {
+  margin-top: rem(40);
+  text-align: center;
+}

@@ -1,0 +1,43 @@
+@use "global" as *;
+
+.price-category-items {
+}
+
+.price-category-items__item {
+}
+
+.price-category-items__item-title {
+  font-size: rem(16);
+  font-weight: $bold;
+  padding-bottom: rem(8);
+  border-bottom: rem(1) solid $main-blue;
+}
+
+.price-category-items__item dl {
+  display: flex;
+  margin-top: rem(8);
+}
+
+.price-category-items__item:not(:first-child) {
+  margin-top: rem(40);
+}
+
+.price-category-items__item dt,
+.price-category-items__item dd {
+  font-size: rem(14);
+  font-weight: $regular;
+  line-height: calc(24 / 14);
+  @include mq("md") {
+    font-size: rem(16);
+    line-height: calc(24 / 16);
+  }
+}
+
+.price-category-items__item dt {
+  width: 80%;
+}
+
+.price-category-items__item dd {
+  width: 20%;
+  text-align: right;
+}
