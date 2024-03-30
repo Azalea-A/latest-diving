@@ -10,7 +10,7 @@
 
 .shop-info__inner {
   @include mq("md") {
-    width: 76.923%;
+    width: 85%;
   }
 }
 
@@ -26,10 +26,9 @@
   height: auto;
   text-align: center;
   padding-bottom: rem(6);
-
   margin-inline: auto;
   @include mq("md") {
-    width: 34.965%;
+    width: 46%;
     aspect-ratio: 200 / 75;
     padding-bottom: rem(8);
   }
@@ -50,7 +49,7 @@
 
 .shop-info__items {
   @include mq("md") {
-    padding-left: rem(21);
+    padding-right: rem(21);
     flex: 1;
   }
 }
@@ -73,7 +72,7 @@
   aspect-ratio: 295 / 160;
   margin-top: rem(16);
   @include mq("md") {
-    width: 47.72%;
+    width: 63%;
     aspect-ratio: 273 / 148;
     margin-top: 0;
   }

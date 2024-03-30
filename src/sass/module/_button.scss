@@ -14,9 +14,23 @@
   padding: rem(16) 0;
   text-align: center;
   transition: 0.3s background-color;
-  ////ホバーで色が変わる
-  overflow: hidden;
-  z-index: 1;
+  z-index: 20;
+}
+
+.button__span,
+.button:hover .button__span {
+  display: inline-block;
+  position: absolute;
+  z-index: 20;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.button:hover .button__span {
+  color: $main-blue;
 }
 
 .button::after {
@@ -28,11 +42,13 @@
   left: rem(4);
   content: "";
   border: rem(1) solid $main-blue;
+  z-index: -1;
 }
 
 //ホバーで色が変わる
 .button::before {
   background-color: $white;
+  display: block;
   position: absolute;
   top: 0;
   left: 0;
@@ -44,25 +60,28 @@
   transition: 0.2s cubic-bezier(0.45, 0, 0.55, 1);
 }
 
-.button:hover {
-  color: $main-blue;
-}
-
 //ホバーで色が変わる
 .button:hover::before {
+  display: inline-block;
   transform: scale(1, 1);
 }
 
 //ホバー前後の矢印
-.button__span::after {
-  content: "";
-  display: inline-block;
+.button__span::after,
+.button:hover .button__span::after {
   width: rem(40);
   height: rem(6);
   margin-left: rem(8);
-  background-image: url(../images/common/arrow-btn_white.svg);
+  position: absolute;
+  bottom: rem(17);
+  display: inline-block;
+}
+
+.button__span::after {
+  content: url(../images/common/arrow-btn_white.svg);
 }
 
 .button:hover .button__span::after {
-  background-image: url(../images/common/arrow-btn_blue.svg);
+  content: url(../images/common/arrow-btn_blue.svg);
+  z-index: 20;
 }
