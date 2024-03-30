@@ -45,7 +45,6 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
     },
 
     });
-
   //topへ戻る
     //トップへ戻るボタン
 $(function () {
