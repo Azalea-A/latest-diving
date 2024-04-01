@@ -11,6 +11,13 @@
   }
 }
 
+.footer__inner.inner {
+  padding-right: 0;
+  @include mq("md") {
+    padding-right: rem(25);
+  }
+}
+
 .footer__top {
   @include mq("md") {
     display: flex;
@@ -50,7 +57,7 @@
 }
 
 .footer__global-navigation {
-  margin-top: rem(28);
+  margin-top: rem(41.44);
   @include mq("md") {
     margin-top: rem(12);
   }
