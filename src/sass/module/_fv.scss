@@ -18,21 +18,23 @@
 .fv__title-wrap {
   position: absolute;
   z-index: 10;
-  top: 50%;
-  left: 52%;
+  top: 49.5%;
+  left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
 }
 
 .fv__title--large {
   font-family: $english-font-family01;
-  font-weight: $regular;
+  font-weight: 400;
   font-size: rem(40);
   letter-spacing: 0.54em;
   color: $white;
   text-align: center;
+  padding-left: rem(23);
   @include mq("md") {
-     font-size:  rem(80);
+    font-size: rem(80);
+    margin-left: rem(15);
   }
 }
 
@@ -42,8 +44,9 @@
   font-size: rem(20);
   color: $white;
   text-align: center;
-  margin-top: rem(10);
+  margin-top: rem(-4);
+  margin-left: rem(-8);
   @include mq("md") {
-
+    margin-left: 0;
   }
 }

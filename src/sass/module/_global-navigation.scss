@@ -1,25 +1,41 @@
 @use "global" as *;
 
 .global-navigation {
-}
-
-.global-navigation__columns {
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-rows: repeat(2, auto);
+  width: 100%;
   @include mq("md") {
-    grid-template-rows: auto;
-    grid-template-columns: repeat(4, auto);
   }
 }
 
-.global-navigation__item:not(:first-child) {
-  margin-top: rem(16);
+.global-navigation__columns {
+  width: 100%;
+  display: grid;
+  grid-template-columns: rem(173) rem(173);
+  row-gap: rem(16);
+  @include mq("md") {
+    grid-template-rows: auto;
+    grid-template-columns: repeat(4, auto);
+    column-gap: rem(120);
+  }
 }
 
-.global-navigation__item,
-.global-navigation__sub-item {
+.global-navigation__items {
+  width: 100%;
+  @include mq("md") {
+  }
 }
+
+.global-navigation__item {
+  background: url(../../assets/images/common/starfish.svg);
+  background-position: left -0.85rem top rem(10);
+  background-repeat: no-repeat;
+  background-size: rem(23) rem(23);
+  padding-left: rem(20);
+}
+
+.global-navigation__item:not(:first-child) {
+  margin-top: rem(28.8);
+}
+
 
 .global-navigation__item-link,
 .global-navigation__sub-item-link {
@@ -28,31 +44,18 @@
   padding-top: rem(6);
   padding-bottom: rem(6);
   display: block;
+  line-height: calc(18 / 16);
 }
 
-.global-navigation__item-link,
-.global-navigation__sub-item-link {
-  margin-top: rem(6);
-}
-
-.global-navigation__item__link {
+.global-navigation__item-link {
   font-weight: $bold;
-}
-
-.global-navigation__item {
-  background-image: url(../../assets/images/common/starfish.svg);
-  background-position: left rem(14);
-  background-repeat: no-repeat;
-  background-size: rem(18) rem(18);
-  padding-left: rem(20);
-}
-
-.global-navigation__sub-items {
-}
-
-.global-navigation__sub-item {
+  margin-top: rem(9.82);
 }
 
 .global-navigation__sub-item-link {
+  margin-top: rem(12.8);
   font-weight: $regular;
+}
+
+.global-navigation__sub-item-link:not(:first-child) {
 }

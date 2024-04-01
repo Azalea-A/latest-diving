@@ -20,14 +20,16 @@
 }
 
 .header__logo {
-  width: rem(102);
+  width: rem(104);
   height: auto;
   position: fixed;
   z-index: 6000;
   top: rem(21);
-  left: rem(15);
+  left: rem(14);
+  aspect-ratio: 104 / 38;
   @include mq("md") {
-    width: rem(133);
+    aspect-ratio: 133 / 50;
+    width: rem(135);
     height: auto;
     top: rem(20);
     left: rem(40);

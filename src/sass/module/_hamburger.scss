@@ -9,6 +9,10 @@
   height: rem(24);
 }
 
+.hamburger.is-active {
+  right: rem(18);
+}
+
 .hamburger span {
   position: absolute;
   left: 0;
@@ -31,9 +35,10 @@
   bottom: 0;
 }
 
-.hamburger.is-active span:first-child {
+.hamburger.is-active span:nth-child(1) {
   -webkit-transform: translateY(rem(12)) rotate(40deg);
   transform: translateY(rem(12)) rotate(40deg);
+  width: rem(40);
 }
 
 .hamburger.is-active span:nth-child(2) {
@@ -43,4 +48,5 @@
 .hamburger.is-active span:nth-child(3) {
   -webkit-transform: translateY(rem(-12)) rotate(-40deg);
   transform: translateY(rem(-12)) rotate(-40deg);
+  width: rem(40);
 }
