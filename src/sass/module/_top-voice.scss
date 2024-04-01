@@ -1,9 +1,9 @@
 @use "global" as *;
 
 .top-voice {
-  padding: rem(80) 0;
+  padding: rem(78) 0;
   @include mq("md") {
-    padding: rem(140) 0;
+    padding: rem(124.8) 0 rem(140);
     position: relative;
   }
 }
@@ -27,11 +27,15 @@
 }
 
 .top-voice__tatsunootoshigo-illustration {
+  @include mq("lg") {
+    right: rem(176);
+    bottom: rem(76.8);
+  }
   @include mq("md") {
     aspect-ratio: 71 / 162;
     position: absolute;
-    bottom: rem(40);
-    right: rem(160);
+    bottom: rem(50);
+    right: rem(100);
   }
 }
 
@@ -40,7 +44,7 @@
   margin-inline: auto;
   margin-top: rem(40);
   @include mq("md") {
-    margin-top: rem(30);
+    margin-top: rem(32);
   }
 }
 
@@ -54,8 +58,9 @@
 }
 
 .top-voice__button-wrapper {
-  margin-top: rem(40);
+  margin-top: rem(38);
   text-align: center;
+  margin-left: rem(-4);
   @include mq("md") {
     margin-top: rem(80);
   }

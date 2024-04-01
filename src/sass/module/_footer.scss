@@ -6,7 +6,7 @@
   padding-top: rem(48);
   padding-bottom: rem(56);
   @include mq("md") {
-    padding-top: rem(80);
+    padding-top: rem(84);
     padding-bottom: rem(80);
   }
 }
@@ -22,11 +22,13 @@
   height: auto;
   @include mq("md") {
     width: rem(200);
+    height: rem(75);
   }
 }
 
 .footer__logo img {
   width: 100%;
+  height: 100%;
 }
 
 .footer__sns-wrap {
@@ -35,9 +37,9 @@
   justify-content: space-between;
   @include mq("md") {
     width: rem(74);
-    margin-left: rem(40);
+    margin-left: rem(43.2);
     align-items: flex-end;
-    padding-bottom: rem(25);
+    padding-bottom: rem(15);
   }
 }
 
@@ -58,7 +60,7 @@
   margin-top: rem(28);
   text-align: center;
   @include mq("md") {
-    margin-top: rem(68);
+    margin-top: rem(67.2);
   }
 }
 

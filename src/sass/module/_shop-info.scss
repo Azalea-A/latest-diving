@@ -30,7 +30,6 @@
   @include mq("md") {
     width: 46%;
     aspect-ratio: 200 / 75;
-    padding-bottom: rem(8);
   }
 }
 
@@ -65,7 +64,7 @@
 }
 
 .shop-info__item:not(:first-child) {
-  margin-top: rem(4);
+  margin-top: rem(3.2);
 }
 
 .shop-info__img {
