@@ -1,6 +1,7 @@
 @use "global" as *;
 
 .global-navigation {
+  height: inherit;
   width: 100%;
   @include mq("md") {
   }
@@ -9,9 +10,8 @@
 .global-navigation__columns {
   width: 100%;
   display: grid;
-  grid-template-columns: rem(173) rem(173);
+  grid-template-columns: 1fr 1fr;
   row-gap: rem(22);
-  column-gap: rem(6);
   @include mq("md") {
     grid-template-rows: auto;
     grid-template-columns: repeat(4, 1fr);
@@ -23,7 +23,11 @@
   width: 100%;
 }
 
-.global-navigation__items.global-navigation__block02 {
+.global-navigation__items:nth-child(2n) {
+  margin-top: rem(19.2);
+}
+
+.global-navigation__items.global-navigation__block01 {
   order: 1;
 }
 
@@ -41,51 +45,44 @@
 
 .global-navigation__item {
   background: url(../../assets/images/common/starfish.svg);
-  background-position: left 0 top rem(10);
+  background-position: left 0 top rem(1.6);
   background-repeat: no-repeat;
   background-size: rem(23) rem(23);
-  padding-left: rem(22); //イメージ+余白
+  padding-left: rem(22.4); //イメージ+余白
   @include mq("md") {
     padding-left: rem(22);
   }
 }
 
 .global-navigation__item:not(:first-child) {
-  margin-top: rem(28.8);
+  margin-top: rem(40);
 }
 
 .global-navigation__item-link,
 .global-navigation__sub-item-link {
   color: $white;
   font-size: rem(16);
-  padding-top: rem(6);
-  padding-bottom: rem(6);
   display: block;
   line-height: calc(18 / 16);
 }
 
 .global-navigation__item-link {
   font-weight: $bold;
-  margin-top: rem(8);
+}
 
+.global-navigation__sub-items {
+  margin-left: rem(-4);
   @include mq("md") {
-    margin-top: 0;
+    margin-left: 0;
   }
 }
 
 .global-navigation__sub-item-link {
-  margin-top: rem(10);
   font-weight: $regular;
   padding-left: rem(2);
+  margin-top: rem(24);
   @include mq("md") {
-    margin-top: rem(12.8);
     padding-left: 0;
-  }
-}
-
-.global-navigation__sub-item-link:not(:first-child) {
-  margin-top: rem(14);
-  @include mq("md") {
     margin-top: 0;
   }
 }
