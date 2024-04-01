@@ -7,10 +7,13 @@
 }
 
 .blog-card__inner {
-  padding: rem(16);
+  padding: rem(16) rem(16) rem(24);
   display: flex;
   flex-direction: column;
   align-items: center;
+  @include mq("md") {
+    padding-bottom: rem(25.6);
+  }
 }
 
 .blog-card__img {
@@ -24,11 +27,15 @@
 }
 
 .blog-card__content {
-  margin-top: rem(24);
+  margin-top: rem(20);
+  @include mq("md") {
+    margin-top: rem(16);
+  }
 }
 
 .blog-card__head {
   border-bottom: rem(1) solid $main-blue;
+  padding-bottom: rem(2);
   width: 100%;
 }
 
