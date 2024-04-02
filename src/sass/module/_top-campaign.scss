@@ -1,9 +1,5 @@
 @use "global" as *;
 
-.top-campaign {
-  overflow-x: hidden;
-}
-
 .top-campaign__inner.inner {
   width: 100vw;
   @include mq("md") {
@@ -19,6 +15,16 @@
   @include mq("md") {
     margin-top: rem(40);
   }
+}
+
+.top-campaign__swiper__arrow-wrap {
+  display: flex;
+  height: rem(80);
+  justify-content: space-between;
+  position: absolute;
+  right: 13.5%;
+  top: rem(-124.8);
+  width: rem(257.195);
 }
 
 .top-campaign__button-wrapper {
