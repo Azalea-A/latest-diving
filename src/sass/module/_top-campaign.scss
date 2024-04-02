@@ -1,5 +1,9 @@
 @use "global" as *;
 
+.top-campaign {
+  overflow-x: hidden;
+}
+
 .top-campaign__inner.inner {
   width: 100vw;
   @include mq("md") {

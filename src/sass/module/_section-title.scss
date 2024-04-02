@@ -35,6 +35,7 @@
 }
 
 .section-title__japanese--english-large {
+  margin-top: rem(-4);
   @include mq("md") {
     margin-top: rem(-6);
     margin-left: rem(-10);

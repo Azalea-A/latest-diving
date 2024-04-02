@@ -12,6 +12,7 @@
 }
 
 .header__inner {
+  width: 100%;
   height: inherit;
   position: relative;
   @include mq("md") {

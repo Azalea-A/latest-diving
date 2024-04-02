@@ -9,8 +9,11 @@
 }
 
 .shop-info__inner {
+  width: 85.5%;
+  margin-inline: auto;
   @include mq("md") {
     width: 85%;
+    margin-left: 0;
   }
 }
 
@@ -18,6 +21,8 @@
   width: 100%;
   margin-inline: auto;
   border-bottom: rem(1) solid $main-blue;
+  @include mq("md") {
+  }
 }
 
 .shop-info__title {
@@ -36,19 +41,19 @@
 .shop-info__body {
   margin-top: rem(16);
   @include mq("md") {
-    margin-top: rem(24);
+    margin-top: rem(25);
   }
 }
 
 .shop-info__body-flex-box {
   @include mq("md") {
     display: flex;
+    justify-content: space-between;
   }
 }
 
 .shop-info__items {
   @include mq("md") {
-    padding-right: rem(21);
     flex: 1;
   }
 }
@@ -67,12 +72,16 @@
   margin-top: rem(3.2);
 }
 
+.shop-info__item a {
+  text-decoration: none;
+}
+
 .shop-info__img {
   aspect-ratio: 295 / 160;
   margin-top: rem(16);
   @include mq("md") {
     width: 63%;
-    aspect-ratio: 273 / 148;
+    aspect-ratio: 273 / 146;
     margin-top: 0;
   }
 }

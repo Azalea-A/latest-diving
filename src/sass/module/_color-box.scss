@@ -2,6 +2,8 @@
 
 .color-box {
   position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .color-box .js-color-box {
@@ -14,9 +16,11 @@
   background-color: $main-blue;
 }
 
-.color-box img {
+.color-box picture,
+.color-box img,
+.color-box source,
+.color-box {
   display: block;
   width: 100%;
-  height: 100%;
   object-fit: cover;
 }

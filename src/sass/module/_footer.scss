@@ -6,7 +6,7 @@
   padding-top: rem(48);
   padding-bottom: rem(56);
   @include mq("md") {
-    padding-top: rem(84);
+    padding-top: rem(84.8);
     padding-bottom: rem(80);
   }
 }
@@ -59,15 +59,17 @@
 .footer__global-navigation {
   margin-top: rem(41.44);
   @include mq("md") {
-    margin-top: rem(12);
+    margin-top: rem(16);
   }
 }
 
 .footer__copyright {
   margin-top: rem(28);
   text-align: center;
+  padding-right: rem(15);
   @include mq("md") {
-    margin-top: rem(67.2);
+    margin-top: rem(72);
+    padding-right: 0;
   }
 }
 

@@ -10,6 +10,13 @@
   }
 }
 
+.shopInfo-contact__contact-inner {
+  padding: 0 rem(7.5);
+  @include mq("md") {
+    padding: 0;
+  }
+}
+
 .contact__text {
   font-size: rem(14);
   font-weight: $regular;

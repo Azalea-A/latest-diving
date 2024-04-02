@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+  <!-- noindex -->
+  <meta name="robots" content="noindex">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <meta name="format-detection" content="telephone=no" />
@@ -206,13 +208,14 @@
 
     <!-- top page campaign -->
     <section class="top-campaign-section top-campaign">
-        <div class="top-campaign__inner inner">
+        
           <div class="top-campaign__header section-title">
             <h2 class="section-title__english">Campaign</h2>
             <p class="section-title__japanese">キャンペーン</p>
           </div>
 
-          <div class="top-campaign__swiper-container">
+          <div class="top-campaign__inner inner">
+            <div class="top-campaign__swiper-container">
               <!-- Swiper -->
                 <div class="swiper js-topCampaignSwiper">
                   <div class="swiper-wrapper">
@@ -304,7 +307,7 @@
                   <div class="swiper-button-prev top-campaign__swiper-button-prev u-desktop"></div>
                   <div class="swiper-button-next top-campaign__swiper-button-next u-desktop"></div>
                 </div>
-          </div> <!-- top-campaign__swiper-container -->
+            </div> <!-- top-campaign__swiper-container -->
 
           <div class="top-campaign__button-wrapper">
             <a href="#" class="button"><span class="button__span">View more</span></a>
@@ -542,7 +545,7 @@
               <div class="top-price__img-wrapper color-box js-color-box">
                 <picture>
                   <source srcset="./assets/images/common/top-price-sp.jpg" media="(max-width: 767px)">
-                <img src="./assets/images/common/top-price-pc.jpg" alt="">
+                  <img src="./assets/images/common/top-price-pc.jpg" alt="深海と魚たちの写真">
                 </picture>
               </div>
 
@@ -647,7 +650,7 @@
                   <div class="shop-info__body-flex-box">
                     <ul class="shop-info__items">
                       <li class="shop-info__item">沖縄県那覇市1-1</li>
-                      <li class="shop-info__item">TEL:0120-000-0000</li>
+                      <li class="shop-info__item"><a href="tel:01200000000">TEL:0120-000-0000</a></li>
                       <li class="shop-info__item">営業時間:8:30-19:00</li>
                       <li class="shop-info__item">定休日:毎週火曜日</li>
                     </ul>
@@ -658,16 +661,18 @@
                 </div>
               </div>
             </div>
-            <div class="shopInfo-contact__ contact contact">
-              <div class="top-contact__section-title section-title">
-                <h2 class="section-title__english section-title__english--large">Contact</h2>
-                <p class="section-title__japanese section-title__japanese--english-large">お問い合せ</p>
-              </div>
+            <div class="shopInfo-contact__contact contact">
+              <div class="shopInfo-contact__contact-inner">
+                  <div class="top-contact__section-title section-title">
+                    <h2 class="section-title__english section-title__english--large">Contact</h2>
+                    <p class="section-title__japanese section-title__japanese--english-large">お問い合せ</p>
+                  </div>
 
-              <p class="contact__text">ご予約・お問い合わせはコチラ</p>
-              <div class="contact__button-wrapper">
-                  <a href="#" class="button"><span class="button__span">Contact us</span></a>
-              </div>
+                  <p class="contact__text">ご予約・お問い合わせはコチラ</p>
+                  <div class="contact__button-wrapper">
+                      <a href="#" class="button"><span class="button__span">Contact us</span></a>
+                  </div>
+                </div>
             </div>
 
           </div>
