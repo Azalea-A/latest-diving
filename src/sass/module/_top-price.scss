@@ -49,9 +49,10 @@
   }
 }
 
-.top-price__img-wrapper img {
+.top-price__img-wrapper source .top-price__img-wrapper img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .top-price__body {
