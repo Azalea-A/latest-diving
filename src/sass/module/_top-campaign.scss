@@ -6,9 +6,6 @@
 
 .top-campaign__inner.inner {
   width: 100%;
-  @include mq("md") {
-    max-width: rem(1210);
-  }
 }
 
 .top-campaign__swiper-container {
@@ -18,18 +15,28 @@
   margin-top: rem(28);
   @include mq("md") {
     margin-top: rem(40);
-    padding-left: calc((100vw - rem(1080)) / 2);
   }
 }
 
 .top-campaign__swiper__arrow-wrap {
-  display: flex;
-  height: rem(80);
-  justify-content: space-between;
-  position: absolute;
-  right: 13.5%;
-  top: rem(-124.8);
-  width: rem(257.195);
+  @include mq("md") {
+    display: flex;
+    height: rem(80);
+    justify-content: space-between;
+    position: absolute;
+    right: rem(150);
+    top: rem(-124.8);
+    width: rem(257.195);
+  }
+  @include mq("xl") {
+    right: 24.5%;
+  }
+  @media screen and (min-width: 1700px) {
+    right: rem(700);
+  }
+  @media screen and (min-width: 2400px) {
+    right: rem(1000);
+  }
 }
 
 .top-campaign__button-wrapper {
