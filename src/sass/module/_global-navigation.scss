@@ -54,7 +54,7 @@
 }
 
 .global-navigation__item {
-  background: url(../../assets/images/common/starfish.svg);
+  background: url("../images/common/starfish.svg");
   background-position: left 0 top rem(1.6);
   background-repeat: no-repeat;
   background-size: rem(23) rem(23);
@@ -74,6 +74,11 @@
   font-size: rem(16);
   display: block;
   line-height: calc(18 / 16);
+}
+
+.global-navigation__item-link:hover,
+.global-navigation__sub-item-link:hover {
+  opacity: 0.8;
 }
 
 .global-navigation__item-link {

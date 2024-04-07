@@ -45,10 +45,12 @@
 </head>
 <body>
   <header class="header js-header">
-    <div class="header__inner">
-        <h1 class="header__logo"><img src="./assets/images/common/CodeUps_logo.svg" alt="CodeUps" loading="lazy" decoding="async"></h1>
 
-        <div class="header__hamburger hamburger js-hamburger u-mobile">
+    <h1 class="header__logo"><img src="./assets/images/common/CodeUps_logo.svg" alt="CodeUps" loading="lazy" decoding="async"></h1>
+
+    <div class="header__inner u-mobile">
+        
+        <div class="header__hamburger hamburger js-hamburger">
           <!-- ハンバーガーメニューの線 -->
           <span></span>
           <span></span>
@@ -123,7 +125,9 @@
             </nav>
           </div>
         </div>
+    </div>
 
+    <div class="header__inner u-desktop">
         <div class="header__pc-nav u-desktop">
           <nav class="header__header-nav header-nav">
             <ul class="header__header-nav__items header-nav__items">
@@ -202,7 +206,6 @@
           </div><!-- fv__title-wrap-->
         </div><!-- fv__slider swiper -->
       </div><!-- fv__inner -->
-
 
     </div>
 
@@ -407,23 +410,26 @@
           <div class="top-blog__cards-wrap">
             <ul class="top-blog__blog-cards">
               <li class="top-blog__blog-card blog-card">
-                <div class="blog-card__inner">
-                  <div class="blog-card__img">
-                    <figure>
-                      <img src="./assets/images/common/blog01.jpg" alt="ブログイメージ画像" loading="lazy">
-                    </figure>
-                  </div>
-                  <div class="blog-card__content">
-                    <div class="blog-card__head">
-                      <time class="blog-card__date" datetime="2023-11-17">2023.11/17</time>
-                      <h3 class="blog-card__title">ライセンス取得</h3>
+                <a href="#" class="blog-card__link">
+                  <div class="blog-card__inner">
+                    <div class="blog-card__img">
+                      <figure>
+                        <img src="./assets/images/common/blog01.jpg" alt="ブログイメージ画像" loading="lazy">
+                      </figure>
                     </div>
-                    <p class="blog-card__text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
+                    <div class="blog-card__content">
+                      <div class="blog-card__head">
+                        <time class="blog-card__date" datetime="2023-11-17">2023.11/17</time>
+                        <h3 class="blog-card__title">ライセンス取得</h3>
+                      </div>
+                      <p class="blog-card__text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
+                    </div>
                   </div>
-                </div>
+                </a>
               </li>
               <li class="top-blog__blog-card blog-card">
-                <div class="blog-card__inner">
+                <a href="#" class="blog-card__link">
+                  <div class="blog-card__inner">
                   <div class="blog-card__img">
                     <figure>
                       <img src="./assets/images/common/blog02.jpg" alt="ブログイメージ画像" loading="lazy">
@@ -436,10 +442,12 @@
                     </div>
                     <p class="blog-card__text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
                   </div>
-                </div>
+                  </div>
+                </a>
               </li>
               <li class="top-blog__blog-card blog-card">
-                <div class="blog-card__inner">
+                <a href="#" class="blog-card__link">
+                  <div class="blog-card__inner">
                   <div class="blog-card__img">
                     <figure>
                       <img src="./assets/images/common/blog03.jpg" alt="ブログイメージ画像" loading="lazy">
@@ -452,7 +460,8 @@
                     </div>
                     <p class="blog-card__text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
                   </div>
-                </div>
+                  </div>
+                </a>
               </li>
             </ul>
           </div>

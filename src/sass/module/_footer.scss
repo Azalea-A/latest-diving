@@ -11,6 +11,10 @@
   }
 }
 
+.footer a:hover {
+  opacity: 0.8;
+}
+
 .footer__inner.inner {
   padding-right: 0;
   @include mq("md") {
@@ -54,6 +58,10 @@
   margin-top: rem(16);
   @include mq("md") {
   }
+}
+
+.footer__sns-icon {
+  display: block;
 }
 
 .footer__global-navigation {

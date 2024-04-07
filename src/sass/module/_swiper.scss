@@ -41,8 +41,8 @@
 }
 
 .swiper-button-prev.top-campaign__swiper-button-prev {
-  transform: rotate(180deg);
-  background-position: center rem(30);
+  transform: scale(-1, 1);
+  background-position: center rem(2.2);
 }
 
 .swiper-button-prev.top-campaign__swiper-button-prev::after,

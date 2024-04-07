@@ -1,7 +1,7 @@
 
 jQuery(function ($) { // この中であればWordpressでも「$」が使用可能になる
 
-      //ハンバーガー
+     // ハンバーガー
     $(function () {
       // ハンバーガーメニュー
       $(".js-hamburger,.js-drawer a").click(function () {
@@ -9,6 +9,8 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
         $(".js-drawer").fadeToggle();
       });
     });
+
+
 
     //fvスライダー
     const swiper1 = new Swiper(".js-fvSwiper", {
