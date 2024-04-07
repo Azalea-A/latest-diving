@@ -3,6 +3,9 @@
 .voice-card {
   width: 100%;
   box-shadow: rem(2) rem(2) rem(10) 0 rgba(0, 0, 0, 0.25);
+  @include mq("md") {
+    max-width: rem(520);
+  }
 }
 
 .voice-card__inner {
@@ -16,6 +19,7 @@
 .voice-card__top {
   display: flex;
   gap: rem(13);
+  align-items: flex-end;
 }
 
 .voice-card__title-wrapper {
@@ -57,19 +61,21 @@
 .voice-card__img {
   max-width: rem(151);
   width: calc((100% - rem(13)) / 2);
-  aspect-ratio: 151 / 117;
   margin-top: rem(9);
   @include mq("md") {
     max-width: rem(180);
-    aspect-ratio: 180/ 140;
     margin-top: 0;
   }
 }
 
 .voice-card__img figure img {
+  aspect-ratio: 151 / 117;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  @include mq("md") {
+    aspect-ratio: 180/ 140;
+  }
 }
 
 .voice-card__bottom {

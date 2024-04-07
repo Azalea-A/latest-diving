@@ -11,17 +11,23 @@
 
 .top-price__fishes-illustration {
   @include mq("md") {
-    aspect-ratio: 437 / 201;
+    width: rem(437);
     position: absolute;
     bottom: rem(60);
     left: rem(100);
+    @media screen and (min-width: 2300px) {
+      left: rem(500);
+    }
   }
 }
 
 .top-price__fishes-illustration img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  @include mq("md") {
+    aspect-ratio: 437 / 201;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 }
 
 .top-price__container {
@@ -40,19 +46,21 @@
 }
 
 .top-price__img-wrapper {
-  aspect-ratio: 345 / 227;
   width: 100%;
   @include mq("md") {
-    aspect-ratio: 492 / 746;
     max-width: rem(492);
     width: 45.885%;
   }
 }
 
-.top-price__img-wrapper source .top-price__img-wrapper img {
+.top-price__img-wrapper picture {
+  aspect-ratio: 345 / 227;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  @include mq("md") {
+    aspect-ratio: 492 / 746;
+  }
 }
 
 .top-price__body {

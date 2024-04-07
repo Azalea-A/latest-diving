@@ -10,10 +10,12 @@
 
 .top-voice__fish-illustration {
   @include mq("md") {
-    aspect-ratio: 301 / 138;
     position: absolute;
     top: rem(20);
     left: rem(100);
+    @media screen and (min-width: 2000px) {
+      left: rem(500);
+    }
   }
 }
 
@@ -26,16 +28,30 @@
   }
 }
 
+.top-voice__fish-illustration img {
+  @include mq("md") {
+    aspect-ratio: 301 / 138;
+  }
+}
+
 .top-voice__tatsunootoshigo-illustration {
   @include mq("lg") {
     right: rem(176);
     bottom: rem(76.8);
   }
   @include mq("md") {
-    aspect-ratio: 71 / 162;
     position: absolute;
     bottom: rem(50);
     right: rem(100);
+  }
+  @media screen and (min-width: 2000px) {
+    right: rem(500);
+  }
+}
+
+.top-voice__tatsunootoshigo-illustration img {
+  @include mq("md") {
+    aspect-ratio: 71 / 162;
   }
 }
 

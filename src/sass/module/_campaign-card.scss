@@ -2,8 +2,9 @@
 
 .campaign-card {
   width: rem(280);
-  box-shadow: 0 rem(4) rem(4) 0 rgba(0, 0, 0, 0.25);
-  margin-bottom: rem(4);
+  box-shadow: rem(2) rem(2) rem(10) 0 rgba(0, 0, 0, 0.25);
+  margin-right: rem(2);
+  margin-bottom: rem(2);
   @include mq("md") {
     max-width: rem(333);
     width: 100%;
@@ -11,7 +12,10 @@
 }
 
 .campaign-card__img {
- 
+  width: rem(280);
+  @include mq("md") {
+    width: rem(333);
+  }
 }
 
 .campaign-card__img figure img {

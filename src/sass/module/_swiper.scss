@@ -26,8 +26,6 @@
   }
 }
 
-
-
 .swiper-button-prev.top-campaign__swiper-button-prev,
 .swiper-button-next.top-campaign__swiper-button-next {
   width: rem(80);
@@ -42,7 +40,7 @@
 
 .swiper-button-prev.top-campaign__swiper-button-prev {
   transform: scale(-1, 1);
-  background-position: center rem(2.2);
+  background-position: center center;
 }
 
 .swiper-button-prev.top-campaign__swiper-button-prev::after,

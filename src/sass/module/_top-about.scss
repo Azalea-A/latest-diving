@@ -9,14 +9,18 @@
 }
 
 .top-about__sango-illustration {
-  aspect-ratio: 194 / 181;
+  width: rem(194);
   height: auto;
   position: absolute;
   bottom: rem(76);
   right: rem(80);
+  @media screen and (min-width: 2200px) {
+    right: rem(500);
+  }
 }
 
 .top-about__sango-illustration img {
+  aspect-ratio: 194 / 181;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -43,13 +47,9 @@
 .top-about__img01 {
   width: 37.1%;
   height: 100%;
-  aspect-ratio: 128 / 194;
   position: absolute;
   top: 0;
   left: 0;
-  @include mq("md") {
-    aspect-ratio: 400 / 606;
-  }
 }
 
 .top-about__img01 img,
@@ -59,17 +59,29 @@
   object-fit: cover;
 }
 
+.top-about__img01 img {
+  aspect-ratio: 128 / 194;
+  @include mq("md") {
+    aspect-ratio: 400 / 606;
+  }
+}
+
 .top-about__img02 {
   width: 81.45%;
   height: 100%;
   position: absolute;
   top: rem(26);
   right: 0;
-  aspect-ratio: 281 / 186;
   z-index: -1;
   @include mq("md") {
-    aspect-ratio: 880 / 581;
     top: rem(80);
+  }
+}
+
+.top-about__img02 img {
+  aspect-ratio: 281 / 186;
+  @include mq("md") {
+    aspect-ratio: 880 / 581;
   }
 }
 
