@@ -15,34 +15,40 @@
   width: 100%;
   height: inherit;
   position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: rem(15);
   @include mq("md") {
-    padding-right: rem(20);
+    padding-right: rem(40);
+    padding-left: rem(40);
   }
 }
 
 .header__logo {
   width: rem(104);
   height: auto;
-  position: fixed;
+  position: relative; //z-indexのため
   z-index: 6000;
-  top: rem(21);
-  left: rem(14);
-  aspect-ratio: 104 / 38;
   @include mq("md") {
-    aspect-ratio: 133 / 50;
-    width: rem(135);
+    margin-top: rem(4);
+    width: rem(133);
     height: auto;
-    top: rem(20);
-    left: rem(40);
   }
 }
 
+.header__logo-link {
+  display: block;
+}
+
 .header__logo img {
+  aspect-ratio: 104 / 38;
   width: 100%;
   height: auto;
+  @include mq("md") {
+    aspect-ratio: 133 / 50;
+  }
 }
 
 .header__hamburger {
   cursor: pointer;
 }
-

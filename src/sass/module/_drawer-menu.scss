@@ -14,20 +14,27 @@
   }
 }
 
+//ドロワーが空いている時背景スクロールされないように
+.js-drawer-menu__overflow-hidden {
+  overflow: hidden;
+}
+
 .drawer-menu__inner {
   display: flex;
   padding: 0 rem(15);
   justify-content: center;
   width: 100%;
-  height: inherit;
+  height: calc(100% - rem(80));
   margin-top: rem(80);
+
   @include mq("md") {
     margin-top: 0;
   }
 }
 
 .drawer-menu__global-navigation {
-  height: inherit;
+  overflow-y: scroll;
+  height: 100%;
   margin-top: rem(24);
   @include mq("md") {
     margin-top: 0;

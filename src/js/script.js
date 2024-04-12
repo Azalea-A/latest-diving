@@ -9,13 +9,17 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
         $(".js-drawer").fadeToggle();
       });
     });
-
-
+    //ドロワーオープン時bodyスクロールさせない
+    $(document).ready(function() {
+      $('.js-hamburger').click(function() {
+      $('body').toggleClass('js-drawer-menu__overflow-hidden');
+      });
+      });
 
     //fvスライダー
     const swiper1 = new Swiper(".js-fvSwiper", {
       loop: true,
-      effect: "slide",
+      effect: "fade",
       speed: 4000,
       allowTouchMove: false,
       autoplay: {
@@ -33,9 +37,9 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
         el: ".swiper-pagination",
         clickable: true,
       },
-      autoplay: {
-        delay: 3000,
-      },
+      // autoplay: {
+      //   delay: 3000,
+      // },
       breakpoints: {
         768: {
           spaceBetween: 40,

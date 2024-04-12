@@ -29,12 +29,12 @@
   font-weight: 400;
   font-size: rem(40);
   letter-spacing: 0.54em;
+  text-indent: 0.54em;
   color: $white;
   text-align: center;
-  padding-left: rem(23);
+
   @include mq("md") {
     font-size: rem(80);
-    margin-left: rem(15);
   }
 }
 
@@ -45,8 +45,4 @@
   color: $white;
   text-align: center;
   margin-top: rem(-4);
-  margin-left: rem(-8);
-  @include mq("md") {
-    margin-left: 0;
-  }
 }

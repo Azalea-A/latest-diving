@@ -2,7 +2,7 @@
 
 .header__pc-nav {
   @include mq("md") {
-    width: 100%;
+    width: calc(100% - rem(135));
     height: inherit;
     display: flex;
     justify-content: flex-end;
@@ -19,7 +19,7 @@
   @include mq("md") {
     height: inherit;
     display: flex;
-    max-width: rem(880);
+    gap: rem(40);
     width: 100%;
   }
 }
@@ -35,7 +35,6 @@
 
 .header-nav__item a {
   @include mq("md") {
-    padding: 0 rem(20);
     display: flex;
     justify-content: center;
     align-items: center;

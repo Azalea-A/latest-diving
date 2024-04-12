@@ -40,9 +40,9 @@
 }
 
 .top-campaign__button-wrapper {
-  margin-top: rem(36);
+  margin-top: rem(34.4);
   text-align: center;
-  margin-left: rem(-4);
+  margin-right: rem(4);
   @include mq("md") {
     margin-top: rem(76);
   }

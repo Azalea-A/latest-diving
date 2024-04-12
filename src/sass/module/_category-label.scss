@@ -1,14 +1,15 @@
 @use "global" as *;
 
 .category-label {
-  padding: rem(6) rem(12);
+  display: inline-block;
+  padding: rem(8) rem(11.2);
   border: rem(1) solid $main-blue;
   color: $main-blue;
   font-size: rem(12);
   font-weight: $regular;
   line-height: 1;
   @include mq("md") {
-    padding: rem(6) rem(16);
+    padding: rem(4.8) rem(16);
     line-height: calc(22 / 12);
   }
 }
