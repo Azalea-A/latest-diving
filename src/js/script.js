@@ -37,9 +37,9 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
         el: ".swiper-pagination",
         clickable: true,
       },
-      // autoplay: {
-      //   delay: 3000,
-      // },
+      autoplay: {
+        delay: 3000,
+      },
       breakpoints: {
         768: {
           spaceBetween: 40,
