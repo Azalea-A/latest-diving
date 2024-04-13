@@ -12,10 +12,7 @@
   @include mq("md") {
     position: absolute;
     top: rem(20);
-    left: rem(100);
-    @media screen and (min-width: 2000px) {
-      left: rem(500);
-    }
+    left: calc(50% - min(48.5vw, rem(100)));
   }
 }
 
