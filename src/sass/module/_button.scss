@@ -42,7 +42,6 @@
   left: rem(4);
   content: "";
   border: rem(1) solid $main-blue;
-  z-index: -1;
 }
 
 //ホバーで色が変わる
@@ -52,6 +51,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 20;
   content: "";
   width: 100%;
   height: 100%;

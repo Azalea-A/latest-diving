@@ -1,11 +1,7 @@
 @use "global" as *;
 
 .top-about {
-  padding-bottom: rem(70);
-  @include mq("md") {
-    padding-bottom: rem(164);
-    // position: relative;
-  }
+
 }
 
 .top-about__container {
@@ -28,10 +24,8 @@
 
 .top-about__img01 {
   width: 37.1%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .top-about__img01 img,
@@ -50,13 +44,11 @@
 
 .top-about__img02 {
   width: 81.45%;
-  height: 100%;
   position: absolute;
-  top: rem(26);
+  bottom: 0;
   right: 0;
-  z-index: -1;
   @include mq("md") {
-    top: rem(80);
+  
   }
 }
 
@@ -146,11 +138,11 @@
 }
 
 .top-about__button-wrapper {
-  margin-left: rem(-17.6);
+  margin-right: rem(17.6);
   margin-top: rem(24);
   text-align: center;
   @include mq("md") {
     margin-top: rem(38);
-    margin-left: rem(-4);
+    margin-right: rem(4);
   }
 }

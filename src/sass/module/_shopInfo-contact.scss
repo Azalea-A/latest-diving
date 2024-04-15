@@ -2,13 +2,13 @@
 
 .shopInfo-contact {
   padding: rem(80) 0 rem(100);
-  position: relative;
   @include mq("md") {
     padding: rem(140) 0 rem(160);
   }
 }
 
 .shopInfo-contact__container {
+  position: relative;
   @include mq("md") {
     max-width: rem(1080);
     width: 100%;
@@ -26,22 +26,14 @@
 
 .shopInfo-contact__fishes-illustration {
   position: absolute;
-  top: rem(54);
-  right: rem(15);
-  max-width: rem(109);
-  width: 100%;
+  top: rem(-28.8);
+  right: calc(50% - max(32.67vw, rem(172.8)));
+  width: rem(109);
   height: auto;
   @include mq("md") {
-    top: rem(100);
-    right: rem(50);
-    width: 100%;
-    max-width: rem(301);
-  }
-  @media screen and (min-width: 1800px) {
-    right: rem(300);
-  }
-  @media screen and (min-width: 2300px) {
-    right: rem(500);
+    top: rem(-44);
+    right: calc(50% - min(48.31vw, rem(670.4)));
+    width: rem(301);
   }
 }
 

@@ -15,5 +15,8 @@
 }
 
 .category-label--voice {
-  padding: rem(5) rem(10);
+  @include mq("md") {
+    padding-left: rem(15.2);
+    padding-right: rem(15.2);
+  }
 }

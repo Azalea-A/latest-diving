@@ -6,11 +6,11 @@
 
 .top-campaign__inner.inner {
   width: 100%;
+  position: relative;
 }
 
 .top-campaign__swiper-container {
   width: 100vw;
-  position: relative;
   margin-right: calc(50% - 50vw);
   margin-top: rem(28);
   @include mq("md") {
@@ -23,19 +23,11 @@
     display: flex;
     height: rem(80);
     justify-content: space-between;
+    align-items: center;
     position: absolute;
-    right: rem(150);
-    top: rem(-124.8);
-    width: rem(257.195);
-  }
-  @include mq("xl") {
-    right: 24.5%;
-  }
-  @media screen and (min-width: 1700px) {
-    right: rem(700);
-  }
-  @media screen and (min-width: 2400px) {
-    right: rem(1000);
+    right: calc(50% - min(47.66vw, rem(552)));
+    top: rem(-136);
+    width: rem(264);
   }
 }
 

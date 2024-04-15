@@ -1,9 +1,7 @@
 @use "global" as *;
 
 .top-voice {
-  padding: rem(78) 0;
   @include mq("md") {
-    padding: rem(124.8) 0 rem(140);
     position: relative;
   }
 }
@@ -11,8 +9,8 @@
 .top-voice__fish-illustration {
   @include mq("md") {
     position: absolute;
-    top: rem(20);
-    left: calc(50% - min(48.5vw, rem(100)));
+    top: rem(-108);
+    left: calc(50% - min(48vw, rem(620.8)));
   }
 }
 
@@ -32,17 +30,10 @@
 }
 
 .top-voice__tatsunootoshigo-illustration {
-  @include mq("lg") {
-    right: rem(176);
-    bottom: rem(76.8);
-  }
   @include mq("md") {
     position: absolute;
-    bottom: rem(50);
-    right: rem(100);
-  }
-  @media screen and (min-width: 2000px) {
-    right: rem(500);
+    right: calc(50% - min(47.7vw, rem(540.8)));
+    bottom: rem(-64);
   }
 }
 
@@ -55,25 +46,30 @@
 .top-voice__cards-wrap {
   width: 100%;
   margin-inline: auto;
-  margin-top: rem(40);
+  margin-top: rem(44.8);
   @include mq("md") {
     margin-top: rem(32);
   }
 }
 
 .top-voice__voice-cards {
-  width: 100%;
+  width: rem(345);
   margin-inline: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(rem(345), 1fr));
-  column-gap: rem(40);
+  grid-template-columns: rem(345);
   row-gap: rem(40);
+  @include mq("md") {
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    column-gap: rem(40);
+    margin-inline: initial;
+  }
 }
 
 .top-voice__button-wrapper {
-  margin-top: rem(38);
+  margin-top: rem(40);
   text-align: center;
-  margin-left: rem(-4);
+  margin-right: rem(4);
   @include mq("md") {
     margin-top: rem(80);
   }

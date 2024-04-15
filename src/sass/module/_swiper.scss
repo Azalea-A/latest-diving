@@ -31,6 +31,7 @@
   width: rem(80);
   height: rem(80);
   border: rem(1) solid $main-blue;
+  background-size: rem(40) rem(6);
   border-radius: 50%;
   position: relative;
   background-image: url(../images/common/arrow-btn_blue.svg);
@@ -46,4 +47,7 @@
 .swiper-button-prev.top-campaign__swiper-button-prev::after,
 .swiper-button-next.top-campaign__swiper-button-next::after {
   content: "";
+  display: block;
+  width: rem(80);
+  height: rem(80);
 }

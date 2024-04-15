@@ -46,17 +46,12 @@
   width: rem(60);
   display: flex;
   justify-content: space-between;
+  margin-top: rem(12.8);
   @include mq("md") {
     width: rem(74);
     margin-left: rem(43.2);
     align-items: flex-end;
     padding-bottom: rem(15);
-  }
-}
-
-.footer__sns-wrap {
-  margin-top: rem(16);
-  @include mq("md") {
   }
 }
 
@@ -72,11 +67,11 @@
 }
 
 .footer__copyright {
-  margin-top: rem(28);
+  margin-top: rem(30.4);
   text-align: center;
   padding-right: rem(15);
   @include mq("md") {
-    margin-top: rem(72);
+    margin-top: rem(75.2);
     padding-right: 0;
   }
 }

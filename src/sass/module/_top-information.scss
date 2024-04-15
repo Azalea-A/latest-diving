@@ -1,7 +1,7 @@
 @use "global" as *;
 
 .top-information {
-  padding: rem(72) 0 rem(80);
+  padding: rem(76.8) 0 rem(80);
   background-color: $light-blue;
   @include mq("md") {
     padding: rem(92.8) 0 rem(74);
@@ -9,7 +9,7 @@
 }
 
 .top-information__container {
-  margin-top: rem(32);
+  margin-top: rem(28.8);
   @include mq("md") {
     margin-top: rem(40);
   }
@@ -80,7 +80,7 @@
 .top-information__button-wrapper {
   margin-top: rem(36.8);
   text-align: center;
-  margin-left: rem(-4);
+  margin-right: rem(4);
   @include mq("md") {
     margin-top: rem(37);
   }
