@@ -1,14 +1,19 @@
 @use "global" as *;
 
 .global-navigation {
-  height: inherit;
   width: 100%;
-  @include mq("md") {
-  }
+  height: 100%;
+}
+
+.global-navigation.drawer-menu__global-navigation {
+  margin-top: rem(24);
+  padding-bottom: rem(32);
+  padding-inline: rem(15);
 }
 
 .global-navigation__columns {
   width: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   row-gap: rem(22);

@@ -2,10 +2,10 @@
 
 .header__pc-nav {
   @include mq("md") {
-    width: calc(100% - rem(135));
     height: inherit;
     display: flex;
     justify-content: flex-end;
+    margin-left: auto;
   }
 }
 
@@ -50,8 +50,8 @@
     content: "";
     position: absolute;
     bottom: rem(20);
-    left: rem(20);
-    width: calc(100% - rem(40));
+    left: 0;
+    width: 100%;
     height: rem(1);
     background: $white;
     transition: all 0.3s;

@@ -28,26 +28,41 @@
 
 .swiper-button-prev.top-campaign__swiper-button-prev,
 .swiper-button-next.top-campaign__swiper-button-next {
-  width: rem(80);
-  height: rem(80);
-  border: rem(1) solid $main-blue;
-  background-size: rem(40) rem(6);
-  border-radius: 50%;
-  position: relative;
-  background-image: url(../images/common/arrow-btn_blue.svg);
-  background-repeat: no-repeat;
-  background-position: center;
+  @include mq("md") {
+    width: rem(80);
+    height: rem(80);
+    border: rem(1) solid $main-blue;
+    background-size: rem(40) rem(6);
+    border-radius: 50%;
+    position: relative;
+    background-image: url(../images/common/arrow-btn_blue.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 0;
+    margin-top: 0;
+  }
 }
 
 .swiper-button-prev.top-campaign__swiper-button-prev {
-  transform: scale(-1, 1);
-  background-position: center center;
+  @include mq("md") {
+    transform: scale(-1, 1);
+    background-position: center center;
+    left: 0;
+  }
+}
+
+.swiper-button-next.top-campaign__swiper-button-next {
+  @include mq("md") {
+    right: 0;
+  }
 }
 
 .swiper-button-prev.top-campaign__swiper-button-prev::after,
 .swiper-button-next.top-campaign__swiper-button-next::after {
-  content: "";
-  display: block;
-  width: rem(80);
-  height: rem(80);
+  @include mq("md") {
+    content: "";
+    display: block;
+    width: rem(80);
+    height: rem(80);
+  }
 }

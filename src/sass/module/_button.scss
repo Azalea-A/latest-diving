@@ -73,15 +73,19 @@
   height: rem(6);
   margin-left: rem(8);
   position: absolute;
-  bottom: rem(17);
+  top: 30%;
   display: inline-block;
+  content: "";
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .button__span::after {
-  content: url(../images/common/arrow-btn_white.svg);
+  background-image: url(../images/common/arrow-btn_white.svg);
 }
 
 .button:hover .button__span::after {
-  content: url(../images/common/arrow-btn_blue.svg);
+  background-image: url(../images/common/arrow-btn_blue.svg);
   z-index: 20;
 }

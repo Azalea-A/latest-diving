@@ -13,21 +13,18 @@
   }
 }
 
-.top-blog__fish-illustration {
+.top-blog::before {
   @include mq("md") {
+    content: "";
+    background-image: url(../images/common/fishes-to-left_white.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
     width: rem(437);
+    height: rem(201);
     position: absolute;
     top: rem(24);
     left: calc(50% - min(48.5vw, rem(620)));
-  }
-}
-
-.top-blog__fish-illustration img {
-  @include mq("md") {
-    aspect-ratio: 437 / 201;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    z-index: 1;
   }
 }
 

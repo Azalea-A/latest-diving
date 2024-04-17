@@ -2,6 +2,7 @@
 
 .toTop {
   position: fixed;
+  z-index: 2;
   right: rem(15);
   bottom: rem(16);
   @include mq("md") {
