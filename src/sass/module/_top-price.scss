@@ -65,6 +65,45 @@
   }
 }
 
+.top-price__category-item-title {
+  font-size: rem(16);
+  font-weight: $bold;
+  padding-bottom: rem(3.2);
+  border-bottom: rem(1) solid $main-blue;
+}
+
+.top-price__category-item dl {
+  display: flex;
+  margin-top: rem(8);
+}
+
+.top-price__category-item:not(:first-child) {
+  margin-top: rem(40);
+}
+
+.top-price__category-item dt,
+.top-price__category-item dd {
+  font-size: rem(14);
+  font-weight: $regular;
+  line-height: calc(24 / 14);
+  @include mq("md") {
+    font-size: rem(16);
+    line-height: calc(24 / 16);
+  }
+}
+
+.top-price__category-item dt {
+  width: 80%;
+}
+
+.top-price__category-item dd {
+  width: 20%;
+  text-align: right;
+  @include mq("md") {
+    padding-right: rem(6);
+  }
+}
+
 .top-price__button-wrapper {
   margin-top: rem(38.4);
   text-align: center;
