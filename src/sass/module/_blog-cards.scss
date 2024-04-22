@@ -1,0 +1,12 @@
+@use "global" as *;
+
+.blog-cards {
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: rem(333);
+  row-gap: rem(40);
+  @include mq("md") {
+    column-gap: rem(40);
+    margin-inline: initial;
+  }
+}

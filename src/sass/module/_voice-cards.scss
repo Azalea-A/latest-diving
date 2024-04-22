@@ -1,0 +1,14 @@
+@use "global" as *;
+
+.voice-cards {
+  display: grid;
+  grid-template-columns: rem(345);
+  row-gap: rem(40);
+  margin-inline: auto;
+  @include mq("md") {
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    column-gap: rem(40);
+    margin-inline: initial;
+  }
+}

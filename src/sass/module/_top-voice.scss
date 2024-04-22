@@ -47,15 +47,8 @@
 
 .top-voice__voice-cards {
   width: rem(345);
-  margin-inline: auto;
-  display: grid;
-  grid-template-columns: rem(345);
-  row-gap: rem(40);
   @include mq("md") {
     width: 100%;
-    grid-template-columns: 1fr 1fr;
-    column-gap: rem(40);
-    margin-inline: initial;
   }
 }
 

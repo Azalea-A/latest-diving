@@ -39,16 +39,15 @@
 
 .top-blog__blog-cards {
   width: rem(333);
-  margin-inline: auto;
-  display: grid;
-  grid-template-columns: rem(333);
-  row-gap: rem(40);
   @include mq("md") {
     width: 100%;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: rem(40);
-    margin-inline: initial;
   }
+}
+
+.blog-cards__item {
+  max-width: rem(333);
+  width: 100%;
 }
 
 .top-blog__button-wrapper {

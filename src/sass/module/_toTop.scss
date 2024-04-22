@@ -11,6 +11,10 @@
   }
 }
 
+.js-toTop {
+  display: none; /* 最初は非表示にする */
+}
+
 .toTop a {
   display: block;
   width: rem(48);

@@ -18,7 +18,17 @@
   }
 }
 
-.top-campaign__swiper__arrow-wrap {
+.top-campaign__swiper-slide {
+  width: 100%;
+  max-width: rem(280);
+  height: auto;
+  @include mq("md") {
+    max-width: rem(332);
+    width: 100%;
+  }
+}
+
+.top-campaign__swiper-arrow-wrap {
   @include mq("md") {
     display: flex;
     height: rem(80);

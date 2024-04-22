@@ -49,47 +49,45 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
         nextEl: ".top-campaign__swiper-button-next",
         prevEl: ".top-campaign__swiper-button-prev",
     },
-
     });
-  //topへ戻る
-    //トップへ戻るボタン
-$(function () {
-  const pagetop = $("#js-pagetop");
-  pagetop.hide(); //最初はボタンを非表示
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 100) { //100px以上スクロールしたら
-      pagetop.fadeIn(); //ボタンをフェードイン
-    } else {
-      pagetop.fadeOut(); //ボタンをフェードアウト
-    }
-  });
-  pagetop.click(function () {
-    $("body,html").animate({
-        scrollTop: 0, //上から0pxの位置に戻る
-      },800); //800ミリ秒かけて上に戻る
-    return false;
-  });
-});
 
-// スクロール時にフッター手前で止まるボタンの表示位置を調整する
-  $(document).ready(function () {
-    $(".js-toTop").hide();
-    $(window).on("scroll", function () {
-      let scrollHeight = $(document).height(); // ドキュメントの高さ
-      let scrollPosition = $(window).height() + $(window).scrollTop(); // 現在の位置
-      let footHeight = $(".footer").innerHeight(); // フッターの高さ
-      if (scrollHeight - scrollPosition <= footHeight) {
-        $(".js-toTop").css({ position: "absolute", bottom: footHeight}); // ボタンをフッター手前に固定
-      } else {
-        $(".js-toTop").css({ position: "fixed", bottom: 20 }); // ボタンを固定表示
-      }
+    //chat GPT topへ戻る
+    $(document).ready(function () {
+      const pagetop = $(".js-toTop");
+      const footer = $(".footer");
+      const footHeight = footer.innerHeight();
+      pagetop.hide(); // 初期状態でボタンを非表示
+
+      // スクロール時にページトップへ戻るボタンの表示/非表示を制御
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 400) {
+          pagetop.fadeIn();
+        } else {
+          pagetop.fadeOut();
+        }
+      });
+
+      // ページトップへ戻るボタンをクリックしたときの動作
+      pagetop.click(function () {
+        $("body,html").animate({
+          scrollTop: 0,
+        }, 800);
+        return false;
+      });
+      // フッター手前でボタンを固定表示する
+      $(window).on("scroll", function () {
+        let scrollHeight = $(document).height();
+        let scrollPosition = $(window).height() + $(window).scrollTop();
+        let bottomMargin = 20; // ボタンの底辺マージン
+        if (scrollHeight - scrollPosition <= footHeight + bottomMargin) {
+          pagetop.css({ position: "absolute", bottom: footHeight + bottomMargin });
+        } else {
+          pagetop.css({ position: "fixed", bottom: bottomMargin });
+        }
+      });
     });
-    $(".js-toTop").show(); // ボタンを表示する
-  });
-
 
 //information, voice, priceの画像のエフェクト
-
 var box = $('.color-box'),
 speed = 700;
 //↑要素の取得とスピードの設定
@@ -112,8 +110,7 @@ $(this).on('inview', function(){
       });
       counter = 1;
     }
- });
+  });
 });
-
 
 });
