@@ -28,26 +28,14 @@
   }
 }
 
-.top-blog__cards-wrap {
+.top-blog__blog-cards {
   margin-top: rem(26);
   padding: 0 rem(6);
+  width: 100%;
   @include mq("md") {
     margin-top: rem(80);
     padding: 0;
   }
-}
-
-.top-blog__blog-cards {
-  width: rem(333);
-  @include mq("md") {
-    width: 100%;
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.blog-cards__item {
-  max-width: rem(333);
-  width: 100%;
 }
 
 .top-blog__button-wrapper {

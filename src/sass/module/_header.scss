@@ -52,3 +52,12 @@
 .header__hamburger {
   cursor: pointer;
 }
+
+.header__pc-nav {
+  @include mq("md") {
+    height: inherit;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+}

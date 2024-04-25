@@ -63,13 +63,6 @@
   display: block;
 }
 
-.footer__global-navigation {
-  margin-top: rem(41.44);
-  @include mq("md") {
-    margin-top: rem(19.3);
-  }
-}
-
 .footer__copyright {
   margin-top: rem(30.4);
   text-align: center;

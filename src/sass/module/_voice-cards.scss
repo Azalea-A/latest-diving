@@ -2,7 +2,7 @@
 
 .voice-cards {
   display: grid;
-  grid-template-columns: rem(345);
+  grid-template-columns: 1fr;
   row-gap: rem(40);
   margin-inline: auto;
   @include mq("md") {

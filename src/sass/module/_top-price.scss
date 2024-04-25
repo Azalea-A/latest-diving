@@ -28,11 +28,6 @@
   margin-top: rem(29.6);
   @include mq("md") {
     margin-top: rem(40);
-  }
-}
-
-.top-price__flex-container {
-  @include mq("md") {
     display: flex;
     flex-direction: row-reverse;
     gap: 8.23%;
@@ -72,17 +67,17 @@
   border-bottom: rem(1) solid $main-blue;
 }
 
-.top-price__category-item dl {
-  display: flex;
-  margin-top: rem(8);
-}
-
 .top-price__category-item:not(:first-child) {
   margin-top: rem(40);
 }
 
-.top-price__category-item dt,
-.top-price__category-item dd {
+.top-price__menu-flexbox {
+  display: flex;
+  margin-top: rem(8);
+}
+
+.top-price__menu-flexbox dt,
+.top-price__menu-flexbox dd {
   font-size: rem(14);
   font-weight: $regular;
   line-height: calc(24 / 14);
@@ -92,11 +87,11 @@
   }
 }
 
-.top-price__category-item dt {
+.top-price__menu-flexbox dt {
   width: 80%;
 }
 
-.top-price__category-item dd {
+.top-price__menu-flexbox dd {
   width: 20%;
   text-align: right;
   @include mq("md") {

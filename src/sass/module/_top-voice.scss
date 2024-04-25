@@ -36,19 +36,12 @@
   }
 }
 
-.top-voice__cards-wrap {
+.top-voice__voice-cards {
   width: 100%;
   margin-inline: auto;
   margin-top: rem(44.8);
   @include mq("md") {
     margin-top: rem(32);
-  }
-}
-
-.top-voice__voice-cards {
-  width: rem(345);
-  @include mq("md") {
-    width: 100%;
   }
 }
 

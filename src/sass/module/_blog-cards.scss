@@ -3,10 +3,15 @@
 .blog-cards {
   margin-inline: auto;
   display: grid;
-  grid-template-columns: rem(333);
+  grid-template-columns: 1fr;
   row-gap: rem(40);
   @include mq("md") {
     column-gap: rem(40);
     margin-inline: initial;
+    grid-template-columns: repeat(3, 1fr);
   }
+}
+
+.blog-cards__item {
+  width: 100%;
 }

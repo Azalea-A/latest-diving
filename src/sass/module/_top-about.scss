@@ -82,11 +82,6 @@
     margin-top: 0;
     max-width: rem(840);
     width: 100%;
-  }
-}
-
-.top-about__body-flex-wrapper {
-  @include mq("md") {
     display: flex;
     gap: rem(40);
   }
