@@ -1,0 +1,11 @@
+@use "global" as *;
+
+.breadcrumb {
+}
+
+.breadcrumb__body {
+  color: $black;
+  font-size: rem(14);
+  text-transform: uppercase;
+  width: 100%;
+}

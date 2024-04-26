@@ -1,0 +1,37 @@
+@use "global" as *;
+
+.sub-fv {
+  width: 100%;
+  height: rem(460);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  @include mq("md") {
+    height: rem(548);
+  }
+}
+
+.sub-fv__inner {
+  height: inherit;
+  position: relative;
+}
+
+.sub-fv_title {
+  text-align: center;
+  font-family: $english-font-family01;
+  font-weight: $normal;
+  font-size: rem(40);
+  color: $white;
+  width: 100%;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  @include mq("md") {
+    font-size: rem(80);
+    top: 59%;
+  }
+}
