@@ -29,9 +29,20 @@
   left: 50%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   @include mq("md") {
     font-size: rem(80);
     top: 59%;
+  }
+}
+
+//各ページ画像たち
+
+.sub-fv--privacy-policy,
+.sub-fv--terms-of-service,
+.sub-fv--site-map {
+  background-image: url(../images/common/sub-site-map-sp-top.jpg);
+  @include mq("md") {
+    background-image: url(../images/common/sub-site-map-pc-top.jpg);
   }
 }

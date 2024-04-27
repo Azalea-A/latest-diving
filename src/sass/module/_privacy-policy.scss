@@ -1,0 +1,21 @@
+@use "global" as *;
+
+
+.privacy-policy__heading {
+  font-size: rem(24);
+  font-weight: $medium;
+  @include mq("md") {
+    font-size: rem(32);
+  }
+}
+
+.privacy-policy__body {
+  margin-top: rem(40);
+  line-height: 1.5;
+  @include mq("md") {
+  }
+}
+
+.privacy-policy__items {
+  margin-top: rem(20);
+}
