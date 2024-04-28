@@ -1,0 +1,16 @@
+@use "global" as *;
+
+.thanks {
+}
+
+.thanks-inner {
+}
+
+.thanks__content p {
+  text-align: center;
+  font-size: rem(16);
+}
+
+.thanks__content p:not(:first-child) {
+  margin-top: rem(35.2);
+}

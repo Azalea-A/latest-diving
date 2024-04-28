@@ -1,0 +1,8 @@
+@use "global" as *;
+
+.sub-page-shopInfo-contact-section {
+  margin-top: rem(108.8);
+  @include mq("md") {
+    margin-top: rem(140);
+  }
+}

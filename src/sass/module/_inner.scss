@@ -54,5 +54,30 @@
 .inner--terms {
   @include mq("md") {
     max-width: rem(850);
+    width: 100%;
+  }
+}
+
+.inner--not-found {
+  position: relative;
+}
+
+.inner--not-found::after {
+  content: "";
+  width: rem(376.836);
+  height: rem(344);
+  background-image: url(../images/common/whale.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  top: rem(-28);
+  left: 0;
+  @include mq("md") {
+    width: rem(698);
+    height: rem(698);
+    background-size: contain;
+    top: rem(-30);
+    left: rem(26);
   }
 }

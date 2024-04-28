@@ -34,6 +34,15 @@
   padding-bottom: rem(32);
 }
 
+.global-navigation__columns.global-navigation__columns--site-map {
+  column-gap: 9.275%;
+  white-space: nowrap;
+  @include mq("md") {
+    width: 100%;
+    column-gap: 12%;
+  }
+}
+
 .global-navigation__items {
   width: 100%;
 }
@@ -78,16 +87,30 @@
   }
 }
 
+.global-navigation__item--black {
+  background: url("../images/common/starfish-black.svg");
+  background-position: left 0 top 0;
+  background-repeat: no-repeat;
+  background-size: rem(19.2) rem(19.2);
+  padding-left: rem(22.4); //イメージ+余白
+  @include mq("md") {
+    padding-left: rem(22);
+  }
+}
+
 .global-navigation__item:not(:first-child) {
   margin-top: rem(40);
 }
 
-.global-navigation__item a,
-.global-navigation__sub-item a {
+.global-navigation__item a {
   color: $white;
   font-size: rem(16);
   display: block;
   line-height: calc(18 / 16);
+}
+
+.global-navigation__item--black a {
+  color: $black;
 }
 
 .global-navigation__item a:hover,
@@ -107,7 +130,7 @@
 }
 
 .global-navigation__sub-item a {
-  font-weight: $regular;
+  font-weight: $normal; //Noto Sans JPのregularは400
   padding-left: rem(2);
   margin-top: rem(24);
   @include mq("md") {

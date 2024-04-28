@@ -46,3 +46,10 @@
     background-image: url(../images/common/sub-site-map-pc-top.jpg);
   }
 }
+
+.sub-fv--contact {
+  background-image: url(../images/common/sub-contact-sp-top.jpg);
+  @include mq("md") {
+    background-image: url(../images/common/sub-contact-pc-top.jpg);
+  }
+}

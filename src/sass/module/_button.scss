@@ -17,6 +17,12 @@
   z-index: 20;
 }
 
+.button--white {
+  color: $main-blue;
+  border: rem(1) solid $white;
+  background-color: $white;
+}
+
 .button__span,
 .button:hover .button__span {
   display: inline-block;
@@ -29,8 +35,17 @@
   -ms-transform: translate(-50%, -50%);
 }
 
+.not-found__button-wrapper .button__span,
+.not-found__button-wrapper .button:hover .button__span {
+  left: 35%;
+}
+
 .button:hover .button__span {
   color: $main-blue;
+}
+
+.button--white:hover .button__span {
+  color: $white;
 }
 
 .button::after {
@@ -42,6 +57,10 @@
   left: rem(4);
   content: "";
   border: rem(1) solid $main-blue;
+}
+
+.button--white::after {
+  border: rem(1) solid $white;
 }
 
 //ホバーで色が変わる
@@ -58,6 +77,10 @@
   transform: scale(0, 1);
   transform-origin: left top;
   transition: 0.2s cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+.button--white::before {
+  background-color: $main-blue;
 }
 
 //ホバーで色が変わる
@@ -83,9 +106,25 @@
 
 .button__span::after {
   background-image: url(../images/common/arrow-btn_white.svg);
+  margin-left:  rem(16);
+}
+
+.button--white .button__span::after {
+  background-image: url(../images/common/arrow-btn_blue.svg);
+  margin-left:  rem(16);
 }
 
 .button:hover .button__span::after {
   background-image: url(../images/common/arrow-btn_blue.svg);
   z-index: 20;
+}
+
+.button--white:hover .button__span::after {
+  background-image: url(../images/common/arrow-btn_white.svg);
+  z-index: 20;
+}
+
+.button__span--uppercase {
+  display: inline-block;
+  text-transform: uppercase;
 }
