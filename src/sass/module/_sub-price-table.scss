@@ -1,0 +1,29 @@
+@use "global" as *;
+
+.sub-price-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sub-price__table-block {
+  @include mq("md") {
+    width:  rem(700);
+    margin-inline: auto;
+  }
+}
+
+.sub-price-table__data {
+  border: rem(1) solid $main-blue;
+  line-height: calc(24 / 16);
+  height: rem(60);
+}
+
+.sub-price-table__data:first-child {
+  width: 69.4%;
+  text-align: center;
+}
+
+.sub-price-table__data:nth-child(2) {
+  text-align: right;
+  padding-right: rem(16);
+}

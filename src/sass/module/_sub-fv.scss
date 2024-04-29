@@ -59,3 +59,10 @@
     background-image: url(../images/common/sub-Information-pc-top.jpg);
   }
 }
+
+.sub-fv--price {
+  background-image: url(../images/common/sub-price-sp-top.jpg);
+  @include mq("md") {
+    background-image: url(../images/common/sub-price-pc-top.jpg);
+  }
+}

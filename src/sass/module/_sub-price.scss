@@ -1,0 +1,54 @@
+@use "global" as *;
+
+.sub-price {
+}
+
+.sub-price__table-heading {
+  width: 100%;
+  background-color: $main-blue;
+  text-align: center;
+  padding-bottom: rem(3.2);
+  @include mq("md") {
+    width: rem(200);
+  }
+}
+
+.sub-price__table-heading-span {
+  display: inline-block;
+  padding-left: rem(26);
+  color: $white;
+  font-size: rem(16);
+  font-weight: $bold;
+  position: relative;
+  @include mq("md") {
+    padding-top: rem(41);
+    padding-left: 0;
+  }
+}
+
+.sub-price__table-heading-span::before {
+  content: "";
+  display: block;
+  width: rem(24);
+  height: rem(24);
+  background-image: url(../images/common/whale-icon-white.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  left: rem(-6.4);
+  @include mq("md") {
+    top: rem(40);
+    left: rem(40);
+    width: rem(64);
+    height: rem(64);
+  }
+}
+
+.sub-price__table-container {
+}
+
+.sub-price__table-block {
+  display: flex;
+}
