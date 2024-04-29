@@ -37,7 +37,6 @@
 }
 
 //各ページ画像たち
-
 .sub-fv--privacy-policy,
 .sub-fv--terms-of-service,
 .sub-fv--site-map {
@@ -51,5 +50,12 @@
   background-image: url(../images/common/sub-contact-sp-top.jpg);
   @include mq("md") {
     background-image: url(../images/common/sub-contact-pc-top.jpg);
+  }
+}
+
+.sub-fv--information {
+  background-image: url(../images/common/sub-Information-sp-top.jpg);
+  @include mq("md") {
+    background-image: url(../images/common/sub-Information-pc-top.jpg);
   }
 }

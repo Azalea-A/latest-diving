@@ -29,29 +29,7 @@
   }
 }
 
-.inner--sub-page {
-  position: relative;
-}
-
-.inner--sub-page::after {
-  position: absolute;
-  content: "";
-  width: rem(120);
-  height: rem(55);
-  background-image: url(../images/common/fishes-to-right.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  top: rem(-24);
-  left: calc(50% - max(46vw, rem(135.5)));
-  @include mq("md") {
-    width: rem(301);
-    height: rem(138);
-    top: rem(-67.2);
-    left: calc(50% - min(48.7vw, rem(620)));
-  }
-}
-
-.inner--terms {
+.inner.inner--terms {
   @include mq("md") {
     max-width: rem(850);
     width: 100%;

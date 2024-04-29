@@ -1,0 +1,165 @@
+@use "global" as *;
+
+.information-tab {
+  width: 100%;
+}
+
+.information-tab__list {
+  display: flex;
+  gap: rem(20);
+  position: relative;
+  z-index: 1; //魚の装飾より上
+  @include mq("md") {
+    gap: rem(90);
+  }
+}
+
+.information-tab__button {
+  width: calc(100% - rem(40) / 3);
+  background-color: $light-blue;
+  color: $main-blue;
+  box-shadow: 0 rem(2) rem(10) 0 rgba(0, 0, 0, 0.25);
+  padding-top: rem(10);
+  padding-bottom: rem(10);
+  padding-left: rem(10);
+  cursor: pointer;
+  font-size: rem(14);
+  @include mq("md") {
+    box-shadow: none;
+    width: calc(100% - rem(180) / 3);
+    padding-top: rem(29);
+    padding-bottom: rem(26);
+    font-size: rem(24);
+  }
+}
+
+.information-tab__button:nth-child(1) {
+  @include mq("md") {
+    background-image: url(../images/common/whale-icon-blue.svg);
+    background-position: left rem(28.8) center;
+    background-repeat: no-repeat;
+    background-size: rem(63) rem(63);
+    padding-left: rem(20);
+  }
+}
+
+.information-tab__button:nth-child(1).is-active {
+  @include mq("md") {
+    background-image: url(../images/common/whale-icon-white.svg);
+  }
+}
+
+.information-tab__button:nth-child(2) {
+  @include mq("md") {
+    background-image: url(../images/common/killer-whale-icon-blue.svg);
+    background-position: left rem(19.2) center;
+    background-repeat: no-repeat;
+    background-size: rem(63) rem(63);
+    padding-left: rem(20);
+  }
+}
+
+.information-tab__button:nth-child(2).is-active {
+  @include mq("md") {
+    background-image: url(../images/common/killer-whale-icon-white.svg);
+  }
+}
+
+.information-tab__button:nth-child(3) {
+  @include mq("md") {
+    background-image: url(../../assets/images/common/fish-icon-blue.svg);
+    background-position: left rem(28.8) center;
+    background-repeat: no-repeat;
+    background-size: rem(63) rem(63);
+    padding-left: rem(20);
+  }
+}
+
+.information-tab__button:nth-child(3).is-active {
+  @include mq("md") {
+    background-image: url(../../assets/images/common/fish-icon-white.svg);
+  }
+}
+.information-tab__button.is-active {
+  color: $white;
+  background-color: $main-blue;
+}
+
+.information-tab__button-span {
+  @include mq("md") {
+    display: inline-block;
+    padding-left: rem(52);
+  }
+}
+
+//ここからタブの中身
+.information-tab__contents {
+  width: 100%;
+  margin-top: rem(12.8);
+  @include mq("md") {
+    margin-top: rem(24);
+  }
+}
+
+.information-tab__content {
+  width: 100%;
+  border: rem(1) solid $main-blue;
+  padding: rem(24.8) rem(24);
+  display: none;
+  @include mq("md") {
+    padding-top: rem(24);
+    padding-bottom: rem(24);
+  }
+}
+
+.information-tab__content.is-active {
+  display: block;
+}
+
+.information-tab__content-inner {
+  @include mq("md") {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.information-tab__body {
+  @include mq("md") {
+    flex: 1;
+  }
+}
+
+.information-tab__heading {
+  font-weight: $bold;
+  font-size: rem(24);
+  border-bottom: rem(1) solid $main-blue;
+  padding-bottom: rem(8);
+  line-height: 1;
+  @include mq("md") {
+    font-weight: $medium;
+  }
+}
+
+.information-tab__text {
+  margin-top: rem(8);
+}
+
+.information-tab__image {
+  margin-top: rem(8);
+  width: 100%;
+  @include mq("md") {
+    margin-top: 0;
+    width: 47.5%;
+    margin-left: rem(49.6);
+  }
+}
+
+.information-tab__image img {
+  aspect-ratio: 297 / 189;
+  width: 100%;
+  object-fit: cover;
+  @include mq("md") {
+    aspect-ratio: 492 / 313;
+  }
+}

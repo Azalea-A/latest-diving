@@ -40,7 +40,7 @@
     <header class="header js-header">
       <div class="header__inner">
         <h1 class="header__logo">
-          <a class="header__logo-link" href="#">
+          <a class="header__logo-link" href="index.html">
             <img src="./assets/images/common/CodeUps_logo.svg" alt="CodeUps" loading="lazy" decoding="async">
           </a>
         </h1>
@@ -163,101 +163,75 @@
       </div>
     </header>
 
-    <main class="main">
+    <main class="main sub-top-fish">
       <!-- fv -->
-      <div class="sub-fv sub-fv--privacy-policy">
+      <div class="sub-fv sub-fv--information">
         <div class="sub-fv__inner">
         <!-- サブページのメインビュー -->
-          <h1 class="sub-fv_title">Site <span class="sub-fv_title--upper-case">map</span></h1>
+          <h1 class="sub-fv_title">Information</h1>
         </div>
       </div>
       <!-- パンくずリスト -->
       <div class="breadcrumb">
         <div class="breadcrumb__inner inner">
-          <div class="breadcrumb__body">Top > サイトマップ</div>
+          <div class="breadcrumb__body">Top > ダイビング情報</div>
         </div>
       </div>
-      <section class="page-site-map site-map">
-        <div class="site-map__sub-page-inner inner">
-          <nav class="site-map__global-navigation global-navigation--footer global-navigation">
-            <div class="global-navigation__columns global-navigation__columns--site-map">
-              <ul class="global-navigation__items">
-                <li class="global-navigation__item global-navigation__item--black">
-                  <a href="campaign.html">キャンペーン</a>
-                  <ul class="global-navigation__sub-items">
-                    <li class="global-navigation__sub-item">
-                      <a href="campaign.html#license-acquisition">ライセンス取得</a>
-                    </li>
-                    <li class="global-navigation__sub-item">
-                      <a href="campaign.html#chartered-trial-diving">貸切体験ダイビング</a>
-                    </li>
-                    <li class="global-navigation__sub-item">
-                      <a href="campaign.html#night-diving">ナイトダイビング</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="global-navigation__item global-navigation__item--black">
-                  <a href="about-us.html">私たちについて</a>
-                </li>
-              </ul>
-              <ul class="global-navigation__items">
-                <li class="global-navigation__item global-navigation__item--black">
-                  <a href="information.html">ダイビング情報</a>
-                  <ul class="global-navigation__sub-items">
-                    <li class="global-navigation__sub-item">
-                      <a href="information.html#license-course">ライセンス講習</a>
-                    </li>
-                    <li class="global-navigation__sub-item">
-                      <a href="information.html#trial-diving">体験ダイビング</a>
-                    </li>
-                    <li class="global-navigation__sub-item">
-                      <a href="information.html#fun-diving">ファンダイビング</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="global-navigation__item global-navigation__item--black">
-                  <a href="home.html">ブログ</a>
-                </li>
-              </ul>
-              <ul class="global-navigation__items">
-                <li class="global-navigation__item global-navigation__item--black">
-                  <a href="voice.html">お客様の声</a>
-                </li>
-                <li class="global-navigation__item global-navigation__item--black">
-                  <a href="price.html">料金一覧</a>
-                  <ul class="global-navigation__sub-items">
-                    <li class="global-navigation__sub-item">
-                      <a href="price.html#license-course">ライセンス講習</a>
-                    </li>
-                    <li class="global-navigation__sub-item">
-                      <a href="price.html#trial-diving">体験ダイビング</a>
-                    </li>
-                    <li class="global-navigation__sub-item">
-                      <a href="price.html#fun-diving">ファンダイビング</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-              <ul class="global-navigation__items">
-                <li class="global-navigation__item global-navigation__item--black">
-                  <a href="faq.html">よくある質問</a>
-                </li>
-                <li class="global-navigation__item global-navigation__item--black">
-                  <a href="privacy-policy.html">プライバシー<br class="u-mobile">ポリシー</a>
-                </li>
-                <li class="global-navigation__item global-navigation__item--black">
-                  <a href="terms-of-service.html">利用規約</a>
-                </li>
-                <li class="global-navigation__item global-navigation__item--black">
-                  <a href="contact.html">お問い合わせ</a>
-                </li>
-              </ul>
+      <!-- 全体のコンテナー -->
+      <section class="page-information sub-information">
+        <div class="sub-information__sub-page-inner inner">
+          <div class="sub-information__tab-container">
+          <div class="sub-information__tab information-tab">
+            <!-- タブのボタン -->
+            <div class="information-tab__list">
+              <button class="information-tab__button js-information-tab-button is-active"><span class="information-tab__button-span">ライセンス<br class="u-mobile">講習</span></button>
+              <button class="information-tab__button js-information-tab-button"><span class="information-tab__button-span">ファン<br class="u-mobile">ダイビング</span></button>
+              <button class="information-tab__button js-information-tab-button"><span class="information-tab__button-span">体験<br class="u-mobile">ダイビング</span></button>
             </div>
-          </nav>
+            <!-- タブの中身 -->
+            <div class="information-tab__contents">
+              <div class="information-tab__content js-information-tab-content is-active" id="license-course">
+                <div class="information-tab__content-inner">
+                  <div class="information-tab__body">
+                    <h2 class="information-tab__heading">ライセンス講習</h2>
+                    <p class="information-tab__text">泳げない人も、ちょっと水が苦手な人も、ダイビングを「安全に」楽しんでいただけるよう、スタッフがサポートいたします！スキューバダイビングを楽しむためには最低限の知識とスキルが要求されます。知識やスキルと言ってもそんなに難しい事ではなく、安全に楽しむ事を目的としたものです。プロダイバーの指導のもと知識とスキルを習得しCカードを取得して、ダイバーになろう！</p>
+                  </div>
+                  <div class="information-tab__image">
+                    <img src="./assets/images/common/info-license.jpg" alt="ライセンス講習のイメージ" class="information-tab__img">
+                  </div>
+                </div>
+              </div>
+              <div class="information-tab__content js-information-tab-content" id="fun-diving">
+                <div class="information-tab__content-inner">
+                  <div class="information-tab__body">
+                    <h2 class="information-tab__heading">ファンダイビング</h2>
+                    <p class="information-tab__text">ブランクダイバー、ライセンスを取り立ての方も安心！沖縄本島を代表する「青の洞窟」（真栄田岬）やケラマ諸島などメジャーなポイントはモチロンのこと、最北端「辺戸岬」や最南端の「大渡海岸」等もご用意！</p>
+                  </div>
+                  <div class="information-tab__image">
+                    <img src="./assets/images/common/info-fundiving.jpg" alt="ファンダイビングのイメージ" class="information-tab__img">
+                  </div>
+                </div>
+              </div>
+              <div class="information-tab__content js-information-tab-content" id="trial-diving">
+                <div class="information-tab__content-inner">
+                  <div class="information-tab__body">
+                    <h2 class="information-tab__heading">体験ダイビング</h2>
+                    <p class="information-tab__text">ブランクダイバー、ライセンスを取り立ての方も安心！沖縄本島を代表する「青の洞窟」（真栄田岬）やケラマ諸島などメジャーなポイントはモチロンのこと、最北端「辺戸岬」や最南端の「大渡海岸」等もご用意！</p>
+                  </div>
+                  <div class="information-tab__image">
+                    <img src="./assets/images/common/info-trial-diving.jpg" alt="体験ダイビングのイメージ" class="information-tab__img">
+                  </div>
+                </div>
+              </div>
+              
+              
+            </div>
+          </div>
         </div>
+      </div>
       </section>
       <!-- shop infoとcontact -->
-      <section class="page-site-map-contact-section shopInfo-contact">
+      <section class="page-information__shopInfo-contact shopInfo-contact">
         <div class="shopInfo-contact__inner inner">
           <div class="shopInfo-contact__container">
             <div class="shopInfo-contact__shop-info shop-info">

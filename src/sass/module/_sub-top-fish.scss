@@ -1,0 +1,23 @@
+@use "global" as *;
+
+.sub-top-fish {
+  position: relative;
+}
+
+.sub-top-fish::after {
+  position: absolute;
+  content: "";
+  width: rem(120);
+  height: rem(55);
+  background-image: url(../images/common/fishes-to-right.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: rem(515.2);
+  left: calc(50% - max(46vw, rem(135.5)));
+  @include mq("md") {
+    width: rem(301);
+    height: rem(138);
+    top: rem(652.8);
+    left: calc(50% - min(48.7vw, rem(620)));
+  }
+}

@@ -113,4 +113,18 @@ $(this).on('inview', function(){
   });
 });
 
+//下層information page タブ
+$(function () {
+  const informationTabButton = $(".js-information-tab-button"),
+    informationTabContent = $(".js-information-tab-content");
+    informationTabButton.on("click", function () {
+    let index = informationTabButton.index(this);
+
+    informationTabButton.removeClass("is-active");
+    $(this).addClass("is-active");
+    informationTabContent.removeClass("is-active");
+    informationTabContent.eq(index).addClass("is-active");
+  });
+});
+
 });
