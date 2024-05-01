@@ -3,12 +3,8 @@
 .sub-price-table {
   width: 100%;
   border-collapse: collapse;
-}
-
-.sub-price__table-block {
   @include mq("md") {
-    width:  rem(700);
-    margin-inline: auto;
+    width: rem(500);
   }
 }
 
@@ -16,14 +12,24 @@
   border: rem(1) solid $main-blue;
   line-height: calc(24 / 16);
   height: rem(60);
+  @include mq("md") {
+    height: rem(59);
+  }
 }
 
 .sub-price-table__data:first-child {
   width: 69.4%;
   text-align: center;
+  @include mq("md") {
+    width: 68%;
+    text-align: left;
+    padding-left: rem(16);
+  }
 }
 
 .sub-price-table__data:nth-child(2) {
   text-align: right;
   padding-right: rem(16);
 }
+
+

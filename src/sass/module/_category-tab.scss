@@ -1,0 +1,55 @@
+@use "global" as *;
+
+.category-tab__lists {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  column-gap: rem(21);
+  row-gap: rem(17.6);
+  flex-wrap: wrap;
+  @include mq("md") {
+    flex-wrap: nowrap;
+    gap: 0;
+  }
+}
+
+.category-tab__list {
+  background-color: $white;
+  border: rem(1) solid $main-blue;
+  color: $main-blue;
+  padding: rem(5.12);
+  width: calc((100% - rem(21)) / 2);
+  text-align: center;
+  font-size: rem(14);
+  cursor: pointer;
+  @include mq("md") {
+    width: rem(162);
+  }
+}
+
+.category-tab__list.current,
+.category-tab__list:hover {
+  background-color: $main-blue;
+  color: $white;
+  transition: 0.3s background-color;
+}
+
+.category-tab__list:not(:first-child) {
+  @include mq("md") {
+    margin-left: rem(32);
+  }
+}
+
+.category-tab__items {
+  width: 100%;
+  padding-inline: rem(32.5);
+  margin-top: rem(40);
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: rem(40);
+  @include mq("md") {
+    padding-inline: 0;
+    grid-template-columns: 1fr 1fr;
+    column-gap: rem(40);
+  }
+}

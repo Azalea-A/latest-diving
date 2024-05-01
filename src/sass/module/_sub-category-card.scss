@@ -1,0 +1,133 @@
+@use "global" as *;
+
+.sub-campaign-card {
+  width: 100%;
+  box-shadow: rem(2) rem(2) rem(10) 0 rgba(0, 0, 0, 0.25);
+  @include mq("md") {
+    max-width: rem(520);
+  }
+}
+
+.sub-campaign-card__img {
+  width: 100%;
+  height: auto;
+}
+
+.sub-campaign-card__img figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 280 / 188;
+  @include mq("md") {
+    aspect-ratio: 520 / 347;
+  }
+}
+
+.sub-campaign-card__body {
+  padding: rem(16.8) rem(16) rem(19.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @include mq("md") {
+    padding: rem(24) rem(16) rem(30);
+  }
+}
+
+.sub-campaign-card__title-wrapper {
+  @include mq("md") {
+    padding-bottom: rem(3.2);
+  }
+}
+
+.sub-campaign-card__title {
+  color: $black;
+  font-size: rem(16);
+  line-height: calc(24 / 16);
+  font-weight: $medium;
+  margin-top: rem(4.8);
+  @include mq("md") {
+    margin-top: rem(2);
+  }
+}
+
+.sub-campaign-card__price-wrapper {
+  margin-top: rem(5.6);
+  padding-right: rem(18);
+  padding-left: rem(18);
+  border-top: rem(1) solid $main-blue;
+  @include mq("md") {
+    padding-left: rem(16);
+  }
+}
+
+.sub-campaign-card__price-text {
+  font-size: rem(14);
+  text-align: center;
+  margin-top: rem(8);
+  width: 100%;
+  @include mq("md") {
+    font-size: rem(16);
+    margin-top: rem(12.8);
+  }
+}
+
+.sub-campaign-card__price {
+  font-size: rem(32);
+  font-weight: $bold;
+  color: $main-blue;
+  font-family: $english-font-family01;
+  @include mq("md") {
+    font-size: rem(40);
+  }
+}
+
+.sub-campaign-card__price-center {
+  display: block;
+  text-align: center;
+}
+
+.sub-campaign-card__price-before {
+  margin-right: auto;
+  color: $black;
+  font-family: $english-font-family01;
+  font-size: rem(20);
+  text-decoration: line-through;
+  text-decoration-thickness: rem(3);
+  text-decoration-color: #c94800;
+  padding-right: rem(16);
+  @include mq("md") {
+    font-size: rem(24);
+    padding-right: rem(26);
+  }
+}
+
+.sub-campaign-card__desktop-info {
+  @include mq("md") {
+    margin-top: rem(24);
+  }
+}
+
+.sub-campaign-card__text {
+}
+
+.sub-campaign-card__period-wrap {
+  @include mq("md") {
+    margin-top: rem(32);
+    color: $main-blue;
+    font-size: rem(16);
+    text-align: center;
+  }
+}
+
+.sub-campaign-card__cta-text {
+  color: $main-blue;
+  font-size: rem(16);
+  margin-top: rem(8);
+}
+
+.sub-campaign-card__button-wrapper {
+  @include mq("md") {
+    margin-top: rem(16);
+    text-align: center;
+  }
+}

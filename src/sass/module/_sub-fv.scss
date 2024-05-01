@@ -36,6 +36,10 @@
   }
 }
 
+.sub-fv_title--upper-case {
+  text-transform: uppercase;
+}
+
 //各ページ画像たち
 .sub-fv--privacy-policy,
 .sub-fv--terms-of-service,
@@ -64,5 +68,19 @@
   background-image: url(../images/common/sub-price-sp-top.jpg);
   @include mq("md") {
     background-image: url(../images/common/sub-price-pc-top.jpg);
+  }
+}
+
+.sub-fv--faq {
+  background-image: url(../images/common/sub-faq-sp-top.jpg);
+  @include mq("md") {
+    background-image: url(../images/common/sub-faq-pc-top.jpg);
+  }
+}
+
+.sub-fv--campaign {
+  background-image: url(../images/common/sub-campaign-sp-top.jpg);
+  @include mq("md") {
+    background-image: url(../images/common/sub-campaign-pc-top.jpg);
   }
 }

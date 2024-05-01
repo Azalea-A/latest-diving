@@ -1,0 +1,75 @@
+@use "global" as *;
+
+.accordion {
+}
+
+.accordion__container {
+  width: 100%;
+  @include mq("md") {
+    width: rem(700);
+    margin-inline: auto;
+  }
+}
+
+.accordion__item:not(:first-child) {
+  margin-top: rem(40);
+  @include mq("md") {
+    margin-top: rem(36);
+  }
+}
+
+.accordion__title {
+  position: relative;
+  font-size: rem(16);
+  padding: rem(16);
+  cursor: pointer;
+  color: $white;
+  background-color: $main-blue;
+  @include mq("md") {
+    font-size: rem(20);
+    padding: rem(24) rem(40);
+  }
+}
+.accordion__title::before,
+.accordion__title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: rem(16);
+  width: rem(28);
+  height: rem(1);
+  background-color: $white;
+  transition: 0.3s transform, 0.3s opacity;
+  @include mq("md") {
+    right: rem(40);
+  }
+}
+
+.accordion__title::before {
+  transform: rotate(90deg);
+}
+
+.accordion__title.is-open::before {
+  transform: rotate(180deg);
+}
+
+.accordion__title.is-open::after {
+  opacity: 0;
+}
+
+.accordion__content {
+  display: none;
+  padding: rem(20.8) rem(16) rem(19.2);
+  border-right: rem(1) solid $main-blue;
+  border-bottom: rem(1) solid $main-blue;
+  border-left: rem(1) solid $main-blue;
+  @include mq("md") {
+    border: rem(1) solid $main-blue;
+    margin-top: rem(16);
+    padding: rem(40);
+  }
+}
+
+.accordion__text {
+  font-size: rem(16);
+}

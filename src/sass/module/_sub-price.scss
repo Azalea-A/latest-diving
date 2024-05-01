@@ -3,6 +3,14 @@
 .sub-price {
 }
 
+.sub-price__table-block {
+  @include mq("md") {
+    width: rem(700);
+    margin-inline: auto;
+    position: relative;
+  }
+}
+
 .sub-price__table-heading {
   width: 100%;
   background-color: $main-blue;
@@ -21,8 +29,20 @@
   font-weight: $bold;
   position: relative;
   @include mq("md") {
-    padding-top: rem(41);
     padding-left: 0;
+    position: absolute;
+    white-space: nowrap;
+    top: 36%;
+    left: rem(100);
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+}
+
+.sub-price__table-heading-span--line3 {
+  @include mq("md") {
+    top: 30%;
   }
 }
 
@@ -39,10 +59,14 @@
   top: 0;
   left: rem(-6.4);
   @include mq("md") {
-    top: rem(40);
-    left: rem(40);
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     width: rem(64);
     height: rem(64);
+    margin-top: rem(64);
   }
 }
 
@@ -50,5 +74,14 @@
 }
 
 .sub-price__table-block {
-  display: flex;
+  @include mq("md") {
+    display: flex;
+  }
+}
+
+.sub-price__table-block:not(:first-child) {
+  margin-top: rem(40);
+  @include mq("md") {
+    margin-top: rem(80);
+  }
 }

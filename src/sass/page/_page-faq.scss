@@ -1,15 +1,15 @@
 @use "global" as *;
 
-.page-price {
+.page-faq {
   margin-top: rem(51.2);
   @include mq("md") {
     margin-top: rem(150);
   }
 }
 
-.page-price__shopInfo-contact-section {
-  margin-top: rem(106);
+.page-faq__shopInfo-contact-section {
+  margin-top: rem(99.2);
   @include mq("md") {
-    margin-top: rem(140);
+    margin-top: rem(136);
   }
 }
