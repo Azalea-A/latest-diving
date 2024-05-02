@@ -22,13 +22,14 @@
   display: inline-flex;
   width: rem(38);
   height: rem(38);
+  margin: 0;
 }
 
 .wp-pagenavi .previouspostslink {
-  margin-right: rem(40);
+  margin-right: rem(33.6);
 }
 .wp-pagenavi .nextpostslink {
-  margin-left: rem(40);
+  margin-left: rem(33.6);
 }
 
 .wp-pagenavi .previouspostslink::before,
@@ -36,8 +37,8 @@
   display: block;
   position: absolute; /*相対配置*/
   content: "";
-  width: rem(10); /*線の横の長さ*/
-  height: rem(10); /*線の縦の長さ*/
+  width: rem(9.5); /*線の横の長さ*/
+  height: rem(9.5); /*線の縦の長さ*/
   color: $main-blue; /*線の色*/
 }
 
@@ -59,11 +60,12 @@
 
 .wp-pagenavi a,
 .wp-pagenavi span {
-  margin: 0 rem(3);
+  margin: 0 rem(6);
   display: inline-flex;
   width: rem(38);
   height: rem(38);
-  padding: rem(6.4) rem(14);
+  padding-top: rem(8);
+  padding-inline:  rem(14);
   font-size: prem(16);
   line-height: 1;
   border: 1px solid $main-blue;
@@ -85,6 +87,10 @@
   color: $white;
   background-color: $main-blue;
   border: rem(1) solid $main-blue;
+}
+
+.wp-pagenavi span.current,
+.wp-pagenavi a.page {
 }
 
 .wp-pagenavi .u-desktop {

@@ -1,5 +1,8 @@
 @use "global" as *;
 
 .sub-campaign__pagenavi {
-  margin-top: rem(83.2);
+  margin-top: rem(76.8);
+  @include mq("md") {
+    margin-top: rem(80);
+  }
 }

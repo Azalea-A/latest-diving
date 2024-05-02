@@ -51,5 +51,10 @@
     padding-inline: 0;
     grid-template-columns: 1fr 1fr;
     column-gap: rem(40);
+    row-gap: rem(83.2);
   }
+}
+
+.category-tab__items--voice {
+  padding: 0;
 }

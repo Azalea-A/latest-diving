@@ -29,7 +29,7 @@
   flex-direction: column;
   justify-content: space-between;
   @include mq("md") {
-    padding: rem(24) rem(16) rem(30);
+    padding: rem(24) rem(22.4) rem(36);
   }
 }
 
@@ -42,11 +42,12 @@
 .sub-campaign-card__title {
   color: $black;
   font-size: rem(16);
-  line-height: calc(24 / 16);
   font-weight: $medium;
   margin-top: rem(4.8);
   @include mq("md") {
-    margin-top: rem(2);
+    margin-top: rem(6);
+    font-size: rem(24);
+    line-height: 1;
   }
 }
 
@@ -56,7 +57,9 @@
   padding-left: rem(18);
   border-top: rem(1) solid $main-blue;
   @include mq("md") {
-    padding-left: rem(16);
+    padding: 0;
+    text-align: center;
+    margin-top: rem(8);
   }
 }
 
@@ -67,7 +70,7 @@
   width: 100%;
   @include mq("md") {
     font-size: rem(16);
-    margin-top: rem(12.8);
+    margin-top: rem(24);
   }
 }
 
@@ -97,13 +100,13 @@
   padding-right: rem(16);
   @include mq("md") {
     font-size: rem(24);
-    padding-right: rem(26);
+    padding-right: rem(38.2);
   }
 }
 
 .sub-campaign-card__desktop-info {
   @include mq("md") {
-    margin-top: rem(24);
+    margin-top: rem(14.4);
   }
 }
 
@@ -112,7 +115,7 @@
 
 .sub-campaign-card__period-wrap {
   @include mq("md") {
-    margin-top: rem(32);
+    margin-top: rem(28.8);
     color: $main-blue;
     font-size: rem(16);
     text-align: center;
@@ -127,7 +130,7 @@
 
 .sub-campaign-card__button-wrapper {
   @include mq("md") {
-    margin-top: rem(16);
+    margin-top: rem(14.4);
     text-align: center;
   }
 }

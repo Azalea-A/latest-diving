@@ -84,3 +84,11 @@
     background-image: url(../images/common/sub-campaign-pc-top.jpg);
   }
 }
+
+
+.sub-fv--voice {
+  background-image: url(../images/common/sub-voice-sp-top.jpg);
+  @include mq("md") {
+    background-image: url(../images/common/sub-voice-pc-top.jpg);
+  }
+}

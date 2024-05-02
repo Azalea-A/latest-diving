@@ -1,13 +1,13 @@
 @use "global" as *;
 
-.page-campaign {
+.page-voice {
   margin-top: rem(51.2);
   @include mq("md") {
     margin-top: rem(150);
   }
 }
 
-.page-campaign__shopInfo-contact-section {
+.page-voice__shopInfo-contact-section {
   margin-top: rem(104);
   @include mq("md") {
     margin-top: rem(140.8);
