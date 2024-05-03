@@ -85,10 +85,16 @@
   }
 }
 
-
 .sub-fv--voice {
   background-image: url(../images/common/sub-voice-sp-top.jpg);
   @include mq("md") {
     background-image: url(../images/common/sub-voice-pc-top.jpg);
+  }
+}
+
+.sub-fv--blog {
+  background-image: url(../images/common/sub-blog-sp-top.jpg);
+  @include mq("md") {
+    background-image: url(../images/common/sub-blog-pc-top.jpg);
   }
 }

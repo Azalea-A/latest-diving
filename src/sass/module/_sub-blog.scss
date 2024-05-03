@@ -1,0 +1,24 @@
+@use "global" as *;
+
+.sub-blog__inner {
+  @include mq("md") {
+    display: flex;
+    gap: 7.5%;
+  }
+}
+
+.sub-blog__main {
+  width: 100%;
+  @include mq("md") {
+    width: 65.37%;
+    background-color: pink;
+  }
+}
+
+.sub-blog__aside {
+  width: 78.4%;
+  margin-inline: auto;
+  @include mq("md") {
+    width: 27.22%;
+  }
+}

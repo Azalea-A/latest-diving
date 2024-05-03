@@ -12,6 +12,13 @@
   }
 }
 
+.campaign-card--aside {
+  width: 100%;
+  @include mq("md") {
+    max-width: initial;
+  }
+}
+
 .campaign-card__img {
   width: rem(280);
   height: auto;

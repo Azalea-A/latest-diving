@@ -1,0 +1,47 @@
+@use "global" as *;
+
+.aside-popular-article__items {
+  margin-top: rem(24);
+}
+
+.aside-popular-article__item {
+  box-shadow: rem(2) rem(2) rem(10) 0 rgba(0, 0, 0, 0.25);
+}
+
+.aside-popular-article__item:not(:first-child) {
+  margin-top: rem(24);
+}
+
+.aside-popular-article__link {
+  padding: rem(16);
+  display: flex;
+  cursor: pointer;
+}
+
+.aside-popular-article__image {
+  width: 41.15%;
+}
+
+.aside-popular-article__image img {
+  aspect-ratio: 121 / 90;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.aside-popular-article__body {
+  margin-left: rem(16);
+  flex: 1;
+}
+
+.aside-popular-article__date {
+  font-family: $english-font-family02;
+  font-size: rem(12);
+  line-height: 1;
+}
+
+.aside-popular-article__title {
+  font-size: rem(16);
+  font-weight: $medium;
+  margin-top: rem(6);
+}

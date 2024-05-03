@@ -40,7 +40,7 @@
     <header class="header js-header">
       <div class="header__inner">
         <h1 class="header__logo">
-          <a class="header__logo-link" href="#">
+          <a class="header__logo-link" href="index.html">
             <img src="./assets/images/common/CodeUps_logo.svg" alt="CodeUps" loading="lazy" decoding="async">
           </a>
         </h1>
@@ -163,28 +163,220 @@
       </div>
     </header>
 
-    <div class="page-not-found not-found">
+      <!-- fv -->
+      <div class="sub-fv sub-fv--blog">
+        <div class="sub-fv__inner">
+        <!-- サブページのメインビュー -->
+          <h1 class="sub-fv_title">Blog</h1>
+        </div>
+      </div>
       <!-- パンくずリスト -->
       <div class="breadcrumb">
         <div class="breadcrumb__inner inner">
-          <div class="breadcrumb__body breadcrumb__body--white">Top > 404
-          </div>
+          <div class="breadcrumb__body">Top > ブログ一覧</div>
         </div>
       </div>
-      <div class="not-found__inner inner inner--not-found">
-        <div class="not-found__content-wrapper">
-          <h1 class="not-found__heading">404</h1>
-          <p class="not-found__text">申し訳ありません。<br>お探しのページが見つかりません。</p>
-          <div class="not-found__button-wrapper">
-            <a href="index.html" class="button button--white">
-              <span class="button__span">Page <span class="button__span--uppercase">TOP</span></span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+      <!-- 全体のコンテナー -->
+      <div class="page-blog sub-blog">
+        <div class="sub-blog__inner inner">
+          <main class="main sub-blog__main sub-top-fish">
+            
+              
+                
+              
+              <!-- ページネーション -->
+              <div class="sub-blog__pagenavi pagenavi">
+                <div class="pagenavi__inner">
+                  <!-- WP-PageNaviで出力される部分 ここから -->
+                  <div class='wp-pagenavi' role='navigation'>
+                    <a class="previouspostslink" rel="prev" href="#"></a>
+                    <span class='current'>1</span>
+                    <a class="page larger" href="#">2</a>
+                    <a class="page larger" href="#">3</a>
+                    <a class="page larger" href="#">4</a>
+                    <a class="page larger u-desktop" href="#">5</a>
+                    <a class="page larger u-desktop" href="#">6</a>
+                    <a class="nextpostslink" rel="next" href="#"></a>
+                  </div>
+                  <!-- WP-PageNaviで出力される部分 ここまで -->
+                </div>
+              </div>
+            
+          </main>
+          <aside class="sub-blog__aside aside">
+            <section class="aside__popular-articles-wrap">
+              <h3 class="aside__heading"><span class="aside__heading-span">人気記事</span></h3>
+              <div class="aside__popular-articles aside-popular-article">
+                <ul class="aside-popular-article__items">
+                  <li class="aside-popular-article__item">
+                    <a href="#" class="aside-popular-article__link">
+                      <div class="aside-popular-article__image">
+                        <img src="./assets/images/common/blog04.jpg" alt="ブログのアイキャッチ" loading="lazy" decoding="async">
+                      </div>
+                      <div class="aside-popular-article__body">
+                        <time class="aside-popular-article__date" datetime="2023-11-17">2023.11/17</time>
+                        <h4 class="aside-popular-article__title">ライセンス取得</h4>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="aside-popular-article__item">
+                    <a href="#" class="aside-popular-article__link">
+                      <div class="aside-popular-article__image">
+                        <img src="./assets/images/common/blog02.jpg" alt="ブログのアイキャッチ" loading="lazy" decoding="async">
+                      </div>
+                      <div class="aside-popular-article__body">
+                        <time class="aside-popular-article__date" datetime="2023-11-17">2023.11/17</time>
+                        <h4 class="aside-popular-article__title"></h4>ウミガメと泳ぐ</h4>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="aside-popular-article__item">
+                    <a href="#" class="aside-popular-article__link">
+                      <div class="aside-popular-article__image">
+                        <img src="./assets/images/common/blog03.jpg" alt="ブログのアイキャッチ" loading="lazy" decoding="async">
+                      </div>
+                      <div class="aside-popular-article__body">
+                        <time class="aside-popular-article__date" datetime="2023-11-17">2023.11/17</time>
+                        <h4 class="aside-popular-article__title">カクレクマノミ</h4>
+                      </div>
+                    </a>
+                  </li>
+              </ul>
+            </div>
+            </section>
+            <section class="aside__voice-wrap">
+              <h3 class="aside__heading"><span class="aside__heading-span">口コミ</span></h3>
+              <div class="aside__voice-content aside-voice">
+                <div class="aside-voice__image">
+                  <img src="./assets/images/common/voice05.jpg" alt="お客様の写真" loading="lazy" decoding="async">
+                </div>
+                <div class="aside-voice__body">
+                  <p class="aside-voice__customer-info">30代(カップル)</p>
+                  <p class="aside-voice__title">ここにタイトルが入ります。ここにタイトル</p>
+                  <div class="aside-voice__button-wrapper">
+                    <a href="#" class="button">
+                      <span class="button__span">View more</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="aside__campaign-wrap">
+              <h3 class="aside__heading"><span class="aside__heading-span">キャンペーン</span></h3>
+              <div class="aside__campaign-content aside-campaign">
+                <ul class="aside-campaign__items">
+                  <li class="aside-campaign__item">
+                    <a href="#" class="aside-campaign__sub-campaign-card sub-campaign-card sub-campaign-card--aside">
+                      <div class="sub-campaign-card__img sub-campaign-card__img--aside">
+                      <figure>
+                        <img src="./assets/images/common/campaign01.jpg" alt="キャンペーンのイメージ画像">
+                      </figure>
+                      </div>
+                      <div class="sub-campaign-card__body sub-campaign-card__body--aside">
+                        <div class="sub-campaign-card__title-wrapper">
+                          <h3 class="sub-campaign-card__title sub-campaign-card__title--aside">ライセンス講習</h3>
+                        </div>
+                        <div class="sub-campaign-card__price-wrapper">
+                          <p class="sub-campaign-card__price-text sub-campaign-card__price-text--aside">全部コミコミ(お一人様)</p>
+                          <p class="sub-campaign-card__price sub-campaign-card__price--aside"><span class="sub-campaign-card__price-center"><span class="sub-campaign-card__price-before--aside sub-campaign-card__price-before">¥56,000</span>¥46,000</span></p>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="aside-campaign__item">
+                    <a href="#" class="aside-campaign__sub-campaign-card sub-campaign-card sub-campaign-card--aside">
+                      <div class="sub-campaign-card__img sub-campaign-card__img--aside">
+                      <figure>
+                        <img src="./assets/images/common/campaign02.jpg" alt="キャンペーンのイメージ画像">
+                      </figure>
+                      </div>
+                      <div class="sub-campaign-card__body sub-campaign-card__body--aside">
+                        <div class="sub-campaign-card__title-wrapper">
+                          <h3 class="sub-campaign-card__title sub-campaign-card__title--aside">貸切体験ダイビング</h3>
+                        </div>
+                        <div class="sub-campaign-card__price-wrapper">
+                          <p class="sub-campaign-card__price-text sub-campaign-card__price-text--aside">全部コミコミ(お一人様)</p>
+                          <p class="sub-campaign-card__price sub-campaign-card__price--aside"><span class="sub-campaign-card__price-center"><span class="sub-campaign-card__price-before--aside sub-campaign-card__price-before">¥24,000</span>¥18,000</span></p>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+                <div class="aside-campaign__button-wrapper">
+                  <a href="#" class="button">
+                    <span class="button__span">View more</span>
+                  </a>
+                </div>
+              </div>
+            </section>
+            <section class="aside__archive-wrap">
+              <h3 class="aside__heading"><span class="aside__heading-span">アーカイブ</span></h3>
+              <div class="aside__archive aside-archive js-aside-archive">
+                  <div class="aside-archive__container">
+                    <div class="aside-archive__item js-aside-archive__item">
+                      <h3 class="aside-archive__title js-aside-archive__title">
+                        2023
+                      </h3>
+                      <div class="aside-archive__content js-aside-archive__content">
+                        <a class="aside-archive__text">3月</a>
+                        <a class="aside-archive__text">2月</a>
+                        <a class="aside-archive__text">1月</a>
+                      </div>
+                    </div>
+                  </div>
 
-    <footer class="footer footer--not-found">
+              </div>
+            </section>
+          </aside>
+        </div>
+        
+        <!-- shop infoとcontact -->
+        <section class="page-campaign__shopInfo-contact-section shopInfo-contact">
+          <div class="shopInfo-contact__inner inner">
+            <div class="shopInfo-contact__container">
+              <div class="shopInfo-contact__shop-info shop-info">
+                <div class="shop-info__inner">
+                  <div class="shop-info__title-wrapper">
+                    <div class="shop-info__title">
+                      <img src="./assets/images/common/CodeUps-logo_blue.svg" alt="Code Ups" loading="lazy" decoding="async">
+                    </div>
+                  </div>
+                  <div class="shop-info__body">
+                    <div class="shop-info__body-flex-box">
+                      <ul class="shop-info__items">
+                        <li class="shop-info__item">沖縄県那覇市1-1</li>
+                        <li class="shop-info__item">
+                          <a href="tel:01200000000">TEL:0120-000-0000</a>
+                        </li>
+                        <li class="shop-info__item">営業時間:8:30-19:00</li>
+                        <li class="shop-info__item">定休日:毎週火曜日</li>
+                      </ul>
+                      <div class="shop-info__google-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d829413.616731413!2d139.16943580072484!3d35.70415365296447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6019bf2da754df55%3A0x1e064360cec6807c!2z54ax5rW344K144Oz44OT44O844OB!5e0!3m2!1sja!2sjp!4v1712982594489!5m2!1sja!2sjp" width="273" height="148" style="border:0;" allowfullscreen="" loading="lazy" title="地図" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="shopInfo-contact__contact contact">
+                <div class="contact__inner">
+                    <div class="contact__section-title section-title">
+                      <p class="section-title__english section-title__english--large">Contact</p>
+                      <h2 class="section-title__japanese section-title__japanese--english-large">お問い合せ</h2>
+                    </div>
+                    <p class="contact__text">ご予約・お問い合わせはコチラ</p>
+                    <div class="contact__button-wrapper">
+                      <a href="#" class="button">
+                        <span class="button__span">Contact us</span>
+                      </a>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </section>
+    </div><!-- inner -->
+    <footer class="footer">
       <div class="footer__inner inner">
         <div class="footer__top">
           <div class="footer__logo">

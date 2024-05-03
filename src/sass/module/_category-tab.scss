@@ -57,4 +57,7 @@
 
 .category-tab__items--voice {
   padding: 0;
+  @include mq("md") {
+    row-gap: rem(80);
+  }
 }
