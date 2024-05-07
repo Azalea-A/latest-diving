@@ -1,27 +1,27 @@
 @use "global" as *;
 
-.sub-blog__inner {
+.sub-single-blog__inner {
   @include mq("md") {
     display: flex;
     gap: 7.5%;
   }
 }
 
-.sub-blog__main {
+.sub-single-blog__main {
   width: 100%;
   @include mq("md") {
     width: 65.37%;
   }
 }
 
-.sub-blog__blog-cards {
+.sub-single-blog__blog-cards {
   padding: 0 rem(5.5);
   @include mq("md") {
     padding: 0;
   }
 }
 
-.sub-blog__aside {
+.sub-single-blog__aside {
   margin-top: rem(80);
   width: 85%;
   margin-inline: auto;
@@ -31,9 +31,9 @@
   }
 }
 
-.sub-blog__pagenavi {
-  margin-top: rem(80);
+.sub-single-blog__pagenavi {
+  margin-top: rem(36.8);
   @include mq("md") {
-    margin-top:  rem(86.4);
+    margin-top: rem(80);
   }
 }

@@ -1,0 +1,31 @@
+@use "global" as *;
+
+.form-select select {
+  padding: rem(11.5) rem(50) rem(11.5) rem(15);
+  width: 100%;
+  font-size: rem(15);
+  line-height: 1;
+  border-radius: 0;
+  border: rem(1) solid $main-blue;
+  appearance: none;
+  cursor: pointer;
+}
+
+.form-select__top {
+  position: relative;
+}
+
+.form-select__top::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-style: solid;
+  border-top: rem(10) solid transparent;
+  border-bottom: rem(10) solid transparent;
+  border-left: rem(20) solid $main-blue;
+  border-right: 0;
+}
+
+.form-select select::-ms-expand {
+  display: none;
+}

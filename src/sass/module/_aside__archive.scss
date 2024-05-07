@@ -1,0 +1,69 @@
+@use "global" as *;
+
+.aside-archive {
+  width: 100%;
+}
+
+.aside-archive__year {
+  position: relative;
+  font-size: rem(24);
+  padding-left: rem(32);
+  cursor: pointer;
+  color: $main-blue;
+}
+
+.aside-archive__item:not(:first-child) {
+  margin-top: rem(10);
+  @include mq("md") {
+    margin-top: rem(4);
+  }
+}
+
+.aside-archive__year:hover,
+.aside-archive__month:hover {
+  opacity: 0.8;
+}
+
+.aside-archive__year::after,
+.aside-archive__month::after {
+  position: absolute;
+  top: rem(8);
+  left: 0;
+  display: block;
+  width: 0;
+  height: 0;
+  content: "";
+  transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
+  border-style: solid;
+  border-top: rem(10) solid transparent;
+  border-bottom: rem(10) solid transparent;
+  border-left: rem(20) solid $main-blue;
+  border-right: 0;
+}
+
+.aside-archive__year::after {
+  left: rem(8);
+}
+
+.aside-archive__year.is-open::after {
+  transform: rotate(90deg);
+  top: rem(10);
+}
+
+.aside-archive__content {
+  display: none;
+  margin-left: rem(29.6);
+}
+
+.aside-archive__month {
+  font-size: rem(24);
+  position: relative;
+  padding-left: rem(32);
+  cursor: pointer;
+  line-height: 1.5;
+  margin-top: rem(2);
+}
+
+.aside-archive__month a {
+  color: $main-blue;
+}

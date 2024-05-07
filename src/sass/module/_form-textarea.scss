@@ -1,0 +1,16 @@
+@use "global" as *;
+
+.form-textarea textarea {
+  padding: rem(8) rem(15);
+  width: 100%;
+  height: rem(200);
+  font-size: rem(16);
+  border-radius: 0;
+  border: rem(1) solid $main-blue;
+  appearance: none;
+  background-color: transparent;
+  background-image: none;
+  @include mq("md") {
+    width: rem(480);
+  }
+}

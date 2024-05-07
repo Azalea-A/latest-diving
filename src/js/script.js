@@ -154,4 +154,19 @@ $(function () {
     });
   });
 
+  //asideのarchive
+  $(function () {
+    $(".js-aside-archive__item:first-child .js-aside-archive__content").css(
+      "display",
+      "block"
+    );
+    $(".js-aside-archive__item:first-child .js-aside-archive__year").addClass(
+      "is-open"
+    );
+    $(".js-aside-archive__year").on("click", function () {
+      $(this).toggleClass("is-open");
+      $(this).next().slideToggle(300);
+    });
+  });
+
 });

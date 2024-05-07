@@ -106,12 +106,12 @@
 
 .button__span::after {
   background-image: url(../images/common/arrow-btn_white.svg);
-  margin-left:  rem(16);
+  margin-left: rem(16);
 }
 
 .button--white .button__span::after {
   background-image: url(../images/common/arrow-btn_blue.svg);
-  margin-left:  rem(16);
+  margin-left: rem(16);
 }
 
 .button:hover .button__span::after {

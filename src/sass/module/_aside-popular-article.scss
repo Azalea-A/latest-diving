@@ -19,7 +19,7 @@
 }
 
 .aside-popular-article__image {
-  width: 41.15%;
+  width: 46.15%;
 }
 
 .aside-popular-article__image img {
@@ -38,10 +38,11 @@
   font-family: $english-font-family02;
   font-size: rem(12);
   line-height: 1;
+  vertical-align: top;
+  margin-top: rem(4);
 }
 
 .aside-popular-article__title {
   font-size: rem(16);
   font-weight: $medium;
-  margin-top: rem(6);
 }

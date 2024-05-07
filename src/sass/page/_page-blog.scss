@@ -1,0 +1,16 @@
+@use "global" as *;
+
+.page-blog {
+  margin-top: rem(52);
+  @include mq("md") {
+    margin-top: rem(148);
+  }
+}
+
+
+.page-blog__shopInfo-contact-section {
+  margin-top: rem(104);
+  @include mq("md") {
+    margin-top: rem(140.8);
+  }
+}

@@ -1,5 +1,9 @@
 @use "global" as *;
 
+.aside {
+  width: 100%;
+}
+
 .aside section:not(:first-child) {
   margin-top: rem(80);
 }
@@ -9,7 +13,7 @@
   border-left: rem(8) solid $main-blue;
   padding-left: rem(74);
   background-image: url(../images/common/whale-icon-black.svg);
-  background-position: top 50% left rem(24);
+  background-position: top 50% left rem(16);
   background-repeat: no-repeat;
   background-size: rem(50) rem(50);
   height: rem(50);
@@ -26,5 +30,9 @@
 }
 
 .aside__voice-content {
-  margin-top:  rem(40);
+  margin-top: rem(24);
+}
+
+.aside__archive {
+  margin-top: rem(24);
 }
