@@ -70,6 +70,10 @@
   flex-grow: 1;
 }
 
+.form__wrap.form__wrap--agreement input {
+  border-color: $main-blue;
+}
+
 .form__submit {
   margin-top: rem(60);
   text-align: center;

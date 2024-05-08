@@ -200,33 +200,23 @@
                 </dd>
               </dl>
               <dl class="form__wrap">
+                <dt class="form__label">お問い合わせ項目</dt>
+                <dd class="form__checkbox form-checkbox">
+                  <label><input type="checkbox" name="sns" value="Twitter"><span>ダイビング講習について</span></label>
+                  <label><input type="checkbox" name="sns" value="Instagram"><span>ファンダイビングについて</span></label>
+                  <label><input type="checkbox" name="sns" value="Facebook"><span>体験ダイビングについて</span></label>
+                </dd>
+              </dl>
+              <dl class="form__wrap">
                 <dt class="form__label">キャンペーン</dt>
                 <dd class="form__select form-select">
                   <select>
-                    <option hidden class="form-select__top">キャンペーン内容を選択</option>
+                    <option hidden>キャンペーン内容を選択</option>
                     <option value="ライセンス講習">ライセンス講習</option>
                     <option value="ファンダイビング">ファンダイビング</option>
                     <option value="体験ダイビング">体験ダイビング</option>
                     <option value="その他">その他</option>
                   </select>
-                </dd>
-              </dl>
-              <dl class="form__wrap">
-                <dt class="form__label">カテゴリ</dt>
-                <dd class="form__radio form-radio">
-                  <label><input type="radio" name="category" value="ホームページ制作"><span>ホームページ制作</span></label>
-                  <label><input type="radio" name="category" value="SNS運用"><span>SNS運用</span></label>
-                  <label><input type="radio" name="category" value="その他"><span>その他</span></label>
-                </dd>
-              </dl>
-              <dl class="form__wrap">
-                <dt class="form__label">お持ちのSNS</dt>
-                <dd class="form__checkbox form-checkbox">
-                  <label><input type="checkbox" name="sns" value="Twitter"><span>Twitter</span></label>
-                  <label><input type="checkbox" name="sns" value="Instagram"><span>Instagram</span></label>
-                  <label><input type="checkbox" name="sns" value="Facebook"><span>Facebook</span></label>
-                  <label><input type="checkbox" name="sns" value="YouTube"><span>YouTube</span></label>
-                  <label><input type="checkbox" name="sns" value="その他"><span>その他</span></label>
                 </dd>
               </dl>
               <dl class="form__wrap form__wrap--textarea">
@@ -235,6 +225,11 @@
                   <textarea name="message"></textarea>
                 </dd>
               </dl>
+              <div class="form__wrap form__wrap--agreement">
+                <label for="agree">
+                  <input type="checkbox" id="agree" name="agree" required>利用規約に同意します
+                </label>
+              </div>
               <div class="form__submit form-submit">
                 <button class="button" type="submit" value="Send">
                   <span class="button__span">Send</span>

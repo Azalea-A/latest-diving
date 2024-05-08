@@ -11,19 +11,21 @@
   cursor: pointer;
 }
 
-.form-select__top {
+.form-select {
   position: relative;
 }
 
-.form-select__top::after {
+.form-select::after {
   content: "";
   display: block;
   position: absolute;
+  top: rem(15);
+  right: rem(10);
   border-style: solid;
-  border-top: rem(10) solid transparent;
-  border-bottom: rem(10) solid transparent;
-  border-left: rem(20) solid $main-blue;
-  border-right: 0;
+  border-right: rem(6) solid transparent;
+  border-left: rem(6) solid transparent;
+  border-top: rem(10) solid $main-blue;
+  border-bottom: 0;
 }
 
 .form-select select::-ms-expand {

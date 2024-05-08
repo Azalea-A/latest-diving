@@ -1,10 +1,15 @@
 @use "global" as *;
 
-.sub-contact__inner {
-  margin: auto;
-  padding-inline: auto;
+.sub-contact__inner.inner {
+  width: 100%;
+  @include mq("md") {
+    max-width: rem(860);
+  }
+}
+
+.sub-contact__form {
   width: 100%;
   @include mq(md) {
-    max-width: rem(700);
+    width: rem(700);
   }
 }
