@@ -1,14 +1,17 @@
 @use "global" as *;
 
 .form-select select {
-  padding: rem(11.5) rem(50) rem(11.5) rem(15);
+  padding: rem(12.8) rem(50) rem(12.8) rem(8);
   width: 100%;
-  font-size: rem(15);
+  font-size: rem(14);
   line-height: 1;
   border-radius: 0;
   border: rem(1) solid $main-blue;
   appearance: none;
   cursor: pointer;
+  @include mq("md") {
+    padding: rem(5.6) rem(50) rem(5.6) rem(8);
+  }
 }
 
 .form-select {
@@ -19,13 +22,17 @@
   content: "";
   display: block;
   position: absolute;
-  top: rem(15);
-  right: rem(10);
+  top: rem(12.8);
+  right: rem(8);
   border-style: solid;
   border-right: rem(6) solid transparent;
   border-left: rem(6) solid transparent;
   border-top: rem(10) solid $main-blue;
   border-bottom: 0;
+  @include mq("md") {
+    top: rem(9.4);
+    right: rem(10);
+  }
 }
 
 .form-select select::-ms-expand {

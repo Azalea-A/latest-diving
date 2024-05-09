@@ -3,15 +3,13 @@
 .form-checkbox label {
   display: block;
   @include mq(md) {
-    display: inline-block;
   }
 }
 
 .form-checkbox label:not(:first-of-type) {
-  margin-top: rem(10);
+  margin-top: rem(3.2);
   @include mq(md) {
-    margin-top: 0;
-    margin-left: rem(20);
+    margin-top: rem(3);
   }
 }
 
@@ -22,7 +20,7 @@
 .form-checkbox input + span {
   cursor: pointer;
   display: inline-block;
-  padding: 0 0 0 rem(25);
+  padding: 0 0 0 rem(22.4);
   position: relative;
   font-size: rem(15);
   line-height: 1;
@@ -35,10 +33,10 @@
   left: 0;
   transform: translateY(-50%);
   background: #fff;
-  border: 1px solid #ccc;
+  border: rem(1) solid $main-blue;
   display: block;
-  width: rem(15);
-  height: rem(15);
+  width: rem(14);
+  height: rem(14);
 }
 
 .form-checkbox input + span::after {

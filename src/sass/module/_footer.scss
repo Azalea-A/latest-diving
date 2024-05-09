@@ -20,6 +20,13 @@
   }
 }
 
+.footer.footer--contact-page {
+  margin-top: rem(147.2);
+  @include mq("md") {
+    margin-top: rem(176);
+  }
+}
+
 .footer.footer--not-found {
   margin-top: 0;
 }

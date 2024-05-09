@@ -1,5 +1,12 @@
 @use "global" as *;
 
+.form__wrap--textarea.form__wrap {
+  @include mq("md") {
+    padding-bottom: rem(19.2);
+  }
+}
+
+
 .form-textarea textarea {
   padding: rem(8) rem(15);
   width: 100%;
