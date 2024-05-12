@@ -169,4 +169,26 @@ $(function () {
     });
   });
 
+  //about us ページギャラリーのモーダル
+  $(function () {
+    const open = $(".js-modal-open"),
+      close = $(".js-modal__close"),
+      modal = $(".js-modal");
+  
+    // 開くボタンをクリックしたらモーダルを表示する
+    open.on("click", function () {
+      const currentModal = $(this).closest(".gallery-grid__grid-item").find(".js-modal"); // クリックされたボタンに最も近いモーダルを取得
+      if ($(window).width() >= 768) { // PCサイズの場合のみモーダルを開く
+        currentModal.addClass("is-open");
+      }
+    });
+  
+    // 閉じるボタンをクリックしたらモーダルを閉じる
+    close.add(modal).on("click", function () {
+      const currentModal = $(this).closest(".js-modal"); // クリックされたボタンに最も近いモーダルを取得
+      currentModal.removeClass("is-open");
+    });
 });
+
+
+}); //js全体の締め

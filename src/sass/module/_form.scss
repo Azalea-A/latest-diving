@@ -40,21 +40,24 @@
   font-size: rem(16);
   font-weight: $bold;
   line-height: 1.5;
+  display: flex;
   @include mq(md) {
     width: rem(220);
   }
 }
 
-.form__label span {
-  display: inline-block;
+.form__label .form__tag {
+  display: block;
   font-size: rem(12);
   color: #fff;
+  height: rem(21);
+  padding-inline: rem(13);
   background-color: #c94800;
   letter-spacing: 0.4em;
-  padding: rem(2) rem(14);
   margin-left: rem(8);
+  font-weight: $normal;
+  padding-top: rem(2);
   @include mq("md") {
-    padding: rem(4) rem(12.8);
     line-height: 1;
   }
 }

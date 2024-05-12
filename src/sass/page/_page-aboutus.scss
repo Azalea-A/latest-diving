@@ -1,0 +1,21 @@
+@use "global" as *;
+
+.page-aboutus {
+  margin-top: rem(51.2);
+  @include mq("md") {
+    margin-top: rem(150);
+  }
+}
+
+.page-aboutus__sub-aboutus-gallery {
+  margin-top: rem(40);
+  @include mq("md") {
+  }
+}
+
+.page-aboutus__shopInfo-contact-section {
+  margin-top: rem(104);
+  @include mq("md") {
+    margin-top: rem(140.8);
+  }
+}

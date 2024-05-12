@@ -41,6 +41,13 @@
 }
 
 //各ページ画像たち
+.sub-fv--aboutus {
+  background-image: url(../images/common/sub-aboutus-sp-top.jpg);
+  @include mq("md") {
+    background-image: url(../images/common/sub-aboutus-pc-top.jpg);
+  }
+}
+
 .sub-fv--privacy-policy,
 .sub-fv--terms-of-service,
 .sub-fv--site-map {
