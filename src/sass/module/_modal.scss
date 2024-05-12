@@ -11,8 +11,6 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  // padding-top: rem(91);
-  // padding-bottom: rem(91);
   transition: opacity 0.3s, visibility 0.3s;
   opacity: 0;
   background: rgba(32, 32, 32, 80%);
@@ -24,46 +22,31 @@
 }
 
 .modal__body {
-  position: relative;
   display: inline-block;
-  // width: 90%;
 }
 
-.modal__close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.modal__content {
-  padding-top: rem(91);
-  padding-bottom: rem(91);
+.modal__body--horizontal {
+  @include mq("md") {
+    width: 63.88%;
+  }
 }
 
 .modal__img-wrap {
-  max-width: 100%; // 最大幅を親要素の100%に制限
-  max-height: 90vh; // 画面の高さの90%を超えないように制限
+  width: 100%;
+  height: auto;
 }
 
 .modal__img {
+  display: block;
+  margin-inline: auto;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  max-height: 90vh; // 画面の高さの90%を超えないように制限
 }
 
 .modal__img--vertical {
   aspect-ratio: 492 / 746;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  max-width: 90%; // 最大幅を親要素の100%に制限
-  max-height: 90vh; // 画面の高さの90%を超えないように制限
 }
 
 .modal__img--horizontal {

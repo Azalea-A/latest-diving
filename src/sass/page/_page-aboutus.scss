@@ -8,8 +8,25 @@
 }
 
 .page-aboutus__sub-aboutus-gallery {
-  margin-top: rem(40);
+  margin-top: rem(32);
   @include mq("md") {
+    margin-top: rem(108);
+    position: relative;
+  }
+}
+
+.page-aboutus__sub-aboutus-gallery::before {
+  @include mq("md") {
+    display: block;
+    content: "";
+    background-image: url(../images/common/fishes-to-left_blue.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: rem(138);
+    right: calc(50% - min(48.31vw, rem(640)));
+    top: rem(-70.4);
+    width: rem(301);
+    position: absolute;
   }
 }
 

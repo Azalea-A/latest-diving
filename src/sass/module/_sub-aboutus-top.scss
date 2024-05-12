@@ -64,8 +64,8 @@
   @include mq("md") {
     position: absolute;
     z-index: 10;
-    top: 49%;
-    left: 57.4%;
+    top: 42%;
+    left: 57.8%;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -80,10 +80,12 @@
 .sub-aboutus-top__heading-wrapper {
   position: absolute;
   z-index: 1;
-  top:  rem(24);
-  left:  rem(24);
+  top: rem(24);
+  left: rem(24);
   @include mq("md") {
+    position: relative;
     width: 50%;
+    left: 0;
   }
 }
 
@@ -92,6 +94,7 @@
   font-size: rem(40);
   line-height: 1;
   color: $white;
+  font-weight: $regular;
   @include mq("md") {
     font-size: rem(80);
     line-height: calc(10 / 8);
@@ -102,7 +105,7 @@
   margin-top: rem(16);
   @include mq("md") {
     width: 50%;
-    margin-top: 0;
+    margin-top: rem(47);
   }
 }
 
@@ -116,12 +119,9 @@
   }
 }
 
-.sub-aboutus-top__button-wrapper {
-  margin-right: rem(17.6);
-  margin-top: rem(24);
-  text-align: center;
+.sub-aboutus-gallery__gallery-grid {
+  margin-top: rem(42);
   @include mq("md") {
-    margin-top: rem(38);
-    margin-right: rem(4);
+    margin-top:  rem(80);
   }
 }

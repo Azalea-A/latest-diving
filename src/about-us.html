@@ -200,9 +200,6 @@
                     </div>
                     <div class="sub-aboutus-top__content-wrapper">
                       <p class="sub-aboutus-top__text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-                      <div class="sub-aboutus-top__button-wrapper">
-                        <a href="#" class="button"><span class="button__span">View more</span></a>
-                      </div>
                     </div>
                 </div>
               </div>
@@ -215,13 +212,14 @@
           </div>
           <div class="sub-aboutus-gallery__gallery-grid gallery-grid">
             <div class="sub-aboutus-top__inner inner">
+              <!--1つ目のコンテナ -->
               <div class="gallery-grid__container">
                 <div class="gallery-grid__grid-item gallery-grid__grid-item--vertical">
                   <div class="gallery-grid__modal-open gallery-grid__modal-open--vertical js-modal-open">
                     <img src="./assets/images/common/top-price-pc.jpg" alt="深海と魚たちの写真">
                   </div>
                   <div class="modal js-modal">
-                    <div class="modal__body">
+                    <div class="modal__body modal__body--vertical">
                       <span class="modal__close-button js-modal__close"></span>
                       <div class="modal__content js-modal__content">
                         <div class="modal__img-wrap">
@@ -233,11 +231,11 @@
                 </div>
                 <!-- 2枚目 -->
                 <div class="gallery-grid__grid-item gallery-grid__grid-item--horizontal-top">
-                  <div class="js-modal-open">
+                  <div class="gallery-grid__modal-open gallery-grid__modal-open--horizontal js-modal-open">
                     <img src="./assets/images/common/campaign02.jpg" alt="キャンペーンの写真2">
                   </div>
                   <div class="modal js-modal">
-                    <div class="modal__body">
+                    <div class="modal__body modal__body--horizontal">
                       <span class="modal__close-button js-modal__close"></span>
                       <div class="modal__content js-modal__content">
                         <div class="modal__img-wrap">
@@ -249,11 +247,11 @@
                 </div>
                 <!-- 3枚目 -->
                 <div class="gallery-grid__grid-item gallery-grid__grid-item--horizontal-bottom">
-                  <div class="js-modal-open">
+                  <div class="gallery-grid__modal-open gallery-grid__modal-open--horizontal js-modal-open">
                     <img src="./assets/images/common/info-trial-diving.jpg" alt="青と黄色の魚">
                   </div>
                   <div class="modal js-modal">
-                    <div class="modal__body">
+                    <div class="modal__body modal__body--horizontal">
                       <span class="modal__close-button js-modal__close"></span>
                       <div class="modal__content js-modal__content">
                         <div class="modal__img-wrap">
@@ -265,16 +263,60 @@
                 </div>
               </div><!-- gallery-grid__container -->
               <!-- 2つ目のコンテナ -->
-              <div class="gallery-grid__container">
-                <div class="gallery-grid__grid-item image4">
-                  <img src="./assets/images/common/blog04.jpg" alt="黄色の魚の写真">
+              <div class="gallery-grid__container gallery-grid__container02">
+                <div class="gallery-grid__grid-item gallery-grid__grid-item--vertical">
+                  <div class="gallery-grid__modal-open gallery-grid__modal-open--vertical js-modal-open">
+                    <img src="./assets/images/common/gallery06.jpg" alt="深海と魚たちの写真">
+                  </div>
+                  <div class="modal js-modal">
+                    <div class="modal__body modal__body--vertical">
+                      <span class="modal__close-button js-modal__close"></span>
+                      <div class="modal__content js-modal__content">
+                        <div class="modal__img-wrap">
+                          <img src="./assets/images/common/gallery06.jpg" alt="深海と魚たちの写真" class="modal__img modal__img--vertical">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
+                <!-- 2枚目 -->
+                <div class="gallery-grid__grid-item gallery-grid__grid-item--horizontal-top">
+                  <div class="gallery-grid__modal-open gallery-grid__modal-open--horizontal js-modal-open">
+                    <img src="./assets/images/common/blog04.jpg" alt="ブログの写真">
+                  </div>
+                  <div class="modal js-modal">
+                    <div class="modal__body modal__body--horizontal">
+                      <span class="modal__close-button js-modal__close"></span>
+                      <div class="modal__content js-modal__content">
+                        <div class="modal__img-wrap">
+                          <img src="./assets/images/common/blog04.jpg" alt="ブログの写真" class="modal__img modal__img--horizontal">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 3枚目 -->
+                <div class="gallery-grid__grid-item gallery-grid__grid-item--horizontal-bottom">
+                  <div class="gallery-grid__modal-open gallery-grid__modal-open--horizontal js-modal-open">
+                    <img src="./assets/images/common/info-fundiving.jpg" alt="ファンダイビングの写真">
+                  </div>
+                  <div class="modal js-modal">
+                    <div class="modal__body modal__body--horizontal">
+                      <span class="modal__close-button js-modal__close"></span>
+                      <div class="modal__content js-modal__content">
+                        <div class="modal__img-wrap">
+                          <img src="./assets/images/common/info-fundiving.jpg" alt="ファンダイビングの写真"  class="modal__img modal__img--horizontal">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- gallery-grid__container -->
             </div>
           </div>
         </section>
          <!-- shop infoとcontact -->
-        <section class="page-about-us__shopInfo-contact-section shopInfo-contact">
+        <section class="page-aboutus__shopInfo-contact-section shopInfo-contact">
           <div class="shopInfo-contact__inner inner">
             <div class="shopInfo-contact__container">
               <div class="shopInfo-contact__shop-info shop-info">
