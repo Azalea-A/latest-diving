@@ -6,3 +6,10 @@
     margin-top: rem(150);
   }
 }
+
+.page-privacy-policy__shopInfo-contact-section {
+  margin-top: rem(80);
+  @include mq("md") {
+    margin-top: rem(139.2);
+  }
+}

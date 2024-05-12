@@ -1,6 +1,5 @@
 @use "global" as *;
 
-
 .privacy-policy__heading {
   font-size: rem(24);
   font-weight: $medium;
@@ -11,11 +10,51 @@
 
 .privacy-policy__body {
   margin-top: rem(40);
-  line-height: 1.5;
+  line-height: 2;
+  @include mq("md") {
+    margin-top: rem(38.4);
+  }
+}
+
+.privacy-policy__items,
+.privacy-policy__items02 {
+  list-style-type: decimal;
+  list-style-position: inside;
+  padding-left: rem(6);
+}
+
+.privacy-policy__items {
+  margin-top: rem(28.8);
+  @include mq("md") {
+    margin-top: rem(32);
+  }
+}
+
+.privacy-policy__items02 {
+  margin-top: rem(0);
+}
+
+.privacy-policy__item {
+  text-indent: -1em;
+  padding-left: 1em;
+}
+
+.privacy-policy__topic {
+  margin-top: rem(32);
   @include mq("md") {
   }
 }
 
-.privacy-policy__items {
-  margin-top: rem(20);
+.privacy-policy__sub-items {
+  margin-top: rem(32);
+  text-indent: 0;
+  margin-left: rem(-22.4);
+  @include mq("md") {
+  }
+}
+
+.privacy-policy__sub-item {
+  display: inline;
+  text-indent: 0;
+  padding-left: 0;
 }

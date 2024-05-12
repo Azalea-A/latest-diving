@@ -27,21 +27,23 @@
   padding-left: 1.4em;
   line-height: 2;
   @include mq("md") {
-    margin-top: rem(36);
+    margin-top: rem(32);
   }
 }
 
 .terms-of-service__items:nth-child(2) {
-  margin-top: rem(30);
+  margin-top: rem(32);
 }
 
 .terms-of-service__sub-items {
-  width: 100%;
+  text-indent: 0;
+  margin-left: rem(-22.4);
 }
 
 .terms-of-service__sub-item {
-  // text-indent: 0;
-  // padding-left: 0;
+  display: inline;
+  text-indent: 0;
+  padding-left: 0;
 }
 
 .terms-of-service__text {
