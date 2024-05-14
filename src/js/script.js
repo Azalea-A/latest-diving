@@ -126,10 +126,12 @@ $(function () {
 });
 
 //下層information page タブ
-  $(function () {
-    const informationTabButton = $(".js-information-tab-button"),
-      informationTabContent = $(".js-information-tab-content");
-      informationTabButton.on("click", function () {
+  $(function() {
+    const informationTabButton = $(".js-information-tab-link"),
+          informationTabContent = $(".js-information-tab-content");
+
+    // クリックイベントを設定
+    informationTabButton.on("click", function() {
       let index = informationTabButton.index(this);
 
       informationTabButton.removeClass("is-active");
@@ -137,7 +139,27 @@ $(function () {
       informationTabContent.removeClass("is-active");
       informationTabContent.eq(index).addClass("is-active");
     });
-  });
+  //ここまでタブを動かすための記述
+  // ページロード時の処理
+  function activateTabFromHash() {
+    const hash = window.location.hash; // URLからハッシュ値を取得
+    if (hash) {
+      const targetButton = $(`.js-information-tab-link[href='${hash}']`);
+      if (targetButton.length) {
+        targetButton.click(); // ハッシュと一致するタブをクリック
+      } else {
+        // ハッシュに一致するタブがない場合、デフォルトのタブをアクティブにする
+        informationTabButton.first().click();
+      }
+    } else {
+      // ハッシュがない場合、デフォルトのタブをアクティブにする
+      informationTabButton.first().click();
+    }
+  }
+  // ページロード時に実行
+  $(window).on('load', activateTabFromHash);
+});
+
 
   //FAQアコーディオン
   $(function () {
@@ -182,7 +204,6 @@ $(function () {
         currentModal.addClass("is-open");
       }
     });
-  
     // 閉じるボタンをクリックしたらモーダルを閉じる
     close.add(modal).on("click", function () {
       const currentModal = $(this).closest(".js-modal"); // クリックされたボタンに最も近いモーダルを取得

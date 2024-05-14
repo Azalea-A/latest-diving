@@ -6,3 +6,9 @@
     margin-top: rem(136);
   }
 }
+
+.page-contact--not-filled-in {
+  @include mq("md") {
+    margin-top:  rem(147.2);
+  }
+}
