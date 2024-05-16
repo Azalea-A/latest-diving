@@ -18,7 +18,7 @@
   width: calc(100% - rem(40) / 3);
   background-color: $light-blue;
   color: $main-blue;
-  box-shadow: 0 rem(2) rem(10) 0 rgba(0, 0, 0, 0.25);
+  box-shadow: rem(2) rem(2) rem(4) 0 rgba(0, 0, 0, 0.25);
   height: rem(60);
   cursor: pointer;
   font-size: rem(14);
@@ -49,6 +49,7 @@
 .information-tab__link.is-active {
   color: $white;
   background-color: $main-blue;
+  box-shadow: rem(4) rem(4) rem(8) 0 rgba(0, 0, 0, 0.25);
 }
 
 .information-tab__list:nth-child(2) .information-tab__link {
@@ -103,7 +104,7 @@
 //ここからタブの中身
 .information-tab__contents {
   width: 100%;
-  margin-top: rem(12.8);
+  margin-top: rem(16);
   @include mq("md") {
     margin-top: rem(24);
   }
@@ -112,7 +113,7 @@
 .information-tab__content {
   width: 100%;
   border: rem(1) solid $main-blue;
-  padding: rem(24.8) rem(24);
+  padding: rem(24.8) rem(24) rem(24);
   display: none;
   @include mq("md") {
     padding-top: rem(24);
@@ -123,7 +124,6 @@
 .information-tab__content.is-active {
   display: block;
 }
-
 
 .information-tab__content-inner {
   @include mq("md") {
@@ -143,7 +143,7 @@
   font-weight: $bold;
   font-size: rem(24);
   border-bottom: rem(1) solid $main-blue;
-  padding-bottom: rem(8);
+  padding-bottom: rem(4.8);
   line-height: 1;
   @include mq("md") {
     font-weight: $medium;

@@ -24,6 +24,10 @@ body {
   font-family: $japanese-font-family01;
   color: #0d2936;
 }
+//コンタクトフォーム、edgeとsafariのスマホで文字が青くなるのを防ぐ
+select {
+  color: #0d2936;
+}
 
 // フォントウェイト
 $regular: 300;

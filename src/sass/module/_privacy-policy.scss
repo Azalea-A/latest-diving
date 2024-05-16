@@ -16,8 +16,7 @@
   }
 }
 
-.privacy-policy__items,
-.privacy-policy__items02 {
+.privacy-policy__items {
   list-style-type: decimal;
   list-style-position: inside;
   padding-left: rem(6);
@@ -29,8 +28,7 @@
     margin-top: rem(32);
   }
 }
-
-.privacy-policy__items02 {
+.privacy-policy__items.privacy-policy__items--items02 {
   margin-top: rem(0);
 }
 

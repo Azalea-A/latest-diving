@@ -1,8 +1,0 @@
-@use "global" as *;
-
-.campaign-page__sub-fv {
-  background-image: url(../images/common/sub-campaign-sp-top.jpg);
-  @include mq("md") {
-    background-image: url(../images/common/sub-campaign-pc-top.jpg);
-  }
-}

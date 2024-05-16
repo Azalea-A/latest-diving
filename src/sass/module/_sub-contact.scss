@@ -10,6 +10,8 @@
 
 .sub-contact__form {
   width: 100%;
+  position: relative;
+  z-index: 1;
   @include mq(md) {
     width: rem(700);
     margin-inline: auto;

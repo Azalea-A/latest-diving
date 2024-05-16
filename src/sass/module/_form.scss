@@ -43,6 +43,12 @@
   }
 }
 
+.form__wrap--textarea {
+  @include mq("md") {
+    padding-bottom: rem(19.2);
+  }
+}
+
 .form__wrap + .form__wrap {
   margin-top: rem(16);
   border-top: rem(1) dashed $main-blue;

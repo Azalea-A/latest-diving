@@ -16,7 +16,7 @@
   position: relative;
 }
 
-.sub-fv_title {
+.sub-fv__title {
   text-align: center;
   font-family: $english-font-family01;
   font-weight: $normal;
@@ -36,7 +36,7 @@
   }
 }
 
-.sub-fv_title--upper-case {
+.sub-fv__title--upper-case {
   text-transform: uppercase;
 }
 
@@ -65,9 +65,9 @@
 }
 
 .sub-fv--information {
-  background-image: url(../images/common/sub-Information-sp-top.jpg);
+  background-image: url(../images/common/sub-information-sp-top.jpg);
   @include mq("md") {
-    background-image: url(../images/common/sub-Information-pc-top.jpg);
+    background-image: url(../images/common/sub-information-pc-top.jpg);
   }
 }
 
