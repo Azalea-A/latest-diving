@@ -80,13 +80,13 @@
                       <a href="information.html">ダイビング情報</a>
                       <ul class="global-navigation__sub-items">
                         <li class="global-navigation__sub-item">
-                          <a href="information.html#info-license">ライセンス講習</a>
+                          <a href="information.html?tab=1">ライセンス講習</a>
                         </li>
                         <li class="global-navigation__sub-item">
-                           <a href="information.html#info-trial">体験ダイビング</a>
+                           <a href="information.html?tab=3">体験ダイビング</a>
                         </li>
                         <li class="global-navigation__sub-item">
-                           <a href="information.html#info-fun">ファンダイビング</a>
+                           <a href="information.html?tab=2">ファンダイビング</a>
                         </li>
                       </ul>
                     </li>
@@ -162,7 +162,7 @@
         </div>
       </div>
     </header>
-
+    <main class="main sub-top-fish">
       <!-- fv -->
       <div class="sub-fv sub-fv--blog">
         <div class="sub-fv__inner">
@@ -177,10 +177,10 @@
         </div>
       </div>
       <!-- 全体のコンテナー -->
-      <div class="page-single-blog sub-single-blog">
-        <div class="sub-single-blog__inner inner">
-          <main class="main sub-single-blog__main sub-top-fish sub-top-fish--aside">
-            <div class="sub-single-blog__body single-body">
+      <div class="page-blog sub-blog">
+        <div class="sub-blog__inner inner sub-blog__flex">
+          <div class="sub-blog__main">
+            <div class="sub-blog__body single-body">
               <div class="single-body__meta"><time datetime="2023-11-17">2023.11/17</time></div>
               <div class="single-body__title">
                 <h1>ライセンス取得</h1>
@@ -203,7 +203,7 @@
               </div>
             </div>
             <!-- ページネーション -->
-            <div class="sub-single-blog__pagenavi pagenavi">
+            <div class="sub-blog__pagenavi--single pagenavi">
               <div class="pagenavi__inner">
                 <!-- WP-PageNaviで出力される部分 ここから -->
                 <div class='wp-pagenavi' role='navigation'>
@@ -213,10 +213,10 @@
                 <!-- WP-PageNaviで出力される部分 ここまで -->
               </div>
             </div>
-          </main>
-          <aside class="sub-single-blog__aside aside">
+          </div>
+          <aside class="sub-blog__aside aside">
             <section class="aside__popular-articles-wrap">
-              <h3 class="aside__heading"><span class="aside__heading-span">人気記事</span></h3>
+              <h2 class="aside__heading"><span class="aside__heading-span">人気記事</span></h2>
               <div class="aside__popular-articles aside-popular-article">
                 <ul class="aside-popular-article__items">
                   <li class="aside-popular-article__item">
@@ -226,7 +226,7 @@
                       </div>
                       <div class="aside-popular-article__body">
                         <time class="aside-popular-article__date" datetime="2023-11-17">2023.11/17</time>
-                        <h4 class="aside-popular-article__title">ライセンス取得</h4>
+                        <h3 class="aside-popular-article__title">ライセンス取得</h3>
                       </div>
                     </a>
                   </li>
@@ -237,7 +237,7 @@
                       </div>
                       <div class="aside-popular-article__body">
                         <time class="aside-popular-article__date" datetime="2023-11-17">2023.11/17</time>
-                        <h4 class="aside-popular-article__title">ウミガメと泳ぐ</h4>
+                        <h3 class="aside-popular-article__title">ウミガメと泳ぐ</h3>
                       </div>
                     </a>
                   </li>
@@ -248,7 +248,7 @@
                       </div>
                       <div class="aside-popular-article__body">
                         <time class="aside-popular-article__date" datetime="2023-11-17">2023.11/17</time>
-                        <h4 class="aside-popular-article__title">カクレクマノミ</h4>
+                        <h3 class="aside-popular-article__title">カクレクマノミ</h3>
                       </div>
                     </a>
                   </li>
@@ -256,7 +256,7 @@
             </div>
             </section>
             <section class="aside__voice-wrap">
-              <h3 class="aside__heading"><span class="aside__heading-span">口コミ</span></h3>
+              <h2 class="aside__heading"><span class="aside__heading-span">口コミ</span></h2>
               <div class="aside__voice-content aside-voice">
                 <div class="aside-voice__image">
                   <img src="./assets/images/common/aside-voice.jpg" alt="お客様の写真" loading="lazy" decoding="async">
@@ -273,7 +273,7 @@
               </div>
             </section>
             <section class="aside__campaign-wrap">
-              <h3 class="aside__heading"><span class="aside__heading-span">キャンペーン</span></h3>
+              <h2 class="aside__heading"><span class="aside__heading-span">キャンペーン</span></h2>
               <div class="aside__campaign-content aside-campaign">
                 <ul class="aside-campaign__items">
                   <li class="aside-campaign__item">
@@ -321,7 +321,7 @@
               </div>
             </section>
             <section class="aside__archive-wrap">
-              <h3 class="aside__heading"><span class="aside__heading-span">アーカイブ</span></h3>
+              <h2 class="aside__heading"><span class="aside__heading-span">アーカイブ</span></h2>
               <div class="aside__archive aside-archive js-aside-archive">
                   <ul class="aside-archive__container">
                     <li class="aside-archive__item js-aside-archive__item">
@@ -350,7 +350,7 @@
           </aside>
         </div>
         <!-- shop infoとcontact -->
-        <section class="page-single-blog__shopInfo-contact-section shopInfo-contact">
+        <section class="page-single-blog-shopInfo-contact-section shopInfo-contact">
           <div class="shopInfo-contact__inner inner">
             <div class="shopInfo-contact__container">
               <div class="shopInfo-contact__shop-info shop-info">
@@ -395,6 +395,7 @@
           </div>
         </section>
     </div><!-- inner -->
+    </main>
     <footer class="footer">
       <div class="footer__inner inner">
         <div class="footer__top">
@@ -436,13 +437,13 @@
                 <a href="information.html">ダイビング情報</a>
                 <ul class="global-navigation__sub-items">
                   <li class="global-navigation__sub-item">
-                    <a href="information.html#info-license">ライセンス講習</a>
+                    <a href="information.html?tab=1">ライセンス講習</a>
                   </li>
                   <li class="global-navigation__sub-item">
-                     <a href="information.html#info-trial">体験ダイビング</a>
+                     <a href="information.html?tab=3">体験ダイビング</a>
                   </li>
                   <li class="global-navigation__sub-item">
-                     <a href="information.html#info-fun">ファンダイビング</a>
+                     <a href="information.html?tab=2">ファンダイビング</a>
                   </li>
                 </ul>
               </li>

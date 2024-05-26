@@ -1,1 +1,9 @@
 @use "global" as *;
+
+.sub-faq__inner.inner {
+  width: 100%;
+  @include mq("md") {
+    width: rem(750);
+    margin-inline: auto;
+  }
+}

@@ -1,6 +1,5 @@
 @use "global" as *;
 
-
 .not-found {
   background-color: $main-blue;
   padding-top: rem(80);
@@ -10,6 +9,8 @@
 }
 
 .not-found__content-wrapper {
+  position: relative;
+  z-index: 1;
   padding: rem(60) 0 rem(40);
   @include mq("md") {
     padding: rem(132) 0 rem(144);

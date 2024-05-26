@@ -8,8 +8,8 @@
   row-gap: rem(17.6);
   flex-wrap: wrap;
   @include mq("md") {
-    flex-wrap: nowrap;
-    gap: 0;
+    column-gap: rem(32);
+    row-gap: rem(20);
   }
 }
 
@@ -32,12 +32,6 @@
   background-color: $main-blue;
   color: $white;
   transition: 0.3s background-color;
-}
-
-.category-tab__list:not(:first-child) {
-  @include mq("md") {
-    margin-left: rem(32);
-  }
 }
 
 .category-tab__items {

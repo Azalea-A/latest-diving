@@ -8,7 +8,7 @@
   }
 }
 
-.sub-single-blog__pagenavi .pagenavi__inner {
+.sub-blog__pagenavi--single .pagenavi__inner {
   width: rem(158);
   margin-inline: auto;
 }
@@ -21,7 +21,7 @@
   align-items: center;
 }
 
-.sub-single-blog__pagenavi .wp-pagenavi {
+.sub-blog__pagenavi--single .wp-pagenavi {
   justify-content: space-between;
 }
 
@@ -41,11 +41,11 @@
   margin-left: rem(33.6);
 }
 
-.sub-single-blog__pagenavi .wp-pagenavi .previouspostslink {
+.sub-blog__pagenavi--single .wp-pagenavi .previouspostslink {
   margin-right: 0;
 }
 
-.sub-single-blog__pagenavi .wp-pagenavi .nextpostslink {
+.sub-blog__pagenavi--single .wp-pagenavi .nextpostslink {
   margin-left: 0;
 }
 
@@ -57,6 +57,14 @@
   width: rem(9.5); /*線の横の長さ*/
   height: rem(9.5); /*線の縦の長さ*/
   color: $main-blue; /*線の色*/
+}
+
+.previouspostslink:hover::before {
+  color: $white;
+}
+
+.nextpostslink:hover::before {
+  color: $white;
 }
 
 .wp-pagenavi .previouspostslink::before {
@@ -96,7 +104,6 @@
 .wp-pagenavi a:hover {
   color: $white;
   background-color: $main-blue;
-  border-color: $main-blue;
   opacity: 1;
 }
 

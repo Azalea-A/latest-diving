@@ -21,11 +21,3 @@
     left: calc(50% - min(48.7vw, rem(620)));
   }
 }
-
-.sub-top-fish--aside.sub-top-fish::after {
-  top: rem(-25.6);
-  @include mq("md") {
-    left: calc(50% - min(30.7vw, rem(435)));
-    top: rem(-67.2);
-  }
-}

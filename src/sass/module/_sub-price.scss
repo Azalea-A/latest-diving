@@ -1,87 +1,8 @@
 @use "global" as *;
 
-.sub-price {
-}
-
-.sub-price__table-block {
+.sub-price__inner.inner {
   @include mq("md") {
-    width: rem(700);
+    width: rem(750);
     margin-inline: auto;
-    position: relative;
-  }
-}
-
-.sub-price__table-heading {
-  width: 100%;
-  background-color: $main-blue;
-  text-align: center;
-  padding-bottom: rem(3.2);
-  @include mq("md") {
-    width: rem(200);
-  }
-}
-
-.sub-price__table-heading-span {
-  display: inline-block;
-  padding-left: rem(26);
-  color: $white;
-  font-size: rem(16);
-  font-weight: $bold;
-  position: relative;
-  @include mq("md") {
-    padding-left: 0;
-    position: absolute;
-    white-space: nowrap;
-    top: 36%;
-    left: rem(100);
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-  }
-}
-
-.sub-price__table-heading-span--line3 {
-  @include mq("md") {
-    top: 30%;
-  }
-}
-
-.sub-price__table-heading-span::before {
-  content: "";
-  display: block;
-  width: rem(24);
-  height: rem(24);
-  background-image: url(../images/common/whale-icon-white.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  position: absolute;
-  top: 0;
-  left: rem(-6.4);
-  @include mq("md") {
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    width: rem(64);
-    height: rem(64);
-    margin-top: rem(64);
-  }
-}
-
-.sub-price__table-container {
-}
-
-.sub-price__table-block {
-  @include mq("md") {
-    display: flex;
-  }
-}
-
-.sub-price__table-block:not(:first-child) {
-  margin-top: rem(40);
-  @include mq("md") {
-    margin-top: rem(80);
   }
 }

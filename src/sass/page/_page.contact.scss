@@ -3,12 +3,12 @@
 .page-contact {
   margin-top: rem(51.2);
   @include mq("md") {
-    margin-top: rem(136);
+    margin-top: rem(148.8);
   }
 }
 
 .page-contact--not-filled-in {
   @include mq("md") {
-    margin-top:  rem(147.2);
+    margin-top: rem(147.2);
   }
 }

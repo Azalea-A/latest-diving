@@ -1,0 +1,108 @@
+@use "global" as *;
+
+.table-block {
+  width: 100%;
+  position: relative;
+  @include mq("md") {
+    display: flex;
+  }
+}
+
+.table-block__heading {
+  width: 100%;
+  background-color: $main-blue;
+  text-align: center;
+  padding-bottom: rem(3.2);
+  @include mq("md") {
+    width: 28.57%;
+  }
+}
+
+.table-block__heading-span {
+  display: inline-block;
+  padding-left: rem(26);
+  color: $white;
+  font-size: rem(16);
+  font-weight: $bold;
+  position: relative;
+  @include mq("md") {
+    padding-left: 0;
+    position: absolute;
+    white-space: nowrap;
+    top: 36%;
+    left: rem(100);
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+}
+
+.table-block__heading-span--line3 {
+  @include mq("md") {
+    top: 30%;
+  }
+}
+
+.table-block__heading-span::before {
+  content: "";
+  display: block;
+  width: rem(24);
+  height: rem(24);
+  background-image: url(../images/common/whale-icon-white.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  left: rem(-6.4);
+  @include mq("md") {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    width: rem(64);
+    height: rem(64);
+    margin-top: rem(64);
+  }
+}
+
+.table-block:not(:first-child) {
+  margin-top: rem(40);
+  @include mq("md") {
+    margin-top: rem(80);
+  }
+}
+
+//ここからテーブル
+.table-block__table {
+  width: 100%;
+  border-collapse: collapse;
+  @include mq("md") {
+    flex: 1;
+  }
+}
+
+.table-block__table-data {
+  border: rem(1) solid $main-blue;
+  line-height: calc(24 / 16);
+  height: rem(60);
+  @include mq("md") {
+    height: rem(59);
+  }
+}
+
+.table-block__table-data:first-child {
+  width: 69.4%;
+  text-align: center;
+  @include mq("md") {
+    width: 67%;
+    text-align: left;
+    padding-left: rem(16);
+  }
+}
+
+.table-block__table-data:nth-child(2) {
+  text-align: right;
+  padding-right: rem(16);
+}

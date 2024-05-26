@@ -1,6 +1,6 @@
 @use "global" as *;
 
-.sub-blog__inner {
+.sub-blog__flex {
   @include mq("md") {
     display: flex;
     gap: 7.5%;
@@ -9,6 +9,8 @@
 
 .sub-blog__main {
   width: 100%;
+  position: relative;
+  z-index: 1;
   @include mq("md") {
     width: 65.37%;
   }

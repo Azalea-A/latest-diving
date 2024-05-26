@@ -3,14 +3,6 @@
 .accordion {
 }
 
-.accordion__container {
-  width: 100%;
-  @include mq("md") {
-    width: rem(700);
-    margin-inline: auto;
-  }
-}
-
 .accordion__item:not(:first-child) {
   margin-top: rem(40);
   @include mq("md") {
@@ -46,19 +38,23 @@
 }
 
 .accordion__title::before {
-  transform: rotate(90deg);
-}
-
-.accordion__title.is-open::before {
   transform: rotate(180deg);
 }
 
-.accordion__title.is-open::after {
+.accordion__title::after {
   opacity: 0;
 }
 
+.accordion__title.is-closed::before {
+  transform: rotate(90deg);
+}
+
+.accordion__title.is-closed::after {
+  opacity: 1;
+}
+
 .accordion__content {
-  display: none;
+  display: block;
   padding: rem(20.8) rem(16) rem(19.2);
   border-right: rem(1) solid $main-blue;
   border-bottom: rem(1) solid $main-blue;

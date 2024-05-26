@@ -1,0 +1,8 @@
+@use "global" as *;
+
+.sub-aboutus-gallery__inner.inner {
+  @include mq("md") {
+    max-width: rem(1130);
+    width: 100%;
+  }
+}

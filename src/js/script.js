@@ -1,7 +1,9 @@
 
 jQuery(function ($) { // この中であればWordpressでも「$」が使用可能になる
 
-     // ハンバーガー
+       /* ========================================
+  // ハンバーガー
+  ======================================== */
     $(function () {
       // ハンバーガーメニュー
       $(".js-hamburger,.js-drawer a").click(function () {
@@ -16,7 +18,9 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
       });
       });
 
-    //fvスライダー
+     /* ========================================
+  //fvスライダー
+  ======================================== */
     const swiper1 = new Swiper(".js-fvSwiper", {
       loop: true,
       effect: "fade",
@@ -27,7 +31,9 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
       },
     });
 
-    //topページ campaignのswiper
+      /* ========================================
+  // topページ campaignのswiper
+  ======================================== */
     const swiper2 = new Swiper(".js-topCampaignSwiper", {
       slidesPerView: "auto",
       loop: true,
@@ -51,7 +57,9 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
     },
     });
 
-    //chat GPT topへ戻る
+      /* ========================================
+  // topへ戻る
+  ======================================== */
     $(document).ready(function () {
       const pagetop = $(".js-toTop");
       const footer = $(".footer");
@@ -87,7 +95,9 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
       });
     });
 
-  //information, voice, priceの画像のエフェクト
+    /* ========================================
+  //informationなど画像のエフェクト
+  ======================================== */
   var box = $('.color-box'),
   speed = 700;
   //↑要素の取得とスピードの設定
@@ -112,9 +122,12 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
       }
     });
   });
-
-//ここから下層ページ
-//下層campaign page タブ
+  /* ========================================
+  // ここから下層
+  ======================================== */
+  /* ========================================
+  // 下層campaign/voice page タブ
+  ======================================== */
 $(function () {
   $(".js-category-tab-container.is-active").css("display", "block");
   $(".js-category-tab").on("click", function () {
@@ -125,56 +138,53 @@ $(function () {
   });
 });
 
-//下層information page タブ
-  $(function() {
-    const informationTabButton = $(".js-information-tab-link"),
-          informationTabContent = $(".js-information-tab-content");
-
-    // クリックイベントを設定
-    informationTabButton.on("click", function() {
-      let index = informationTabButton.index(this);
-
-      informationTabButton.removeClass("is-active");
-      $(this).addClass("is-active");
-      informationTabContent.removeClass("is-active");
-      informationTabContent.eq(index).addClass("is-active");
+ /* ========================================
+  //インフォメーションのタブ
+  ======================================== */
+  $(function () {
+    // タブをクリックしたときの処理
+    $(".js-information-tab-link").on("click", function (event) {
+        event.preventDefault();
+        var index = $(this).parent().index();
+        showTab(index);
     });
-  //ここまでタブを動かすための記述
-  // ページロード時の処理
-  function activateTabFromHash() {
-    const hash = window.location.hash; // URLからハッシュ値を取得
-    if (hash) {
-      const targetButton = $(`.js-information-tab-link[href='${hash}']`);
-      if (targetButton.length) {
-        targetButton.click(); // ハッシュと一致するタブをクリック
-      } else {
-        // ハッシュに一致するタブがない場合、デフォルトのタブをアクティブにする
-        informationTabButton.first().click();
-      }
-    } else {
-      // ハッシュがない場合、デフォルトのタブをアクティブにする
-      informationTabButton.first().click();
+
+    // タブを表示する関数
+    function showTab(index) {
+        $(".js-information-tab-content").hide().eq(index).show();
+        $(".js-information-tab-link").removeClass("is-active").eq(index).addClass("is-active");
     }
-  }
-  // ページロード時に実行
-  $(window).on('load', activateTabFromHash);
+
+    // 初期状態では最初のタブを表示
+    showTab(0);
+
+    // URLパラメータからタブを指定する
+    var urlParams = new URLSearchParams(window.location.search);
+    var tabParam = urlParams.get('tab');
+    if (tabParam) {
+        var tabIndex = parseInt(tabParam, 10) - 1; // インデックスは0から始まるので-1する
+        if (tabIndex >= 0 && tabIndex < $(".js-information-tab-link").length) {
+            showTab(tabIndex);
+        }
+    }
+});
+
+  /* ========================================
+  //FAQアコーディオン
+  ======================================== */
+  $(function () {
+    // 初期状態でアコーディオンを全て開ける
+    $(".js-accordion__item .js-accordion__content").css("display", "block");
+    $(".js-accordion__item .js-accordion__title").addClass("is-open");
+
+    // クリックしたら開閉する
+    $(".js-accordion__title").on("click", function () {
+        $(this).toggleClass("is-open is-closed");
+        $(this).next(".js-accordion__content").slideToggle(300);
+    });
 });
 
 
-  //FAQアコーディオン
-  $(function () {
-    $(".js-accordion__item .js-accordion__content").css(
-      "display",
-      "block"
-    );
-    $(".js-accordion__item .js-accordion__title").addClass(
-      "is-open"
-    );
-    $(".js-accordion__title").on("click", function () {
-      $(this).toggleClass("is-open");
-      $(this).next().slideToggle(300);
-    });
-  });
 
   //asideのarchive
   $(function () {
@@ -191,25 +201,33 @@ $(function () {
     });
   });
 
-  //about us ページギャラリーのモーダル
-  $(function () {
-    const open = $(".js-modal-open"),
-      close = $(".js-modal__close"),
-      modal = $(".js-modal");
-  
-    // 開くボタンをクリックしたらモーダルを表示する
-    open.on("click", function () {
-      const currentModal = $(this).closest(".gallery-grid__grid-item").find(".js-modal"); // クリックされたボタンに最も近いモーダルを取得
-      if ($(window).width() >= 768) { // PCサイズの場合のみモーダルを開く
-        currentModal.addClass("is-open");
+    /* ========================================
+  // モーダル（ギャラリー）
+  ======================================== */
+  function galleryModal() {
+    var windowSize = $(window).width();
+    var modalImage = $(".js-modal-img img");
+    var modal = $(".js-modal");
+    modalImage.click(function () {
+      if (windowSize < 768) {
+        return false;
+      } else {
+        // modal内に画像を複製して表示(背景をスクロール不可)
+        modal.html($(this).prop("outerHTML"));
+        modal.fadeIn();
+        $("html,body").css("overflow", "hidden");
+        return false;
       }
     });
-    // 閉じるボタンをクリックしたらモーダルを閉じる
-    close.add(modal).on("click", function () {
-      const currentModal = $(this).closest(".js-modal"); // クリックされたボタンに最も近いモーダルを取得
-      currentModal.removeClass("is-open");
-    });
-});
 
+    // モーダル画像を非表示（背景をスクロール可）
+    modal.click(function () {
+      modal.fadeOut();
+      $("html,body").css("overflow", "auto");
+      return false;
+    });
+  }
+  galleryModal();
+  
 
 }); //js全体の締め

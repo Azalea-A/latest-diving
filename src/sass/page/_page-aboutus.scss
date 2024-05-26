@@ -7,7 +7,7 @@
   }
 }
 
-.page-aboutus__sub-aboutus-gallery {
+.page-aboutus-gallery {
   margin-top: rem(32);
   @include mq("md") {
     margin-top: rem(108);
@@ -15,7 +15,7 @@
   }
 }
 
-.page-aboutus__sub-aboutus-gallery::before {
+.page-aboutus-gallery::before {
   @include mq("md") {
     display: block;
     content: "";
@@ -30,7 +30,7 @@
   }
 }
 
-.page-aboutus__shopInfo-contact-section {
+.page-aboutus-shopInfo-contact-section {
   margin-top: rem(104);
   @include mq("md") {
     margin-top: rem(140.8);
