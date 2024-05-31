@@ -40,13 +40,15 @@
   }
 }
 
-.information-tab__list:nth-child(1) .information-tab__link.is-active {
+.information-tab__list:nth-child(1) .information-tab__link.is-active,
+.information-tab__list:nth-child(1) .information-tab__link:hover {
   @include mq("md") {
     background-image: url(../images/common/whale-icon-white.svg);
   }
 }
 
-.information-tab__link.is-active {
+.information-tab__link.is-active,
+.information-tab__link:hover {
   color: $white;
   background-color: $main-blue;
   box-shadow: rem(4) rem(4) rem(8) 0 rgba(0, 0, 0, 0.25);
@@ -62,7 +64,8 @@
   }
 }
 
-.information-tab__list:nth-child(2) .information-tab__link.is-active {
+.information-tab__list:nth-child(2) .information-tab__link.is-active,
+.information-tab__list:nth-child(2) .information-tab__link:hover {
   @include mq("md") {
     background-image: url(../images/common/killer-whale-icon-white.svg);
   }
@@ -78,7 +81,8 @@
   }
 }
 
-.information-tab__list:nth-child(3) .information-tab__link.is-active {
+.information-tab__list:nth-child(3) .information-tab__link.is-active,
+.information-tab__list:nth-child(3) .information-tab__link:hover {
   @include mq("md") {
     background-image: url(../../assets/images/common/fish-icon-white.svg);
   }
