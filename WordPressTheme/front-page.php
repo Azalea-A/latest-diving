@@ -1,183 +1,460 @@
 <?php get_header(); ?>
 
-<section class="l-mv p-mv js-mv-height">
-  <div class="p-mv__inner">
-    <div class="p-mv__header">
-      <h2 class="p-mv__title">WEB <br class="u-mobile">DESIGN <br class="u-mobile">SPECIALIST</h2>
-      <p class="p-mv__subtitle">お客様の夢を叶える<br class="u-mobile">Webサイトを制作</p>
-      <div class="p-mv__btn">
-        <a href="#" class="c-mv-btn">CONTACT</a>
-      </div>
-    </div>あ
-    <div class="p-mv__scroll"><span>SCROLL</span></div>
+<main class="main">
+  <!-- fv -->
+  <div class="top-fv fv">
+    <!-- メインビュー -->
+    <div class="fv__inner">
+      <div class="fv__swiper swiper js-fvSwiper">
+        <div class="swiper-wrapper">
+          <?php for ($i = 1; $i <= 4; $i++) :
+            $main_visual_pc = get_field('main_visual_pc_' . $i);
+            $main_visual_sp = get_field('main_visual_sp_' . $i);
+            if ($main_visual_pc && $main_visual_sp) : ?>
+              <div class="swiper-slide">
+                <picture>
+                  <source srcset="<?php echo esc_url($main_visual_sp); ?>" media="(max-width: 767px)">
+                  <img src="<?php echo esc_url($main_visual_pc); ?>" alt="メインビジュアル<?php echo $i; ?>">
+                </picture>
+              </div>
+          <?php endif;
+          endfor; ?>
+        </div><!-- swiper-wrapper -->
+        <!-- タイトルたち -->
+        <div class="fv__title-wrap">
+          <p class="fv__title-large">
+            DIVING
+          </p>
+          <p class="fv__title-small">
+            into the ocean
+          </p>
+        </div><!-- fv__title-wrap-->
+      </div><!-- fv__slider swiper -->
+    </div><!-- fv__inner -->
   </div>
-</section>
 
-
-<section class="l-topNews p-news">
-  <div class="p-news__inner l-inner">
-    <div class="p-news__title c-section-header c-section-header--left">
-      <h2 class="c-section-header__engtitle">NEWS</h2>
-      <p class="c-section-header__jatitle">お知らせ</p>
-    </div>
-    <div class="p-news__items">
-      <!-- ループ処理開始 -->
-      <div class="p-news__item p-news-content">
-        <div class="p-news-content__meta">
-          <time datetime="2022-03-04" class="p-news-content__date">2022.3.4</time>
-          <p class="p-news-content__category">お知らせ</p>
-        </div>
-        <div class="p-news-content__link">
-          <a href="" class="p-news-content__text">Webデザインニュースサイト「ウェブマガジン」に取材いただきました</a>
-        </div>
+  <!-- top page campaign -->
+  <section class="top-campaign-section top-campaign">
+    <div class="top-campaign__inner inner">
+      <div class="top-campaign__header section-title">
+        <p class="section-title__english">Campaign</p>
+        <h2 class="section-title__japanese">キャンペーン</h2>
       </div>
-      <!-- ループ終了 -->
-      <div class="p-news__item p-news-content">
-        <div class="p-news-content__meta">
-          <time datetime="2022-03-04" class="p-news-content__date">2022.3.4</time>
-          <p class="p-news-content__category">お知らせ</p>
+      <div class="top-campaign__swiper-container">
+        <div class="top-campaign__swiper-arrow-wrap">
+          <div class="swiper-button-prev top-campaign__swiper-button-prev u-desktop"></div>
+          <div class="swiper-button-next top-campaign__swiper-button-next u-desktop"></div>
         </div>
-        <div class="p-news-content__link">
-          <a href="" class="p-news-content__text">Webデザインニュースサイト「ウェブマガジン」に取材いただきました</a>
-        </div>
-      </div>
-      <div class="p-news__item p-news-content">
-        <div class="p-news-content__meta">
-          <time datetime="2022-03-04" class="p-news-content__date">2022.3.4</time>
-          <p class="p-news-content__category">お知らせ</p>
-        </div>
-        <div class="p-news-content__link">
-          <a href="" class="p-news-content__text">Webデザインニュースサイト「ウェブマガジン」に取材いただきました</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="l-service p-service">
-  <div class="p-service__inner l-inner">
-    <div class="p-service__title c-section-header">
-      <h2 class="c-section-header__engtitle">SERVICE</h2>
-      <p class="c-section-header__jatitle">事業内容</p>
-    </div>
-    <div class="p-service__items">
-      <div class="p-service__item p-card">
-        <div class="p-card__img">
-          <img src="<?php echo get_theme_file_uri(); ?>/images/common/service_1.jpg" alt="サービス画像1">
-        </div>
-        <div class="p-card__body">
-          <h3 class="p-card__title">Webサイト制作</h3>
-          <p class="p-card__text">新規サイトはもちろん、サイトリニューアルやランディングページ制作も行っております。</p>
-        </div>
-      </div>
-      <div class="p-service__item p-card">
-        <div class="p-card__img">
-          <img src="<?php echo get_theme_file_uri(); ?>/images/common/service_2.jpg" alt="サービス画像2">
-        </div>
-        <div class="p-card__body">
-          <h3 class="p-card__title">LP制作</h3>
-          <p class="p-card__text">サイトの更新作業や独自のアクセス解析に基づいたサイト改善のご提案が可能です。</p>
-        </div>
-      </div>
-      <div class="p-service__item p-card">
-        <div class="p-card__img">
-          <img src="<?php echo get_theme_file_uri(); ?>/images/common/service_3.jpg" alt="サービス画像3">
-        </div>
-        <div class="p-card__body">
-          <h3 class="p-card__title">アプリ開発</h3>
-          <p class="p-card__text">スマートフォンアプリ開発の他、Vue.jsやReactによるWebアプリの開発が可能です。</p>
-        </div>
-      </div>
-    </div>
-    <div class="p-service__btn">
-      <a href="#" class="c-button">more</a>
-    </div>
-  </div>
-</section>
-
-
-<section class="l-works p-works">
-  <div class="p-works__inner l-inner">
-    <div class="p-works__cotnent">
-      <div class="p-works__images">
-        <div class="swiper js-works-swiper">
+        <!-- Swiper -->
+        <div class="top-campaign__swiper swiper js-topCampaignSwiper">
           <div class="swiper-wrapper">
-            <div class="swiper-slide p-works__img">
-              <img src="<?php echo get_theme_file_uri(); ?>/images/common/works_1.jpg" alt="">
-            </div>
-            <div class="swiper-slide p-works__img">
-              <img src="<?php echo get_theme_file_uri(); ?>/images/common/service_1.jpg" alt="">
-            </div>
-            <div class="swiper-slide p-works__img">
-              <img src="<?php echo get_theme_file_uri(); ?>/images/common/service_2.jpg" alt="">
+            <?php
+            // カスタム投稿タイプ 'campaign' の投稿を取得
+            $args = array(
+              'post_type' => 'campaign',
+              'posts_per_page' => -1, // すべての投稿を取得
+            );
+            $campaign_query = new WP_Query($args);
+            if ($campaign_query->have_posts()) :
+              while ($campaign_query->have_posts()) : $campaign_query->the_post();
+                $price_before = get_field('price_before'); // ACFフィールド 'price_before' から取得
+                $special_price = get_field('special_price'); // ACFフィールド 'special_price' から取得
+            ?>
+                <div class="swiper-slide top-campaign__swiper-slide">
+                  <div class="campaign-card">
+                    <div class="campaign-card__img">
+                      <figure>
+                        <?php if (has_post_thumbnail()) : ?>
+                          <?php the_post_thumbnail('full'); ?>
+                        <?php else : ?>
+                          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/default.jpg" alt="デフォルト画像">
+                        <?php endif; ?>
+                      </figure>
+                    </div>
+                    <div class="campaign-card__body">
+                      <div class="campaign-card__title-wrapper">
+                        <?php $categories = get_the_terms(get_the_ID(), 'campaign_category'); ?>
+                        <?php if ($categories && !is_wp_error($categories)) : ?>
+                          <?php foreach ($categories as $category) : ?>
+                            <span class="campaign-card__label category-label"><?php echo esc_html($category->name); ?></span>
+                          <?php endforeach; ?>
+                        <?php endif; ?>
+                        <h3 class="campaign-card__title"><?php the_title(); ?></h3>
+                      </div>
+                      <div class="campaign-card__price-wrapper">
+                        <p class="campaign-card__price-text">全部コミコミ(お一人様)</p>
+                        <p class="campaign-card__price">
+                          <?php if ($price_before) : ?><span class="campaign-card__price-before">¥<?php echo number_format(floatval(preg_replace('/[^0-9.]/', '', $price_before))); ?></span><?php endif; ?>¥<?php echo number_format(floatval(preg_replace('/[^0-9.]/', '', $special_price))); ?>
+                        </p>
+                      </div>
+                    </div> <!-- campaign-card__body -->
+                  </div> <!-- campaign-card -->
+                </div><!-- swiper-slide -->
+            <?php endwhile;
+              wp_reset_postdata();
+            endif;
+            ?>
+          </div> <!-- swiper-wrapper -->
+        </div><!-- swiper-->
+      </div> <!-- top-campaign__swiper-container -->
+      <div class="top-campaign__button-wrapper">
+        <?php
+        // カスタムポストタイプ 'campaign' のアーカイブページURLを取得
+        $campaign_archive_url = get_post_type_archive_link('campaign');
+        ?>
+
+        <a href="<?php echo esc_url($campaign_archive_url); ?>" class="button">
+          <span class="button__span">View more</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- top about -->
+  <section class="top-about-section top-about">
+    <div class="top-about__inner inner">
+      <div class="top-about__section-title section-title">
+        <p class="section-title__english">About us</p>
+        <h2 class="section-title__japanese">私たちについて</h2>
+      </div>
+      <div class="top-about__container">
+        <div class="top-about__img-wrapper">
+          <div class="top-about__img01">
+            <figure>
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/about_us-top01.jpg" alt="屋根の上のシーサーと青空の写真" loading="lazy" decoding="async">
+            </figure>
+          </div>
+          <div class="top-about__img02">
+            <figure>
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/about_us-top02.jpg" alt="2匹の黄色と黒の魚が水色の海の中で泳いでいる写真" loading="lazy" decoding="async">
+            </figure>
+          </div>
+        </div>
+        <div class="top-about__body">
+          <div class="top-about__heading-wrapper">
+            <h3 class="top-about__heading">Dive into<br>the Ocean</h3>
+          </div>
+          <div class="top-about__content-wrapper">
+            <p class="top-about__text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+            <div class="top-about__button-wrapper">
+              <?php
+              // スラッグ名が 'about-us' のページのURLを取得
+              $about_us_page_url = get_permalink(get_page_by_path('about-us'));
+              ?>
+              <a href="<?php echo esc_url($about_us_page_url); ?>" class="button"><span class="button__span">View more</span></a>
             </div>
           </div>
         </div>
-        <div class="swiper-pagination js-works-pagination"></div>
       </div>
-      <div class="p-works__text-body">
-        <div class="p-works__title c-section-header">
-          <h2 class="c-section-header__engtitle">WORKS</h2>
-          <p class="c-section-header__jatitle">制作実績</p>
+    </div> <!-- top-about__inner inner -->
+  </section>
+
+  <!-- top information -->
+  <section class="top-information-section top-information">
+    <div class="top-information__inner inner">
+      <div class="top-information__section-title section-title">
+        <p class="section-title__english">Information</p>
+        <h2 class="section-title__japanese">ダイビング情報</h2>
+      </div>
+      <div class="top-information__container">
+        <div class="top-information__img color-box js-color-box">
+          <figure>
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/top-information01.jpg" alt="海底のサンゴと魚たちが泳いでいる様子" loading="lazy" decoding="async">
+          </figure>
         </div>
-        <div class="p-works__text-block">
-          <p class="p-works__text">様々なジャンルのWebサイト制作が可能です。<br>ご購入やお申込み数の増加などを実現します！</p>
-        </div>
-        <div class="p-works__btn">
-          <a href="#" class="c-button">more</a>
+        <div class="top-information__body-container">
+          <div class="top-information__body">
+            <h3 class="top-information__heading">ライセンス講習</h3>
+            <p class="top-information__text">当店はダイビングライセンス（Cカード）世界最大の教育機関PADIの「正規店」として店舗登録されています。<br>正規登録店として、安心安全に初めての方でも安心安全にライセンス取得をサポート致します。</p>
+            <div class="top-information__button-wrapper">
+              <?php
+              // スラッグ名が 'information' のページのURLを取得
+              $information_page_url = get_permalink(get_page_by_path('information'));
+              ?>
+              <a href="<?php echo esc_url($information_page_url); ?>" class="button">
+                <span class="button__span">View more</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="l-company p-company">
-  <div class="p-company__inner l-inner">
-    <div class="p-company__title c-section-header">
-      <h2 class="c-section-header__engtitle">COMPANY</h2>
-      <p class="c-section-header__jatitle">私たちについて</p>
+  <!-- top blog -->
+  <section class="top-blog-section top-blog">
+    <div class="top-blog__inner inner">
+      <div class="top-blog__section-title section-title">
+        <p class="section-title__english section-title__english--white">Blog</p>
+        <h2 class="section-title__japanese section-title__japanese--white">ブログ</h2>
+      </div>
+      <ul class="top-blog__blog-cards blog-cards">
+        <?php
+        // 最新の投稿3件を取得
+        $args = array(
+          'post_type' => 'post',
+          'posts_per_page' => 3,
+        );
+        $latest_posts = new WP_Query($args);
+
+        if ($latest_posts->have_posts()) :
+          while ($latest_posts->have_posts()) : $latest_posts->the_post();
+        ?>
+            <li class="blog-cards__item blog-card">
+              <a href="<?php the_permalink(); ?>" class="blog-card__link">
+                <div class="blog-card__inner">
+                  <div class="blog-card__img">
+                    <figure>
+                      <?php if (has_post_thumbnail()) : ?>
+                        <?php the_post_thumbnail('full', array('loading' => 'lazy')); ?>
+                      <?php else : ?>
+                        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no_image.jpeg" alt="<?php the_title(); ?>" loading="lazy">
+                      <?php endif; ?>
+                    </figure>
+                  </div>
+                  <div class="blog-card__content">
+                    <div class="blog-card__head">
+                      <time class="blog-card__date" datetime="<?php echo get_the_date('Y-m-d'); ?>"><?php echo get_the_date('Y.m/d'); ?></time>
+                      <h3 class="blog-card__title"><?php the_title(); ?></h3>
+                    </div>
+                    <p class="blog-card__text"><?php echo wp_trim_words(get_the_excerpt(), 90, '...'); ?></p>
+                  </div>
+                </div>
+              </a>
+            </li>
+        <?php
+          endwhile;
+          wp_reset_postdata();
+        endif;
+        ?>
+      </ul>
+
+      <div class="top-blog__button-wrapper">
+        <?php
+        // 投稿ページのURLを取得
+        $posts_page_url = get_permalink(get_option('page_for_posts'));
+        ?>
+        <a href="<?php echo esc_url($posts_page_url); ?>" class="button">
+          <span class="button__span">View more</span>
+        </a>
+      </div>
     </div>
-    <div class="p-company__contents">
-      <h3 class="p-company__subtitle"><span class="p-company__yellow">サイトのゴール =</span><br class="u-mobile"><span class="p-company__yellow">夢を叶えること</span></h3>
-      <div class="p-company__content">
-        <p class="p-company__text">
-          お客様の夢を叶えること。<br>
-          それがWebサイトのゴールであり、<br class="u-mobile">
-          私たちが目指すことです。<br>
-          だからこそちゃんと成果を出すサイトを<br class="u-mobile">
-          全力でお作りします。<br>
-          お客様の笑顔を見たい。<br>
-          夢を実現する手助けをさせてください。
-        </p>
+  </section>
+
+  <!-- top voice -->
+  <section class="top-voice-section top-voice">
+    <div class="top-voice__inner inner">
+      <div class="top-voice__section-title section-title">
+        <p class="section-title__english">Voice</p>
+        <h2 class="section-title__japanese">お客様の声</h2>
       </div>
-      <div class="p-company__btn">
-        <a href="#" class="c-button">more</a>
+      <ul class="top-voice__voice-cards voice-cards">
+        <?php
+        // 最新のカスタム投稿 'voice' の投稿2件を取得
+        $args = array(
+          'post_type' => 'voice',
+          'posts_per_page' => 2,
+        );
+        $latest_voice_posts = new WP_Query($args);
+
+        if ($latest_voice_posts->have_posts()) :
+          while ($latest_voice_posts->have_posts()) : $latest_voice_posts->the_post();
+            // ACF フィールドからデータを取得
+            $age = get_field('age'); // 年齢
+            $gender = get_field('gender'); // 性別
+            $category_terms = get_the_terms(get_the_ID(), 'voice_category'); // カテゴリー
+            $voice_content = get_field('voice-content'); // ACF フィールド 'voice-content' から取得
+        ?>
+            <li class="voice-cards__item voice-card">
+              <div class="voice-card__inner">
+                <div class="voice-card__top">
+                  <div class="voice-card__title-wrapper">
+                    <div class="voice-card__title-flex-box">
+                      <p class="voice-card__personal-info"><?php echo esc_html($age); ?>代(<?php echo esc_html($gender); ?>)</p>
+                      <?php if ($category_terms && !is_wp_error($category_terms)) : ?>
+                        <?php foreach ($category_terms as $category_term) : ?>
+                          <span class="voice-card__label category-label category-label--voice"><?php echo esc_html($category_term->name); ?></span>
+                        <?php endforeach; ?>
+                      <?php endif; ?>
+                    </div>
+                    <h3 class="voice-card__title"><?php the_title(); ?></h3>
+                  </div>
+                  <div class="voice-card__img color-box js-color-box">
+                    <figure>
+                      <?php if (has_post_thumbnail()) : ?>
+                        <?php the_post_thumbnail('full', array('loading' => 'lazy', 'decoding' => 'async')); ?>
+                      <?php else : ?>
+                        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/default.jpg" alt="<?php the_title(); ?>" loading="lazy" decoding="async">
+                      <?php endif; ?>
+                    </figure>
+                  </div>
+                </div>
+                <div class="voice-card__bottom">
+                  <p class="voice-card__text"><?php echo esc_html($voice_content); ?></p>
+                </div>
+              </div>
+            </li>
+        <?php
+          endwhile;
+          wp_reset_postdata();
+        endif;
+        ?>
+      </ul>
+
+      <div class="top-voice__button-wrapper">
+        <?php
+        // カスタムポストタイプ 'voice' のアーカイブページURLを取得
+        $voice_archive_url = get_post_type_archive_link('voice');
+        ?>
+        <a href="<?php echo esc_url($voice_archive_url); ?>" class="button">
+          <span class="button__span">View more</span>
+        </a>
       </div>
     </div>
-  </div>
-</section>
-<section class="l-recruit p-recruit">
-  <div class="p-recruit__inner l-inner">
-    <div class="p-recruit__wrapper">
-      <div class="p-recruit__img">
-        <img src="<?php echo get_theme_file_uri(); ?>/images/common/recruit_1.jpg" alt="">
+  </section>
+
+  <!-- top price  -->
+  <section class="top-price-section top-price">
+    <div class="top-price__inner inner">
+      <div class="top-price__section-title section-title">
+        <p class="section-title__english">Price</p>
+        <h2 class="section-title__japanese">料金一覧</h2>
       </div>
-      <div class="p-recruit__contents">
-        <div class="p-recruit__title c-section-header">
-          <h2 class="c-section-header__engtitle">RECRUIT</h2>
-          <p class="c-section-header__jatitle">採用情報</p>
+      <div class="top-price__container">
+        <div class="top-price__img-wrapper color-box js-color-box">
+          <picture>
+            <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/top-price-sp.jpg" media="(max-width: 767px)">
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/top-price-pc.jpg" alt="深海と魚たちの写真">
+          </picture>
         </div>
-        <div class="p-recruit__text-block">
-          <p class="p-recruit__text">私たちと一緒に働きませんか？</p>
-        </div>
-        <div class="p-recruit__btn">
-          <a href="#" class="c-button">more</a>
-        </div>
-      </div>
+        <div class="top-price__body">
+          <ul class="top-price__category-items">
+            <!-- ライセンス講習 -->
+            <li class="top-price__category-item">
+              <?php
+              // 固定ページのID 109 を指定してデータを取得
+              $licence_category = SCF::get('licence_category', 109);
+              $licence_lists = SCF::get('licence_lists', 109);
+              ?>
+              <h3 class="top-price__category-item-title"><?php echo esc_html($licence_category); ?></h3>
+              <dl class="top-price__menu-lists">
+                <?php
+                if (!empty($licence_lists) && is_array($licence_lists)) {
+                  foreach ($licence_lists as $licence) {
+                    $licence_course_name = $licence['licence_course_name'];
+                    $licence_course_price = $licence['licence_course_price'];
+                ?>
+                    <div class="top-price__menu-flexbox">
+                      <dt><?php echo esc_html($licence_course_name); ?></dt>
+                      <dd><?php echo esc_html($licence_course_price); ?></dd>
+                    </div>
+                <?php
+                  }
+                } else {
+                  echo '<p>No courses found.</p>';
+                }
+                ?>
+              </dl>
+            </li>
+
+            <!-- 体験ダイビング -->
+            <li class="top-price__category-item">
+              <?php
+              // 固定ページのID 109 を指定してデータを取得
+              $trial_diving_category = SCF::get('trial_diving_category', 109);
+              $trial_diving_lists = SCF::get('trial_diving_lists', 109);
+              ?>
+              <h3 class="top-price__category-item-title"><?php echo esc_html($trial_diving_category); ?></h3>
+              <dl class="top-price__menu-lists">
+                <?php
+                if (!empty($trial_diving_lists) && is_array($trial_diving_lists)) {
+                  foreach ($trial_diving_lists as $trial_diving) {
+                    $trial_diving_course_name = $trial_diving['trial_diving_course_name'];
+                    $trial_diving_course_price = $trial_diving['trial_diving_course_price'];
+                ?>
+                    <div class="top-price__menu-flexbox">
+                      <dt><?php echo esc_html($trial_diving_course_name); ?></dt>
+                      <dd><?php echo esc_html($trial_diving_course_price); ?></dd>
+                    </div>
+                <?php
+                  }
+                } else {
+                  echo '<p>No courses found.</p>';
+                }
+                ?>
+              </dl>
+            </li>
+
+            <!-- ファンダイビング -->
+            <li class="top-price__category-item">
+              <?php
+              // 固定ページのID 109 を指定してデータを取得
+              $fun_diving_category = SCF::get('fun_diving_category', 109);
+              $fun_diving_lists = SCF::get('fun_diving_lists', 109);
+              ?>
+              <h3 class="top-price__category-item-title"><?php echo esc_html($fun_diving_category); ?></h3>
+              <dl class="top-price__menu-lists">
+                <?php
+                if (!empty($fun_diving_lists) && is_array($fun_diving_lists)) {
+                  foreach ($fun_diving_lists as $fun_diving) {
+                    $fun_diving_course_name = $fun_diving['fun_diving_course_name'];
+                    $fun_diving_course_price = $fun_diving['fun_diving_course_price'];
+                ?>
+                    <div class="top-price__menu-flexbox">
+                      <dt><?php echo esc_html($fun_diving_course_name); ?></dt>
+                      <dd><?php echo esc_html($fun_diving_course_price); ?></dd>
+                    </div>
+                <?php
+                  }
+                } else {
+                  echo '<p>No courses found.</p>';
+                }
+                ?>
+              </dl>
+            </li>
+
+            <!-- スペシャルダイビング -->
+            <li class="top-price__category-item">
+              <?php
+              // 固定ページのID 109 を指定してデータを取得
+              $special_diving_category = SCF::get('special_diving_category', 109);
+              $special_diving_lists = SCF::get('special_diving_lists', 109);
+              ?>
+              <h3 class="top-price__category-item-title"><?php echo esc_html($special_diving_category); ?></h3>
+              <dl class="top-price__menu-lists">
+                <?php
+                if (!empty($special_diving_lists) && is_array($special_diving_lists)) {
+                  foreach ($special_diving_lists as $special_diving) {
+                    $special_diving_course_name = $special_diving['special_diving_course_name'];
+                    $special_diving_course_price = $special_diving['special_diving_course_price'];
+                ?>
+                    <div class="top-price__menu-flexbox">
+                      <dt><?php echo esc_html($special_diving_course_name); ?></dt>
+                      <dd><?php echo esc_html($special_diving_course_price); ?></dd>
+                    </div>
+                <?php
+                  }
+                } else {
+                  echo '<p>No courses found.</p>';
+                }
+                ?>
+              </dl>
+            </li>
+          </ul>
+
+        </div><!-- top-price__lists-container -->
+      </div><!-- top-price__flex-container -->
     </div>
-  </div>
-</section>
+    <div class="top-price__button-wrapper">
+      <?php
+      // スラッグ名が 'price' のページのURLを取得
+      $price_page_url = get_permalink(get_page_by_path('price'));
+      ?>
+      <a href="<?php echo esc_url($price_page_url); ?>" class="button">
+        <span class="button__span">View more</span>
+      </a>
+    </div>
+  </section>
 
 
-
-<?php get_footer(); ?>
+  <?php get_footer(); ?>

@@ -203,7 +203,7 @@ a {
 }
 
 .page-privacy-policy {
-	margin-top: 3.25rem;
+	margin-top: 2.8rem;
 }
 
 .page-privacy-policy__shopInfo-contact-section {
@@ -279,7 +279,8 @@ a {
 	color: #fff;
 	cursor: pointer;
 	font-size: 1rem;
-	padding: 1rem;
+	font-weight: 300;
+	padding: 1rem 3.5rem 1rem 1rem;
 	position: relative;
 }
 
@@ -321,6 +322,7 @@ a {
 
 .accordion__text {
 	font-size: 1rem;
+	line-height: 1.5;
 }
 
 .aside-archive {
@@ -619,7 +621,7 @@ a {
 	width: 100%;
 }
 
-.breadcrumb__body--white {
+body.error404 .breadcrumb__body {
 	color: #fff;
 }
 
@@ -853,6 +855,10 @@ a {
 	width: calc((100% - 1.3125rem) / 2);
 }
 
+.category-tab__list a {
+	display: block;
+}
+
 .category-tab__list.current,
 .category-tab__list:hover {
 	background-color: #408f95;
@@ -954,6 +960,10 @@ a {
 	padding-bottom: 3.5rem;
 	padding-top: 3rem;
 	width: 100%;
+}
+
+.footer.footer--mt0 {
+	margin-top: 0;
 }
 
 .footer.footer--thanks-page {
@@ -1126,35 +1136,6 @@ a {
 	width: 100%;
 }
 
-.form__not-filled-in {
-	display: flex;
-	justify-content: center;
-	margin-bottom: 0.8rem;
-}
-
-.form__not-filled-in span {
-	color: #c94800;
-	display: inline-block;
-	font-size: 0.875rem;
-	margin-left: auto;
-	margin-right: auto;
-	padding-left: 1em;
-	text-indent: -1em;
-}
-
-.form__wrap.form__wrap--not-filled-in input {
-	background-color: rgba(201, 72, 0, 0.2);
-	border: 0.0625rem solid #c94800;
-}
-
-.form__wrap.form__wrap--not-filled-in input::-moz-placeholder {
-	color: #fff;
-}
-
-.form__wrap.form__wrap--not-filled-in input::placeholder {
-	color: #fff;
-}
-
 .form__wrap {
 	padding-bottom: 0.4rem;
 }
@@ -1182,7 +1163,7 @@ a {
 .form__label .form__tag {
 	background-color: #c94800;
 	color: #fff;
-	display: block;
+	display: inline-block;
 	font-size: 0.75rem;
 	font-weight: 400;
 	height: 1.3125rem;
@@ -1264,11 +1245,11 @@ a {
 	content: "";
 	display: block;
 	height: 0.375rem;
-	left: 1.25rem;
+	left: 2.25rem;
 	margin-top: -0.125rem;
 	opacity: 0;
 	position: absolute;
-	top: 50%;
+	top: 30%;
 	transform: translateY(-50%) rotate(-45deg);
 	transition: 0.3s;
 	width: 0.8125rem;
@@ -1281,6 +1262,118 @@ a {
 .form__submit {
 	margin-top: 1.2rem;
 	text-align: center;
+}
+
+.wpcf7-list-item {
+	display: block;
+}
+
+/* バリデーションエラースタイル */
+
+/* 元々のPlease fill out this field.を非表示に*/
+
+.wpcf7-not-valid-tip {
+	display: none;
+}
+
+.wpcf7 .wpcf7-not-valid-tip {
+	color: #c94800; /* バリデーションエラーメッセージの色を変更 */
+}
+
+.wpcf7-form-control.wpcf7-not-valid {
+	background-color: rgba(201, 72, 0, 0.2) !important;
+	border: 0.0625rem solid #c94800 !important;
+}
+
+.form__wrap:nth-child(4) {
+	border: none;
+}
+
+.wpcf7-form-control.wpcf7-not-valid::-moz-placeholder {
+	color: #ffffff !important;
+}
+
+.wpcf7-form-control.wpcf7-not-valid::placeholder {
+	color: #ffffff !important;
+}
+
+.wpcf7-form-control.wpcf7-not-valid::-moz-placeholder { /* ここで$whiteの値を設定 */
+}
+
+.wpcf7-form-control.wpcf7-not-valid::placeholder { /* ここで$whiteの値を設定 */
+}
+
+.wpcf7-validation-errors {
+	margin-bottom: 0.8rem !important;
+}
+
+.wpcf7-validation-errors {
+	display: flex;
+	justify-content: center;
+}
+
+.wpcf7-validation-errors span {
+	color: #c94800 !important;
+	font-size: 0.875rem !important;
+	padding-left: 1em !important;
+	text-align: center !important;
+	text-indent: -1em !important;
+}
+
+.wpcf7-validation-errors span {
+	display: inline-block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* カスタムクラスのスタイル */
+
+.form__wrap.form__wrap--not-filled-in .form__input-field {
+	background-color: rgba(201, 72, 0, 0.2) !important;
+	border: 0.0625rem solid #c94800 !important;
+}
+
+.form__wrap.form__wrap--not-filled-in .form__input-field::-moz-placeholder {
+	color: #ffffff !important;
+}
+
+.form__wrap.form__wrap--not-filled-in .form__input-field::placeholder {
+	color: #ffffff !important;
+}
+
+.form__wrap.form__wrap--not-filled-in .form__input-field::-moz-placeholder { /* ここで$whiteの値を設定 */
+}
+
+.form__wrap.form__wrap--not-filled-in .form__input-field::placeholder { /* ここで$whiteの値を設定 */
+}
+
+.form__wrap.form__wrap--not-filled-in .form__checkbox-item {
+	background-color: rgba(201, 72, 0, 0.2) !important;
+	border: 0.0625rem solid #c94800 !important;
+}
+
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.payment-required .wpcf7-response-output,
+.wpcf7 form.sent .wpcf7-response-output {
+	border: none;
+}
+
+.wpcf7 .wpcf7-response-output {
+	border: none;
+	color: #c94800;
+	font-size: 0.875rem;
+	left: 50%;
+	margin: 0;
+	max-width: 15rem;
+	position: absolute;
+	top: -2.5rem;
+	transform: translate(-50%, -50%);
+	width: 100%;
+}
+
+form.wpcf7-form.invalid {
+	margin-top: 6.75rem;
 }
 
 .fv {
@@ -1766,17 +1859,14 @@ a {
 
 .privacy-policy__body {
 	line-height: 2;
-	margin-top: 2.5rem;
+	margin-top: 2rem;
 }
 
 .privacy-policy__items {
 	list-style-position: inside;
 	list-style-type: decimal;
+	margin-top: 2rem;
 	padding-left: 0.375rem;
-}
-
-.privacy-policy__items {
-	margin-top: 1.8rem;
 }
 
 .privacy-policy__items.privacy-policy__items--items02 {
@@ -2064,6 +2154,7 @@ a {
 
 .sub-campaign-card {
 	box-shadow: 0.125rem 0.125rem 0.625rem 0 rgba(0, 0, 0, 0.25);
+	height: 100%;
 	width: 100%;
 }
 
@@ -2162,6 +2253,7 @@ a {
 }
 
 .sub-contact__inner.inner {
+	position: relative;
 	width: 100%;
 }
 
@@ -2360,6 +2452,11 @@ a {
 .table-block__table-data:nth-child(2) {
 	padding-right: 1rem;
 	text-align: right;
+}
+
+.terms-of-service__sub-page-inner {
+	position: relative;
+	z-index: 1;
 }
 
 .terms-of-service__heading {
@@ -2760,6 +2857,7 @@ a {
 	align-items: center;
 	clear: both;
 	display: flex;
+	gap: 0.75rem;
 	justify-content: center;
 	text-align: center;
 }
@@ -2768,80 +2866,21 @@ a {
 	justify-content: space-between;
 }
 
-.wp-pagenavi .previouspostslink,
-.wp-pagenavi .nextpostslink {
-	display: inline-flex;
-	height: 2.375rem;
-	margin: 0;
-	position: relative;
-	width: 2.375rem;
-}
-
-.wp-pagenavi .previouspostslink {
-	margin-right: 2.1rem;
-}
-
-.wp-pagenavi .nextpostslink {
-	margin-left: 2.1rem;
-}
-
-.sub-blog__pagenavi--single .wp-pagenavi .previouspostslink {
-	margin-right: 0;
-}
-
-.sub-blog__pagenavi--single .wp-pagenavi .nextpostslink {
-	margin-left: 0;
-}
-
-.wp-pagenavi .previouspostslink::before,
-.wp-pagenavi .nextpostslink::before {
-	color: #408f95; /*線の色*/
-	content: "";
-	display: block;
-	height: 0.59375rem; /*線の縦の長さ*/
-	position: absolute; /*相対配置*/
-	width: 0.59375rem; /*線の横の長さ*/
-}
-
-.previouspostslink:hover::before {
-	color: #fff;
-}
-
-.nextpostslink:hover::before {
-	color: #fff;
-}
-
-.wp-pagenavi .previouspostslink::before {
-	border-left: solid 0.0625rem; /*縦の線の太さ*/
-	border-top: solid 0.0625rem; /*横の線の太さ*/
-	right: 32%;
-	top: 35%;
-	transform: rotate(-45deg);
-}
-
-.wp-pagenavi .nextpostslink::before {
-	border-right: solid 0.0625rem; /*縦の線の太さ*/
-	border-top: solid 0.0625rem; /*横の線の太さ*/
-	left: 32%;
-	top: 35%;
-	transform: rotate(45deg);
-}
-
-.wp-pagenavi a,
-.wp-pagenavi span {
-	background-color: #fff;
-	border: 1px solid #408f95;
+.wp-pagenavi a {
+	-webkit-text-decoration: none;
+	align-items: center; /* 中央寄せ */
+	background-color: #fff; /* ボタンの背景色 */
+	border: 1px solid #408f95; /* ボタンの枠線 */
 	color: #408f95;
 	display: inline-flex;
-	font-family: "Noto Sans JP", sans-serif;
+	font-family: "Lato", sans-serif;
 	font-size: 1rem;
 	height: 2.375rem;
+	justify-content: center; /* 中央寄せ */
 	line-height: 1;
-	margin: 0 0.375rem;
-	padding-left: 0.875rem;
-	padding-right: 0.875rem;
-	padding-top: 0.5rem;
-	text-align: center;
+	margin: 0;
+	position: relative;
+	text-decoration: none; /* リンクの下線を削除 */
 	transition: 0.3s;
 	width: 2.375rem;
 }
@@ -2849,17 +2888,57 @@ a {
 .wp-pagenavi a:hover {
 	background-color: #408f95;
 	color: #fff;
-	opacity: 1;
 }
 
 .wp-pagenavi .current {
+	align-items: center;
 	background-color: #408f95;
 	border: 0.0625rem solid #408f95;
 	color: #fff;
+	display: inline-flex;
+	height: 2.375rem;
+	justify-content: center;
+	line-height: 1;
+	width: 2.375rem;
+}
+
+.wp-pagenavi a:hover,
+.wp-pagenavi a.current {
+	border-color: #408f95;
 }
 
 .wp-pagenavi .u-desktop {
 	display: none;
+}
+
+.wp-pagenavi a::before {
+	color: #408f95; /*線の色*/
+	content: "";
+	display: block;
+	height: 0.59375rem; /*線の縦の長さ*/
+	position: absolute;
+	width: 0.59375rem; /*線の横の長さ*/
+}
+
+.wp-pagenavi a.previouspostslink::before {
+	border-left: solid 0.0625rem; /*縦の線の太さ*/
+	border-top: solid 0.0625rem; /*横の線の太さ*/
+	right: 32%;
+	top: 35%;
+	transform: rotate(-45deg);
+}
+
+.wp-pagenavi a.nextpostslink::before {
+	border-right: solid 0.0625rem; /*縦の線の太さ*/
+	border-top: solid 0.0625rem; /*横の線の太さ*/
+	left: 32%;
+	top: 35%;
+	transform: rotate(45deg);
+}
+
+.wp-pagenavi a.previouspostslink:hover::before,
+.wp-pagenavi a.nextpostslink:hover::before {
+	color: #fff;
 }
 
 @media screen and (min-width: 768px) {
@@ -2943,7 +3022,7 @@ html {
 }
 
 .page-privacy-policy {
-	margin-top: 9.375rem;
+	margin-top: 8.8rem;
 }
 
 .page-privacy-policy__shopInfo-contact-section {
@@ -3020,7 +3099,7 @@ html {
 
 .accordion__title {
 	font-size: 1.25rem;
-	padding: 1.5rem 2.5rem;
+	padding: 1.5rem 4.5rem 1.5rem 2.5rem;
 }
 
 .accordion__title::before,
@@ -3031,7 +3110,11 @@ html {
 .accordion__content {
 	border: 0.0625rem solid #408f95;
 	margin-top: 1rem;
-	padding: 2.5rem;
+	padding: 2.5rem 2.5rem 2.4rem 2.5rem;
+}
+
+.accordion__text {
+	line-height: 1.4;
 }
 
 .aside-archive__item:not(:first-child) {
@@ -3236,14 +3319,6 @@ html {
 	width: 30rem;
 }
 
-.form__not-filled-in {
-	margin-bottom: 0;
-}
-
-.form__not-filled-in span {
-	text-align: center;
-}
-
 .form__wrap {
 	display: flex;
 	justify-content: space-between;
@@ -3264,6 +3339,8 @@ html {
 }
 
 .form__wrap.form__wrap--agreement {
+	display: flex;
+	justify-content: center;
 	margin-top: 1.25rem;
 	padding-top: 2.4rem;
 }
@@ -3313,8 +3390,20 @@ html {
 	top: 50%;
 }
 
+.form__wrap--agreement input + span::after {
+	left: 1.25rem;
+	top: 50%;
+}
+
 .form__submit {
 	margin-top: 1rem;
+}
+
+.wpcf7 .wpcf7-response-output {
+	max-width: none;
+	max-width: initial;
+	text-align: center;
+	top: -1.5rem;
 }
 
 .fv__title-wrap {
@@ -3602,10 +3691,6 @@ html {
 	font-size: 2rem;
 }
 
-.privacy-policy__body {
-	margin-top: 2.4rem;
-}
-
 .privacy-policy__items {
 	margin-top: 2rem;
 }
@@ -3824,6 +3909,7 @@ html {
 }
 
 .sub-campaign-card__body {
+	height: calc(100% - 21.6875rem);
 	padding: 1.5rem 1.4rem 2.25rem;
 }
 
