@@ -10,6 +10,14 @@
   <meta name="robots" content="noindex" />
   <!-- blogのパンくずで表示のためにmetaを取り除いて、代わりにここに配置 -->
   <meta property="position" content="%position%">
+  <!-- OGP 設定 -->
+  <meta property="og:title" content="<?php echo get_the_title(); ?>" />
+  <meta property="og:description" content="<?php echo get_the_excerpt(); ?>" />
+  <meta property="og:url" content="<?php echo get_permalink(); ?>" />
+  <meta property="og:image" content="<?php echo get_the_post_thumbnail_url(); ?>" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
+
   <?php wp_head(); ?>
 </head>
 
@@ -119,7 +127,7 @@
                 <li class="global-navigation__item">
                   <?php
                   // スラッグ名が 'privacy-policy' のページのURLを取得
-                  $privacy_policy_page_url = get_permalink(get_page_by_path('privacy-policy'));
+                  $privacy_policy_page_url = get_permalink(get_page_by_path('privacypolicy'));
                   ?>
                   <a href="<?php echo esc_url($privacy_policy_page_url); ?>">プライバシー<br class="u-mobile">ポリシー</a>
                 </li>
@@ -136,6 +144,13 @@
                   $contact_page_url = get_permalink(get_page_by_path('contact'));
                   ?>
                   <a href="<?php echo esc_url($contact_page_url); ?>">お問い合わせ</a>
+                </li>
+                <li class="global-navigation__item">
+                  <?php
+                  // スラッグ名が 'sitemap' のページのURLを取得
+                  $sitemap_page_url = get_permalink(get_page_by_path('sitemap'));
+                  ?>
+                  <a href="<?php echo esc_url($sitemap_page_url); ?>">サイトマップ</a>
                 </li>
               </ul>
             </div>

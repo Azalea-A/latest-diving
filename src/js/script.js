@@ -227,6 +227,5 @@ $(function () {
     });
   }
   galleryModal();
-  
 
 }); //js全体の締め

@@ -1,38 +1,5 @@
 @use "global" as *;
 
-//バリデーション
-.form__not-filled-in {
-  display: flex;
-  justify-content: center;
-  margin-bottom: rem(12.8);
-  @include mq("md") {
-    margin-bottom: 0;
-  }
-}
-
-.form__not-filled-in span {
-  display: inline-block;
-  margin-inline: auto;
-  font-size: rem(14);
-  color: #c94800;
-  text-indent: -1em;
-  padding-left: 1em;
-  @include mq("md") {
-    text-align: center;
-  }
-}
-
-.form__wrap.form__wrap--not-filled-in input {
-  border: rem(1) solid #c94800;
-  background-color: rgba(201, 72, 0, 0.2);
-}
-
-.form__wrap.form__wrap--not-filled-in input::placeholder {
-  color: $white;
-}
-
-//バリデーションここまで
-
 .form__wrap {
   padding-bottom: rem(6.4);
   @include mq(md) {
@@ -86,7 +53,7 @@
 }
 
 .form__label .form__tag {
-  display: block;
+  display: inline-block;
   font-size: rem(12);
   color: $white;
   height: rem(21);
@@ -192,8 +159,8 @@
   content: "";
   margin-top: rem(-2);
   position: absolute;
-  top: 50%;
-  left: rem(20);
+  top: 30%;
+  left: rem(36);
   transform: translateY(-50%) rotate(-45deg);
   display: block;
   width: rem(13);
@@ -202,6 +169,10 @@
   border-left: rem(3) solid #c94800;
   transition: 0.3s;
   opacity: 0;
+  @include mq("md") {
+    left: rem(20);
+    top: 50%;
+  }
 }
 
 .form__wrap--agreement input:checked + span::after {
@@ -214,5 +185,61 @@
   margin-top: rem(19.2);
   @include mq("md") {
     margin-top: rem(16);
+  }
+}
+
+/* ========================================
+  contact form7用
+  ======================================== */
+form.wpcf7-form {
+  position: relative;
+}
+
+form.wpcf7-form.invalid {
+  margin-top: rem(98);
+}
+
+.wpcf7-list-item {
+  display: block;
+}
+
+//バリデーション
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.payment-required .wpcf7-response-output,
+.wpcf7 form.sent .wpcf7-response-output {
+  border: none;
+}
+
+.wpcf7-form-control.wpcf7-not-valid {
+  background-color: rgba(201, 72, 0, 0.2) !important;
+  border: 0.0625rem solid #c94800 !important;
+}
+
+.wpcf7-form-control.wpcf7-not-valid::placeholder {
+  color: $white;
+}
+
+.wpcf7-not-valid-tip {
+  display: none !important;
+}
+
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.payment-required .wpcf7-response-output,
+.wpcf7 form.sent .wpcf7-response-output {
+  color: #c94800;
+  top: -2.5rem;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  width: 100%;
+  position: absolute;
+  margin: 0;
+  max-width: 15rem;
+  position: absolute;
+  font-size: rem(14);
+  text-align: center;
+  @include mq("md") {
+    max-width: initial;
   }
 }

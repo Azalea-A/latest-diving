@@ -59,13 +59,13 @@ if (!is_page(array('contact', 'thanks')) && !is_404()) :
   <div class="footer__inner inner">
     <div class="footer__top">
       <div class="footer__logo">
-        <a href="index.html"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/CodeUps_logo.svg" alt="CodeUps" loading="lazy" decoding="async"></a>
+        <a href="<?php echo home_url(); ?>"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/CodeUps_logo.svg" alt="CodeUps" loading="lazy" decoding="async"></a>
       </div>
       <div class="footer__sns-wrap">
-        <a class="fooer__sns-icon sns-icon" href="#" target="_blank">
+        <a class="fooer__sns-icon sns-icon" href="https://www.facebook.com/?locale=ja_JP" target=" _blank">
           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/facebook.svg" alt="facebookのアイコン" loading="lazy" decoding="async">
         </a>
-        <a class="fooer__sns-icon sns-icon" href="#" target="_blank">
+        <a class="fooer__sns-icon sns-icon" href="https://www.instagram.com/" target="_blank">
           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/instagram.svg" alt="インスタグラムのアイコン" loading="lazy" decoding="async">
         </a>
       </div>
@@ -131,7 +131,7 @@ if (!is_page(array('contact', 'thanks')) && !is_404()) :
           $last_column_items = array_slice($menu_structure, 6);
 
           // 必要なアイテムを追加
-          $required_items = ['利用規約', 'お問い合わせ'];
+          $required_items = ['利用規約', 'お問い合わせ', 'サイトマップ'];
           foreach ($required_items as $required_item) {
             $found = false;
             foreach ($last_column_items as $item) {
@@ -163,7 +163,7 @@ if (!is_page(array('contact', 'thanks')) && !is_404()) :
 </footer>
 <?php wp_footer(); ?>
 <div class="toTop js-toTop">
-  <a href="#top"></a>
+  <a href="<?php echo home_url(); ?>"></a>
 </div>
 </body>
 

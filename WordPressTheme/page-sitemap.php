@@ -16,73 +16,76 @@
         <div class="global-navigation__columns global-navigation__columns--site-map">
           <ul class="global-navigation__items">
             <li class="global-navigation__item global-navigation__item--black">
-              <a href="campaign.html">キャンペーン</a>
+              <a href="<?php echo site_url('/campaign'); ?>">キャンペーン</a>
               <ul class="global-navigation__sub-items">
                 <li class="global-navigation__sub-item">
-                  <a href="campaign.html#campaign-license">ライセンス取得</a>
+                  <a href="<?php echo site_url('/campaign#campaign-license'); ?>">ライセンス取得</a>
                 </li>
                 <li class="global-navigation__sub-item">
-                  <a href="campaign.html#campaign-chartered-trial">貸切体験ダイビング</a>
+                  <a href="<?php echo site_url('/campaign#campaign-chartered-trial'); ?>">貸切体験ダイビング</a>
                 </li>
                 <li class="global-navigation__sub-item">
-                  <a href="campaign.html#campaign-night">ナイトダイビング</a>
+                  <a href="<?php echo site_url('/campaign#campaign-night'); ?>">ナイトダイビング</a>
                 </li>
               </ul>
             </li>
             <li class="global-navigation__item global-navigation__item--black">
-              <a href="about-us.html">私たちについて</a>
+              <a href="<?php echo site_url('/about-us'); ?>">私たちについて</a>
             </li>
           </ul>
           <ul class="global-navigation__items">
             <li class="global-navigation__item global-navigation__item--black">
-              <a href="information.html">ダイビング情報</a>
+              <a href="<?php echo site_url('/information'); ?>">ダイビング情報</a>
               <ul class="global-navigation__sub-items">
                 <li class="global-navigation__sub-item">
-                  <a href="information.html?tab=1">ライセンス講習</a>
+                  <a href="<?php echo site_url('/information?tab=1'); ?>">ライセンス講習</a>
                 </li>
                 <li class="global-navigation__sub-item">
-                  <a href="information.html?tab=3">体験ダイビング</a>
+                  <a href="<?php echo site_url('/information?tab=3'); ?>">体験ダイビング</a>
                 </li>
                 <li class="global-navigation__sub-item">
-                  <a href="information.html?tab=2">ファンダイビング</a>
+                  <a href="<?php echo site_url('/information?tab=2'); ?>">ファンダイビング</a>
                 </li>
               </ul>
             </li>
             <li class="global-navigation__item global-navigation__item--black">
-              <a href="home.html">ブログ</a>
+              <a href="<?php echo site_url('/home'); ?>">ブログ</a>
             </li>
           </ul>
           <ul class="global-navigation__items">
             <li class="global-navigation__item global-navigation__item--black">
-              <a href="voice.html">お客様の声</a>
+              <a href="<?php echo site_url('/voice'); ?>">お客様の声</a>
             </li>
             <li class="global-navigation__item global-navigation__item--black">
-              <a href="price.html">料金一覧</a>
+              <a href="<?php echo site_url('/price'); ?>">料金一覧</a>
               <ul class="global-navigation__sub-items">
                 <li class="global-navigation__sub-item">
-                  <a href="price.html#license-course">ライセンス講習</a>
+                  <a href="<?php echo site_url('/price#license-course'); ?>">ライセンス講習</a>
                 </li>
                 <li class="global-navigation__sub-item">
-                  <a href="price.html#trial-diving">体験ダイビング</a>
+                  <a href="<?php echo site_url('/price#trial-diving'); ?>">体験ダイビング</a>
                 </li>
                 <li class="global-navigation__sub-item">
-                  <a href="price.html#fun-diving">ファンダイビング</a>
+                  <a href="<?php echo site_url('/price#fun-diving'); ?>">ファンダイビング</a>
                 </li>
               </ul>
             </li>
           </ul>
           <ul class="global-navigation__items">
             <li class="global-navigation__item global-navigation__item--black">
-              <a href="faq.html">よくある質問</a>
+              <a href="<?php echo site_url('/faq'); ?>">よくある質問</a>
             </li>
             <li class="global-navigation__item global-navigation__item--black">
-              <a href="privacy-policy.html">プライバシー<br class="u-mobile">ポリシー</a>
+              <a href="<?php echo site_url('/privacypolicy'); ?>">プライバシー<br class="u-mobile">ポリシー</a>
             </li>
             <li class="global-navigation__item global-navigation__item--black">
-              <a href="terms-of-service.html">利用規約</a>
+              <a href="<?php echo site_url('/terms-of-service'); ?>">利用規約</a>
             </li>
             <li class="global-navigation__item global-navigation__item--black">
-              <a href="contact.html">お問い合わせ</a>
+              <a href="<?php echo site_url('/contact'); ?>">お問い合わせ</a>
+            </li>
+            <li class="global-navigation__item global-navigation__item--black">
+              <a href="<?php echo site_url('/sitemap'); ?>">サイトマップ</a>
             </li>
           </ul>
         </div>

@@ -8,12 +8,12 @@ jQuery(function ($) {
   ======================================== */
   $(function () {
     // ハンバーガーメニュー
-    $(".js-hamburger, .js-drawer a").click(function () {
+    $(".js-hamburger,.js-drawer a").click(function () {
       $(".js-hamburger").toggleClass("is-active");
       $(".js-drawer").fadeToggle();
     });
   });
-  // ドロワーオープン時bodyスクロールさせない
+  //ドロワーオープン時bodyスクロールさせない
   $(document).ready(function () {
     $('.js-hamburger').click(function () {
       $('body').toggleClass('js-drawer-menu__overflow-hidden');
@@ -139,6 +139,18 @@ jQuery(function ($) {
   /* ========================================
   // ここから下層
   ======================================== */
+  /* ========================================
+  // 下層campaign/voice page タブ
+  ======================================== */
+  $(function () {
+    $(".js-category-tab-container.is-active").css("display", "block");
+    $(".js-category-tab").on("click", function () {
+      $(".js-category-tab.current").removeClass("current");
+      $(this).addClass("current");
+      var index = $(this).index();
+      $("js-category-tab-container").hide().eq(index).fadeIn(300);
+    });
+  });
 
   /* ========================================
    //インフォメーションのタブ

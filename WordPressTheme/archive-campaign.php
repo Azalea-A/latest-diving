@@ -129,31 +129,35 @@
                       </span>
                       <h3 class="sub-campaign-card__title"><?php the_title(); ?></h3>
                     </div>
-                    <div class="sub-campaign-card__price-wrapper">
-                      <p class="sub-campaign-card__price-text">全部コミコミ(お一人様)</p>
-                      <p class="sub-campaign-card__price">
-                        <span class="sub-campaign-card__price-center">
-                          <span class="sub-campaign-card__price-before">¥<?php the_field('price_before') ?></span>¥<?php the_field('special_price') ?>
-                        </span>
-                      </p>
-                    </div>
-                    <div class="sub-campaign-card__desktop-info u-desktop">
-                      <p class="sub-campaign-card__text"> <?php the_content(); ?></p>
-                      <div class="sub-campaign-card__period-wrap">
-                        <time datetime="<?php echo get_field('start_year') . '-' . get_field('start_month') . '-' . get_field('start_date'); ?>"><?php the_field('start_year') ?>/<?php the_field('start_month') ?>/<?php the_field('start_date') ?></time> -
-                        <time datetime="<?php echo get_field('end_year') . '-' . get_field('end_month') . '-' . get_field('end_date'); ?>"><?php the_field('end_year') ?><?php the_field('end_month') ?>/<?php the_field('end_date') ?></time>
-                        <p class="sub-campaign-card__cta-text">ご予約・お問い合わせはコチラ</p>
+                    <div class="sub-campaign-card__content-wrapper">
+                      <div class="sub-campaign-card__price-wrapper">
+                        <p class="sub-campaign-card__price-text">全部コミコミ(お一人様)</p>
+                        <p class="sub-campaign-card__price">
+                          <span class="sub-campaign-card__price-center">
+                            <span class="sub-campaign-card__price-before">¥<?php the_field('price_before') ?></span>¥<?php the_field('special_price') ?>
+                          </span>
+                        </p>
                       </div>
-                      <div class="sub-campaign-card__button-wrapper">
-                        <?php
-                        // スラッグ名が 'contact' のページのURLを取得
-                        $contact_page_url = get_permalink(get_page_by_path('contact'));
-                        ?>
-                        <a href="<?php echo esc_url($contact_page_url); ?>" class="button">
-                          <span class="button__span">Contact us</span>
-                        </a>
+                      <div class="sub-campaign-card__desktop-info u-desktop">
+                        <p class="sub-campaign-card__text"> <?php the_content(); ?></p>
                       </div>
-                    </div>
+                      <div class="sub-campaign-card__bottom u-desktop">
+                        <div class="sub-campaign-card__period-wrap">
+                          <time datetime="<?php echo get_field('start_year') . '-' . get_field('start_month') . '-' . get_field('start_date'); ?>"><?php the_field('start_year') ?>/<?php the_field('start_month') ?>/<?php the_field('start_date') ?></time> -
+                          <time datetime="<?php echo get_field('end_year') . '-' . get_field('end_month') . '-' . get_field('end_date'); ?>"><?php the_field('end_year') ?><?php the_field('end_month') ?>/<?php the_field('end_date') ?></time>
+                          <p class="sub-campaign-card__cta-text">ご予約・お問い合わせはコチラ</p>
+                        </div>
+                        <div class="sub-campaign-card__button-wrapper">
+                          <?php
+                          // スラッグ名が 'contact' のページのURLを取得
+                          $contact_page_url = get_permalink(get_page_by_path('contact'));
+                          ?>
+                          <a href="<?php echo esc_url($contact_page_url); ?>" class="button">
+                            <span class="button__span">Contact us</span>
+                          </a>
+                        </div>
+                      </div><!-- sub-campaign-card__bottom -->
+                    </div><!-- sub-campaign-card__content-wrapper-->
                   </div>
                 </li>
             <?php endwhile;
