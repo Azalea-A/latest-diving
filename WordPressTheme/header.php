@@ -23,7 +23,8 @@
 
 <body class="<?php if (is_404()) {
                 echo 'error404';
-              } ?>">
+              }
+              ?>">
   <header class="header js-header">
     <div class="header__inner">
       <h1 class="header__logo">
@@ -172,6 +173,5 @@
           ?>
         </nav>
       </div>
-
     </div>
   </header>

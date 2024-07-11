@@ -49,51 +49,50 @@
         <div class="top-campaign__swiper swiper js-topCampaignSwiper">
           <div class="swiper-wrapper">
             <?php
-            // カスタム投稿タイプ 'campaign' の投稿を取得
-            $args = array(
-              'post_type' => 'campaign',
-              'posts_per_page' => -1, // すべての投稿を取得
-            );
-            $campaign_query = new WP_Query($args);
-            if ($campaign_query->have_posts()) :
-              while ($campaign_query->have_posts()) : $campaign_query->the_post();
+              // カスタム投稿タイプ 'campaign' の投稿を取得
+              $args = array(
+                'post_type' => 'campaign',
+                'posts_per_page' => -1, // すべての投稿を取得
+              );
+              $campaign_query = new WP_Query($args);
+              if ($campaign_query->have_posts()) :
+                while ($campaign_query->have_posts()) : $campaign_query->the_post();
                 $price_before = get_field('price_before'); // ACFフィールド 'price_before' から取得
                 $special_price = get_field('special_price'); // ACFフィールド 'special_price' から取得
             ?>
-                <div class="swiper-slide top-campaign__swiper-slide">
-                  <div class="campaign-card">
-                    <div class="campaign-card__img">
-                      <figure>
-                        <?php if (has_post_thumbnail()) : ?>
-                          <?php the_post_thumbnail('full'); ?>
-                        <?php else : ?>
-                          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/default.jpg" alt="デフォルト画像">
-                        <?php endif; ?>
-                      </figure>
-                    </div>
-                    <div class="campaign-card__body">
-                      <div class="campaign-card__title-wrapper">
-                        <?php $categories = get_the_terms(get_the_ID(), 'campaign_category'); ?>
-                        <?php if ($categories && !is_wp_error($categories)) : ?>
-                          <?php foreach ($categories as $category) : ?>
-                            <span class="campaign-card__label category-label"><?php echo esc_html($category->name); ?></span>
-                          <?php endforeach; ?>
-                        <?php endif; ?>
-                        <h3 class="campaign-card__title"><?php the_title(); ?></h3>
-                      </div>
-                      <div class="campaign-card__price-wrapper">
-                        <p class="campaign-card__price-text">全部コミコミ(お一人様)</p>
-                        <p class="campaign-card__price">
-                          <?php if ($price_before) : ?><span class="campaign-card__price-before">¥<?php echo number_format(floatval(preg_replace('/[^0-9.]/', '', $price_before))); ?></span><?php endif; ?>¥<?php echo number_format(floatval(preg_replace('/[^0-9.]/', '', $special_price))); ?>
-                        </p>
-                      </div>
-                    </div> <!-- campaign-card__body -->
-                  </div> <!-- campaign-card -->
-                </div><!-- swiper-slide -->
+            <div class="swiper-slide top-campaign__swiper-slide">
+              <div class="campaign-card">
+                <div class="campaign-card__img">
+                  <figure>
+                    <?php if (has_post_thumbnail()) : ?>
+                      <?php the_post_thumbnail('full'); ?>
+                    <?php else : ?>
+                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/default.jpg" alt="デフォルト画像">
+                    <?php endif; ?>
+                  </figure>
+                </div>
+                <div class="campaign-card__body">
+                  <div class="campaign-card__title-wrapper">
+                    <?php $categories = get_the_terms(get_the_ID(), 'campaign_category'); ?>
+                    <?php if ($categories && !is_wp_error($categories)) : ?>
+                      <?php foreach ($categories as $category) : ?>
+                        <span class="campaign-card__label category-label"><?php echo esc_html($category->name); ?></span>
+                      <?php endforeach; ?>
+                    <?php endif; ?>
+                    <h3 class="campaign-card__title"><?php the_title(); ?></h3>
+                  </div>
+                  <div class="campaign-card__price-wrapper">
+                    <p class="campaign-card__price-text">全部コミコミ(お一人様)</p>
+                    <p class="campaign-card__price">
+                      <?php if ($price_before) : ?><span class="campaign-card__price-before">¥<?php echo number_format(floatval(preg_replace('/[^0-9.]/', '', $price_before))); ?></span><?php endif; ?>¥<?php echo number_format(floatval(preg_replace('/[^0-9.]/', '', $special_price))); ?>
+                    </p>
+                  </div>
+                </div> <!-- campaign-card__body -->
+              </div> <!-- campaign-card -->
+            </div><!-- swiper-slide -->
             <?php endwhile;
               wp_reset_postdata();
-            endif;
-            ?>
+            endif;?>
           </div> <!-- swiper-wrapper -->
         </div><!-- swiper-->
       </div> <!-- top-campaign__swiper-container -->

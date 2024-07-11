@@ -80,7 +80,7 @@
               </li>
           <?php endwhile;
           else :
-            echo '<p>投稿が見つかりませんでした。</p>';
+            echo '<li>投稿が見つかりませんでした。</li>';
           endif;
           ?>
         </ul>
