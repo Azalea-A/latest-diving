@@ -46,26 +46,26 @@
             <div class="global-navigation__columns global-navigation__columns--drawer">
               <ul class="global-navigation__items">
                 <li class="global-navigation__item">
-                  <a href="<?php echo get_post_type_archive_link('campaign'); ?>">キャンペーン</a>
+                  <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>">キャンペーン</a>
                   <ul class="global-navigation__sub-items">
                     <li class="global-navigation__sub-item">
-                      <a href="<?php echo get_post_type_archive_link('campaign'); ?>#campaign-license">ライセンス取得</a>
+                      <a href="<?php echo esc_url(get_post_type_archive_link('campaign') . '#campaign-license'); ?>">ライセンス取得</a>
                     </li>
                     <li class="global-navigation__sub-item">
-                      <a href="<?php echo get_post_type_archive_link('campaign'); ?>#campaign-chartered-trial">貸切体験ダイビング</a>
+                      <a href="<?php echo esc_url(get_post_type_archive_link('campaign') . '#campaign-chartered-trial'); ?>">貸切体験ダイビング</a>
                     </li>
                     <li class="global-navigation__sub-item">
-                      <a href="<?php echo get_post_type_archive_link('campaign'); ?>#campaign-night">ナイトダイビング</a>
+                      <a href="<?php echo esc_url(get_post_type_archive_link('campaign') . '#campaign-night'); ?>">ナイトダイビング</a>
                     </li>
                   </ul>
                 </li>
                 <li class="global-navigation__item">
-                  <a href="<?php echo get_permalink(get_page_by_path('about-us')); ?>">私たちについて</a>
+                  <a href="<?php echo esc_url(get_permalink(get_page_by_path('about-us'))); ?>">私たちについて</a>
                 </li>
               </ul>
               <ul class="global-navigation__items">
                 <li class="global-navigation__item">
-                  <a href="<?php echo get_permalink(get_page_by_path('information')); ?>">ダイビング情報</a>
+                  <a href="<?php echo esc_url(get_permalink(get_page_by_path('information'))); ?>">ダイビング情報</a>
                   <ul class="global-navigation__sub-items">
                     <?php
                     // スラッグ名が 'information' のページのURLを取得

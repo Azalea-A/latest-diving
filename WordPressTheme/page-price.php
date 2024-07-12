@@ -21,19 +21,15 @@
           <?php
           // 現在の投稿のIDを取得
           $post_id = get_the_ID();
-
           // SCFプラグインを使ってカスタムフィールドの値を取得
           $licence_category = SCF::get('licence_category', $post_id);
           $licence_lists = SCF::get('licence_lists', $post_id);
           ?>
-
-
           <h2 class="table-block__heading" id="licence_category">
             <span class="table-block__heading-span table-block__heading-span--line3">
               <?php echo esc_html($licence_category); ?>
             </span>
           </h2>
-
           <table class="table-block__table">
             <?php
             if (!empty($licence_lists) && is_array($licence_lists)) {
@@ -48,7 +44,7 @@
             <?php
               }
             } else {
-              echo '<p>No courses found.</p>';
+              echo '<tr>No courses found.</tr>';
             }
             ?>
           </table>
@@ -62,13 +58,11 @@
           $trial_diving_category = SCF::get('trial_diving_category', $post_id);
           $trial_diving_lists = SCF::get('trial_diving_lists', $post_id);
           ?>
-
           <h2 class="table-block__heading" id="trial-diving">
             <span class="table-block__heading-span table-block__heading-span--line3">
               <?php echo esc_html($trial_diving_category); ?>
             </span>
           </h2>
-
           <table class="table-block__table">
             <?php
             if (!empty($trial_diving_lists) && is_array($trial_diving_lists)) {
@@ -83,7 +77,7 @@
             <?php
               }
             } else {
-              echo '<p>No courses found.</p>';
+              echo '<tr>No courses found.</tr>';
             }
             ?>
           </table>
@@ -93,18 +87,15 @@
           <?php
           // 現在の投稿のIDを取得
           $post_id = get_the_ID();
-
           // SCFプラグインを使ってカスタムフィールドの値を取得
           $fun_diving_category = SCF::get('fun_diving_category', $post_id);
           $fun_diving_lists = SCF::get('fun_diving_lists', $post_id);
           ?>
-
           <h2 class="table-block__heading" id="fun-diving">
             <span class="table-block__heading-span table-block__heading-span--line3">
               <?php echo esc_html($fun_diving_category); ?>
             </span>
           </h2>
-
           <table class="table-block__table">
             <?php
             if (!empty($fun_diving_lists) && is_array($fun_diving_lists)) {
@@ -129,18 +120,15 @@
           <?php
           // 現在の投稿のIDを取得
           $post_id = get_the_ID();
-
           // SCFプラグインを使ってカスタムフィールドの値を取得
           $special_diving_category = SCF::get('special_diving_category', $post_id);
           $special_diving_lists = SCF::get('special_diving_lists', $post_id);
           ?>
-
           <h2 class="table-block__heading">
             <span class="table-block__heading-span table-block__heading-span--line3" id="special-diving-course">
               <?php echo esc_html($special_diving_category); ?>
             </span>
           </h2>
-
           <table class="table-block__table">
             <?php
             if (!empty($special_diving_lists) && is_array($special_diving_lists)) {
@@ -155,12 +143,11 @@
             <?php
               }
             } else {
-              echo '<p>No courses found.</p>';
+              echo '<tr>No courses found.</tr>';
             }
             ?>
           </table>
         </div>
-
       </div>
     </div>
   </section>

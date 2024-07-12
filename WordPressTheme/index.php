@@ -140,7 +140,7 @@
         </div><!-- swiper-->
       </div> <!-- top-campaign__swiper-container -->
       <div class="top-campaign__button-wrapper">
-        <a href="#" class="button">
+        <a href="<?php echo esc_url($campaign_archive_url); ?>" class="button">
           <span class="button__span">View more</span>
         </a>
       </div>
@@ -174,7 +174,7 @@
           <div class="top-about__content-wrapper">
             <p class="top-about__text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
             <div class="top-about__button-wrapper">
-              <a href="#" class="button"><span class="button__span">View more</span></a>
+              <a href="<?php echo esc_url($about_us_page_url); ?>" class="button"><span class="button__span">View more</span></a>
             </div>
           </div>
         </div>
@@ -200,7 +200,7 @@
             <h3 class="top-information__heading">ライセンス講習</h3>
             <p class="top-information__text">当店はダイビングライセンス（Cカード）世界最大の教育機関PADIの「正規店」として店舗登録されています。<br>正規登録店として、安心安全に初めての方でも安心安全にライセンス取得をサポート致します。</p>
             <div class="top-information__button-wrapper">
-              <a href="#" class="button">
+              <a href="<?php echo esc_url($information_page_url); ?>" class="button">
                 <span class="button__span">View more</span>
               </a>
             </div>
@@ -274,7 +274,7 @@
         </li>
       </ul>
       <div class="top-blog__button-wrapper">
-        <a href="#" class="button">
+        <a href="<?php echo esc_url($posts_page_url); ?>" class="button">
           <span class="button__span">View more</span>
         </a>
       </div>
@@ -333,7 +333,7 @@
         </li>
       </ul>
       <div class="top-voice__button-wrapper">
-        <a href="#" class="button">
+        <a href="<?php echo esc_url($voice_archive_url); ?>" class="button">
           <span class="button__span">View more</span>
         </a>
       </div>
@@ -433,7 +433,7 @@
       </div><!-- top-price__flex-container -->
     </div>
     <div class="top-price__button-wrapper">
-      <a href="#" class="button">
+      <a href="<?php echo esc_url($price_page_url); ?>" class="button">
         <span class="button__span">View more</span>
       </a>
     </div>

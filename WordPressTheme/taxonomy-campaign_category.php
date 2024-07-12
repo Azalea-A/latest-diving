@@ -23,7 +23,7 @@
       <div class="sub-campaign__category-tab category-tab">
         <ul class="category-tab__lists">
           <li class="category-tab__list <?php if (!is_tax('campaign_category')) echo 'current'; ?>">
-            <a href="<?php echo get_post_type_archive_link('campaign'); ?>">ALL</a>
+            <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>">ALL</a>
           </li>
           <?php
           $terms = get_terms(array(
@@ -65,13 +65,15 @@
                   </div>
                   <div class="sub-campaign-card__body">
                     <div class="sub-campaign-card__title-wrapper">
-                      <span class="sub-campaign-card__label category-label"><?php
-                                                                            $terms = get_the_terms(get_the_ID(), 'campaign_category');
-                                                                            if ($terms && !is_wp_error($terms)) {
-                                                                              $term = array_shift($terms);
-                                                                              echo esc_html($term->name);
-                                                                            }
-                                                                            ?></span>
+                      <span class="sub-campaign-card__label category-label">
+                        <?php
+                        $terms = get_the_terms(get_the_ID(), 'campaign_category');
+                        if ($terms && !is_wp_error($terms)) {
+                          $term = array_shift($terms);
+                          echo esc_html($term->name);
+                        }
+                        ?>
+                      </span>
                       <h3 class="sub-campaign-card__title"><?php the_title(); ?></h3>
                     </div>
                     <div class="sub-campaign-card__price-wrapper">
@@ -85,7 +87,7 @@
                         <p sub-campaign-card__cta-text>ご予約・お問い合わせはコチラ</p>
                       </div>
                       <div class="sub-campaign-card__button-wrapper">
-                        <a href="#" class="button">
+                        <a href="<?php echo esc_url($contact_page_url); ?>" class="button">
                           <span class="button__span">Contact us</span>
                         </a>
                       </div>
@@ -94,7 +96,7 @@
                 </li>
             <?php endwhile;
             else :
-              echo '<p>投稿が見つかりませんでした。</p>';
+              echo '<li>投稿が見つかりませんでした。</li>';
             endif;
             ?>
           </ul>
@@ -110,11 +112,9 @@
             <a href="<?php echo esc_url(get_previous_posts_page_link()); ?>" class="previouspostslink">
             </a>
           <?php endif; ?>
-
           <?php if (function_exists('wp_pagenavi')) {
             wp_pagenavi();
           } ?>
-
           <?php if (get_next_posts_link()) : ?>
             <a href="<?php echo esc_url(get_next_posts_page_link()); ?>" class="nextpostslink">
             </a>

@@ -16,28 +16,28 @@
       <div class="sub-voice__category-tab category-tab">
         <ul class="category-tab__lists">
           <li class="category-tab__list <?php if (!is_tax('voice_category')) echo 'current'; ?>">
-            <a href="<?php echo get_post_type_archive_link('voice'); ?>">ALL</a>
+            <a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>">ALL</a>
           </li>
           <?php
-          $terms = get_terms(array(
-            'taxonomy' => 'voice_category',
-            'hide_empty' => false,
-          ));
-          // タームをスラッグ名に基づいて並べ替える
-          $ordered_slugs = array('licence', 'fun-diving', 'trial-diving');
-          $ordered_terms = array();
-          foreach ($ordered_slugs as $slug) {
-            foreach ($terms as $term) {
-              if ($term->slug === $slug) {
-                $ordered_terms[] = $term;
+            $terms = get_terms(array(
+              'taxonomy' => 'voice_category',
+              'hide_empty' => false,
+            ));
+            // タームをスラッグ名に基づいて並べ替える
+            $ordered_slugs = array('licence', 'fun-diving', 'trial-diving');
+            $ordered_terms = array();
+            foreach ($ordered_slugs as $slug) {
+              foreach ($terms as $term) {
+                if ($term->slug === $slug) {
+                  $ordered_terms[] = $term;
+                }
               }
             }
-          }
-          // 並べ替えたタームを出力
+            // 並べ替えたタームを出力
           foreach ($ordered_terms as $term) : ?>
-            <li class="category-tab__list <?php if (is_tax('voice_category') && get_queried_object()->slug == $term->slug) echo 'current'; ?>">
-              <a href="<?php echo esc_url(get_term_link($term)); ?>"><?php echo esc_html($term->name); ?></a>
-            </li>
+          <li class="category-tab__list <?php if (is_tax('voice_category') && get_queried_object()->slug == $term->slug) echo 'current'; ?>">
+            <a href="<?php echo esc_url(get_term_link($term)); ?>"><?php echo esc_html($term->name); ?></a>
+          </li>
           <?php endforeach; ?>
         </ul>
       </div>
@@ -79,14 +79,13 @@
                 </div>
               </li>
           <?php endwhile;
-          else :
-            echo '<li>投稿が見つかりませんでした。</li>';
-          endif;
+            else :
+              echo '<li>投稿が見つかりませんでした。</li>';
+            endif;
           ?>
         </ul>
       </div>
     </div>
-
     <!-- ページネーション -->
     <div class="sub-voice__pagenavi pagenavi">
       <div class="pagenavi__inner">
@@ -99,8 +98,8 @@
 
           <?php if (function_exists('wp_pagenavi')) {
             wp_pagenavi();
-          } ?>
-
+          }
+          ?>
           <?php if (get_next_posts_link()) : ?>
             <a href="<?php echo esc_url(get_next_posts_page_link()); ?>" class="nextpostslink">
             </a>

@@ -53,9 +53,11 @@
       </section>
     <?php endif; ?>
     </main>
-    <footer class="footer<?php if (is_404()) {
-                            echo ' footer--mt0';
-                          } ?>">
+    <footer class="footer<?php
+        if (is_404()) {
+            echo ' footer--mt0';
+        }
+    ?>">
       <div class="footer__inner inner">
         <div class="footer__top">
           <div class="footer__logo">
@@ -158,7 +160,7 @@
     </footer>
     <?php wp_footer(); ?>
     <div class="toTop js-toTop">
-      <a href="<?php echo home_url(); ?>"></a>
+      <a href="<?php echo esc_url(home_url()); ?>"></a>
     </div>
   </body>
 

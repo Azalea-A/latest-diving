@@ -14,11 +14,10 @@
     <div class="sub-blog__inner inner">
       <div class="sub-blog__flex">
         <div class="sub-blog__main">
-
           <ul class="sub-blog__blog-cards blog-cards blog-cards--sub-blog">
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                 <li class="blog-cards__item blog-card">
-                  <a href="<?php the_permalink(); ?>" class="blog-card__link">
+                <a href="<?php echo esc_url(get_permalink()); ?>" class="blog-card__link">
                     <div class="blog-card__inner">
                       <div class="blog-card__img blog-card__img--scale-bigger">
                         <figure>
@@ -56,7 +55,6 @@
               echo '<p>投稿が見つかりませんでした。</p>';
             endif; ?>
           </ul>
-
           <!-- ページネーション -->
           <div class="sub-voice__pagenavi pagenavi">
             <div class="pagenavi__inner">
@@ -68,7 +66,8 @@
                 <?php endif; ?>
                 <?php if (function_exists('wp_pagenavi')) {
                   wp_pagenavi();
-                } ?>
+                }
+                ?>
                 <?php if (get_next_posts_link()) : ?>
                   <a href="<?php echo esc_url(get_next_posts_page_link()); ?>" class="nextpostslink">
                   </a>

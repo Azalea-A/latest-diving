@@ -19,12 +19,11 @@
   <!-- 全体のコンテナー -->
   <section class="page-voice sub-voice">
     <div class="sub-voice__inner inner">
-
       <!-- タブのボタン -->
       <div class="sub-voice__category-tab category-tab">
         <ul class="category-tab__lists">
           <li class="category-tab__list <?php if (!is_tax('voice_category')) echo 'current'; ?>">
-            <a href="<?php echo get_post_type_archive_link('voice'); ?>">ALL</a>
+            <a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>">ALL</a>
           </li>
           <?php
           $terms = get_terms(array(
@@ -88,13 +87,12 @@
               </li>
           <?php endwhile;
           else :
-            echo '<p>投稿が見つかりませんでした。</p>';
+            echo '<li>投稿が見つかりませんでした。</li>';
           endif;
           ?>
         </ul>
       </div>
     </div>
-
     <!-- ページネーション -->
     <div class="sub-voice__pagenavi pagenavi">
       <div class="pagenavi__inner">
@@ -104,11 +102,9 @@
             <a href="<?php echo esc_url(get_previous_posts_page_link()); ?>" class="previouspostslink">
             </a>
           <?php endif; ?>
-
           <?php if (function_exists('wp_pagenavi')) {
             wp_pagenavi();
           } ?>
-
           <?php if (get_next_posts_link()) : ?>
             <a href="<?php echo esc_url(get_next_posts_page_link()); ?>" class="nextpostslink">
             </a>

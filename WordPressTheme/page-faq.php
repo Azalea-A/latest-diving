@@ -15,14 +15,11 @@
     <div class="sub-faq__inner inner">
       <div class="sub-faq__accordion accordion js-accordion">
         <div class="accordion__items">
-
           <?php
           // 現在の投稿のIDを取得
           $post_id = get_the_ID();
-
           // SCFプラグインを使ってカスタムフィールドグループを取得
           $faq_qa_group = SCF::get('faq_qa', $post_id);
-
           if (!empty($faq_qa_group)) {
             foreach ($faq_qa_group as $faq_qa) {
               $faq_question = $faq_qa['faq_question'];
@@ -44,10 +41,7 @@
             echo '<p>No FAQ items found.</p>';
           }
           ?>
-
         </div>
-
-
       </div>
     </div>
   </section>

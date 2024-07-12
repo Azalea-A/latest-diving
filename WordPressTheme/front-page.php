@@ -8,15 +8,15 @@
       <div class="fv__swiper swiper js-fvSwiper">
         <div class="swiper-wrapper">
           <?php for ($i = 1; $i <= 4; $i++) :
-            $main_visual_pc = get_field('main_visual_pc_' . $i);
-            $main_visual_sp = get_field('main_visual_sp_' . $i);
-            if ($main_visual_pc && $main_visual_sp) : ?>
-              <div class="swiper-slide">
-                <picture>
-                  <source srcset="<?php echo esc_url($main_visual_sp); ?>" media="(max-width: 767px)">
-                  <img src="<?php echo esc_url($main_visual_pc); ?>" alt="メインビジュアル<?php echo $i; ?>">
-                </picture>
-              </div>
+          $main_visual_pc = get_field('main_visual_pc_' . $i);
+          $main_visual_sp = get_field('main_visual_sp_' . $i);
+          if ($main_visual_pc && $main_visual_sp) : ?>
+            <div class="swiper-slide">
+              <picture>
+                <source srcset="<?php echo esc_url($main_visual_sp); ?>" media="(max-width: 767px)">
+                <img src="<?php echo esc_url($main_visual_pc); ?>" alt="メインビジュアル<?php echo $i; ?>">
+              </picture>
+            </div>
           <?php endif;
           endfor; ?>
         </div><!-- swiper-wrapper -->
@@ -49,47 +49,47 @@
         <div class="top-campaign__swiper swiper js-topCampaignSwiper">
           <div class="swiper-wrapper">
             <?php
-              // カスタム投稿タイプ 'campaign' の投稿を取得
-              $args = array(
-                'post_type' => 'campaign',
-                'posts_per_page' => -1, // すべての投稿を取得
-              );
-              $campaign_query = new WP_Query($args);
-              if ($campaign_query->have_posts()) :
-                while ($campaign_query->have_posts()) : $campaign_query->the_post();
-                $price_before = get_field('price_before'); // ACFフィールド 'price_before' から取得
-                $special_price = get_field('special_price'); // ACFフィールド 'special_price' から取得
+            // カスタム投稿タイプ 'campaign' の投稿を取得
+            $args = array(
+              'post_type' => 'campaign',
+              'posts_per_page' => -1, // すべての投稿を取得
+            );
+            $campaign_query = new WP_Query($args);
+            if ($campaign_query->have_posts()) :
+              while ($campaign_query->have_posts()) : $campaign_query->the_post();
+              $price_before = get_field('price_before'); // ACFフィールド 'price_before' から取得
+              $special_price = get_field('special_price'); // ACFフィールド 'special_price' から取得
             ?>
-            <div class="swiper-slide top-campaign__swiper-slide">
-              <div class="campaign-card">
-                <div class="campaign-card__img">
-                  <figure>
-                    <?php if (has_post_thumbnail()) : ?>
-                      <?php the_post_thumbnail('full'); ?>
-                    <?php else : ?>
-                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/default.jpg" alt="デフォルト画像">
-                    <?php endif; ?>
-                  </figure>
-                </div>
-                <div class="campaign-card__body">
-                  <div class="campaign-card__title-wrapper">
-                    <?php $categories = get_the_terms(get_the_ID(), 'campaign_category'); ?>
-                    <?php if ($categories && !is_wp_error($categories)) : ?>
-                      <?php foreach ($categories as $category) : ?>
-                        <span class="campaign-card__label category-label"><?php echo esc_html($category->name); ?></span>
-                      <?php endforeach; ?>
-                    <?php endif; ?>
-                    <h3 class="campaign-card__title"><?php the_title(); ?></h3>
+              <div class="swiper-slide top-campaign__swiper-slide">
+                <div class="campaign-card">
+                  <div class="campaign-card__img">
+                    <figure>
+                      <?php if (has_post_thumbnail()) : ?>
+                        <?php the_post_thumbnail('full'); ?>
+                      <?php else : ?>
+                        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/default.jpg" alt="デフォルト画像">
+                      <?php endif; ?>
+                    </figure>
                   </div>
-                  <div class="campaign-card__price-wrapper">
-                    <p class="campaign-card__price-text">全部コミコミ(お一人様)</p>
-                    <p class="campaign-card__price">
-                      <?php if ($price_before) : ?><span class="campaign-card__price-before">¥<?php echo number_format(floatval(preg_replace('/[^0-9.]/', '', $price_before))); ?></span><?php endif; ?>¥<?php echo number_format(floatval(preg_replace('/[^0-9.]/', '', $special_price))); ?>
-                    </p>
-                  </div>
-                </div> <!-- campaign-card__body -->
-              </div> <!-- campaign-card -->
-            </div><!-- swiper-slide -->
+                  <div class="campaign-card__body">
+                    <div class="campaign-card__title-wrapper">
+                      <?php $categories = get_the_terms(get_the_ID(), 'campaign_category'); ?>
+                      <?php if ($categories && !is_wp_error($categories)) : ?>
+                        <?php foreach ($categories as $category) : ?>
+                          <span class="campaign-card__label category-label"><?php echo esc_html($category->name); ?></span>
+                        <?php endforeach; ?>
+                      <?php endif; ?>
+                      <h3 class="campaign-card__title"><?php the_title(); ?></h3>
+                    </div>
+                    <div class="campaign-card__price-wrapper">
+                      <p class="campaign-card__price-text">全部コミコミ(お一人様)</p>
+                      <p class="campaign-card__price">
+                        <?php if ($price_before) : ?><span class="campaign-card__price-before">¥<?php echo number_format(floatval(preg_replace('/[^0-9.]/', '', $price_before))); ?></span><?php endif; ?>¥<?php echo number_format(floatval(preg_replace('/[^0-9.]/', '', $special_price))); ?>
+                      </p>
+                    </div>
+                  </div> <!-- campaign-card__body -->
+                </div> <!-- campaign-card -->
+              </div><!-- swiper-slide -->
             <?php endwhile;
               wp_reset_postdata();
             endif;?>
@@ -101,7 +101,6 @@
         // カスタムポストタイプ 'campaign' のアーカイブページURLを取得
         $campaign_archive_url = get_post_type_archive_link('campaign');
         ?>
-
         <a href="<?php echo esc_url($campaign_archive_url); ?>" class="button">
           <span class="button__span">View more</span>
         </a>
@@ -147,7 +146,6 @@
       </div>
     </div> <!-- top-about__inner inner -->
   </section>
-
   <!-- top information -->
   <section class="top-information-section top-information">
     <div class="top-information__inner inner">
@@ -179,7 +177,6 @@
       </div>
     </div>
   </section>
-
   <!-- top blog -->
   <section class="top-blog-section top-blog">
     <div class="top-blog__inner inner">
@@ -197,37 +194,36 @@
         $latest_posts = new WP_Query($args);
 
         if ($latest_posts->have_posts()) :
-          while ($latest_posts->have_posts()) : $latest_posts->the_post();
+        while ($latest_posts->have_posts()) : $latest_posts->the_post();
         ?>
-            <li class="blog-cards__item blog-card">
-              <a href="<?php the_permalink(); ?>" class="blog-card__link">
-                <div class="blog-card__inner">
-                  <div class="blog-card__img">
-                    <figure>
-                      <?php if (has_post_thumbnail()) : ?>
-                        <?php the_post_thumbnail('full', array('loading' => 'lazy')); ?>
-                      <?php else : ?>
-                        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no_image.jpeg" alt="<?php the_title(); ?>" loading="lazy">
-                      <?php endif; ?>
-                    </figure>
-                  </div>
-                  <div class="blog-card__content">
-                    <div class="blog-card__head">
-                      <time class="blog-card__date" datetime="<?php echo get_the_date('Y-m-d'); ?>"><?php echo get_the_date('Y.m/d'); ?></time>
-                      <h3 class="blog-card__title"><?php the_title(); ?></h3>
-                    </div>
-                    <p class="blog-card__text"><?php echo wp_trim_words(get_the_excerpt(), 90, '...'); ?></p>
-                  </div>
+        <li class="blog-cards__item blog-card">
+          <a href="<?php echo esc_url(get_permalink()); ?>" class="blog-card__link">
+            <div class="blog-card__inner">
+              <div class="blog-card__img">
+                <figure>
+                  <?php if (has_post_thumbnail()) : ?>
+                    <?php the_post_thumbnail('full', array('loading' => 'lazy')); ?>
+                  <?php else : ?>
+                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no_image.jpeg" alt="<?php the_title(); ?>" loading="lazy">
+                  <?php endif; ?>
+                </figure>
+              </div>
+              <div class="blog-card__content">
+                <div class="blog-card__head">
+                  <time class="blog-card__date" datetime="<?php echo get_the_date('Y-m-d'); ?>"><?php echo get_the_date('Y.m/d'); ?></time>
+                  <h3 class="blog-card__title"><?php the_title(); ?></h3>
                 </div>
-              </a>
-            </li>
+                <p class="blog-card__text"><?php echo wp_trim_words(get_the_excerpt(), 90, '...'); ?></p>
+              </div>
+            </div>
+          </a>
+        </li>
         <?php
           endwhile;
           wp_reset_postdata();
         endif;
         ?>
       </ul>
-
       <div class="top-blog__button-wrapper">
         <?php
         // 投稿ページのURLを取得
@@ -255,7 +251,6 @@
           'posts_per_page' => 2,
         );
         $latest_voice_posts = new WP_Query($args);
-
         if ($latest_voice_posts->have_posts()) :
           while ($latest_voice_posts->have_posts()) : $latest_voice_posts->the_post();
             // ACF フィールドからデータを取得
@@ -264,35 +259,35 @@
             $category_terms = get_the_terms(get_the_ID(), 'voice_category'); // カテゴリー
             $voice_content = get_field('voice-content'); // ACF フィールド 'voice-content' から取得
         ?>
-            <li class="voice-cards__item voice-card">
-              <div class="voice-card__inner">
-                <div class="voice-card__top">
-                  <div class="voice-card__title-wrapper">
-                    <div class="voice-card__title-flex-box">
-                      <p class="voice-card__personal-info"><?php echo esc_html($age); ?>代(<?php echo esc_html($gender); ?>)</p>
-                      <?php if ($category_terms && !is_wp_error($category_terms)) : ?>
-                        <?php foreach ($category_terms as $category_term) : ?>
-                          <span class="voice-card__label category-label category-label--voice"><?php echo esc_html($category_term->name); ?></span>
-                        <?php endforeach; ?>
-                      <?php endif; ?>
-                    </div>
-                    <h3 class="voice-card__title"><?php the_title(); ?></h3>
-                  </div>
-                  <div class="voice-card__img color-box js-color-box">
-                    <figure>
-                      <?php if (has_post_thumbnail()) : ?>
-                        <?php the_post_thumbnail('full', array('loading' => 'lazy', 'decoding' => 'async')); ?>
-                      <?php else : ?>
-                        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/default.jpg" alt="<?php the_title(); ?>" loading="lazy" decoding="async">
-                      <?php endif; ?>
-                    </figure>
-                  </div>
+        <li class="voice-cards__item voice-card">
+          <div class="voice-card__inner">
+            <div class="voice-card__top">
+              <div class="voice-card__title-wrapper">
+                <div class="voice-card__title-flex-box">
+                  <p class="voice-card__personal-info"><?php echo esc_html($age); ?>代(<?php echo esc_html($gender); ?>)</p>
+                  <?php if ($category_terms && !is_wp_error($category_terms)) : ?>
+                    <?php foreach ($category_terms as $category_term) : ?>
+                      <span class="voice-card__label category-label category-label--voice"><?php echo esc_html($category_term->name); ?></span>
+                    <?php endforeach; ?>
+                  <?php endif; ?>
                 </div>
-                <div class="voice-card__bottom">
-                  <p class="voice-card__text"><?php echo esc_html($voice_content); ?></p>
-                </div>
+                <h3 class="voice-card__title"><?php the_title(); ?></h3>
               </div>
-            </li>
+              <div class="voice-card__img color-box js-color-box">
+                <figure>
+                  <?php if (has_post_thumbnail()) : ?>
+                    <?php the_post_thumbnail('full', array('loading' => 'lazy', 'decoding' => 'async')); ?>
+                  <?php else : ?>
+                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/default.jpg" alt="<?php the_title(); ?>" loading="lazy" decoding="async">
+                  <?php endif; ?>
+                </figure>
+              </div>
+            </div>
+            <div class="voice-card__bottom">
+              <p class="voice-card__text"><?php echo esc_html($voice_content); ?></p>
+            </div>
+          </div>
+        </li>
         <?php
           endwhile;
           wp_reset_postdata();
@@ -343,19 +338,18 @@
                     $licence_course_name = $licence['licence_course_name'];
                     $licence_course_price = $licence['licence_course_price'];
                 ?>
-                    <div class="top-price__menu-flexbox">
-                      <dt><?php echo esc_html($licence_course_name); ?></dt>
-                      <dd><?php echo esc_html($licence_course_price); ?></dd>
-                    </div>
+                  <div class="top-price__menu-flexbox">
+                    <dt><?php echo esc_html($licence_course_name); ?></dt>
+                    <dd><?php echo esc_html($licence_course_price); ?></dd>
+                  </div>
                 <?php
                   }
                 } else {
-                  echo '<p>No courses found.</p>';
+                  echo '<div>No courses found.</div>';
                 }
                 ?>
               </dl>
             </li>
-
             <!-- 体験ダイビング -->
             <li class="top-price__category-item">
               <?php
@@ -378,12 +372,11 @@
                 <?php
                   }
                 } else {
-                  echo '<p>No courses found.</p>';
+                  echo '<div>No courses found.</div>';
                 }
                 ?>
               </dl>
             </li>
-
             <!-- ファンダイビング -->
             <li class="top-price__category-item">
               <?php
@@ -399,19 +392,18 @@
                     $fun_diving_course_name = $fun_diving['fun_diving_course_name'];
                     $fun_diving_course_price = $fun_diving['fun_diving_course_price'];
                 ?>
-                    <div class="top-price__menu-flexbox">
-                      <dt><?php echo esc_html($fun_diving_course_name); ?></dt>
-                      <dd><?php echo esc_html($fun_diving_course_price); ?></dd>
-                    </div>
+                  <div class="top-price__menu-flexbox">
+                    <dt><?php echo esc_html($fun_diving_course_name); ?></dt>
+                    <dd><?php echo esc_html($fun_diving_course_price); ?></dd>
+                  </div>
                 <?php
                   }
                 } else {
-                  echo '<p>No courses found.</p>';
+                  echo '<div>No courses found.</div>';
                 }
                 ?>
               </dl>
             </li>
-
             <!-- スペシャルダイビング -->
             <li class="top-price__category-item">
               <?php
@@ -427,20 +419,19 @@
                     $special_diving_course_name = $special_diving['special_diving_course_name'];
                     $special_diving_course_price = $special_diving['special_diving_course_price'];
                 ?>
-                    <div class="top-price__menu-flexbox">
-                      <dt><?php echo esc_html($special_diving_course_name); ?></dt>
-                      <dd><?php echo esc_html($special_diving_course_price); ?></dd>
-                    </div>
+                  <div class="top-price__menu-flexbox">
+                    <dt><?php echo esc_html($special_diving_course_name); ?></dt>
+                    <dd><?php echo esc_html($special_diving_course_price); ?></dd>
+                  </div>
                 <?php
                   }
                 } else {
-                  echo '<p>No courses found.</p>';
+                  echo '<div>No courses found.</div>';
                 }
                 ?>
               </dl>
             </li>
           </ul>
-
         </div><!-- top-price__lists-container -->
       </div><!-- top-price__flex-container -->
     </div>
@@ -454,6 +445,5 @@
       </a>
     </div>
   </section>
-
 
   <?php get_footer(); ?>

@@ -49,10 +49,8 @@
         <?php
         // 現在の投稿のIDを取得
         $post_id = get_the_ID();
-
         // SCFからギャラリー画像を取得
         $gallery_images = SCF::get('gallery_images', $post_id);
-
         if (is_array($gallery_images) && !empty($gallery_images)) {
         ?>
           <div class="gallery-grid__items">
@@ -66,9 +64,9 @@
                 $image_url = wp_get_attachment_image_src($image_id, 'full')[0];
                 if (!empty($image_url)) {
             ?>
-                  <div class="gallery-grid__item js-modal-img">
-                    <img src="<?php echo esc_url($image_url); ?>" alt="">
-                  </div>
+              <div class="gallery-grid__item js-modal-img">
+                <img src="<?php echo esc_url($image_url); ?>" alt="">
+              </div>
             <?php
                 }
               }
@@ -80,8 +78,6 @@
           echo '<p>No gallery images found.</p>';
         }
         ?>
-
-
       </div><!-- gallery-grid -->
     </div><!-- inner -->
   </section>
