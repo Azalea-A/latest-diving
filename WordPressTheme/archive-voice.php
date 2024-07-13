@@ -23,22 +23,14 @@
               'taxonomy' => 'voice_category',
               'hide_empty' => false,
             ));
-            // タームをスラッグ名に基づいて並べ替える
-            $ordered_slugs = array('licence', 'fun-diving', 'trial-diving');
-            $ordered_terms = array();
-            foreach ($ordered_slugs as $slug) {
-              foreach ($terms as $term) {
-                if ($term->slug === $slug) {
-                  $ordered_terms[] = $term;
-                }
-              }
-            }
-            // 並べ替えたタームを出力
-          foreach ($ordered_terms as $term) : ?>
-          <li class="category-tab__list <?php if (is_tax('voice_category') && get_queried_object()->slug == $term->slug) echo 'current'; ?>">
-            <a href="<?php echo esc_url(get_term_link($term)); ?>"><?php echo esc_html($term->name); ?></a>
-          </li>
-          <?php endforeach; ?>
+            // タームが存在するか確認
+            if (!empty($terms) && !is_wp_error($terms)) :
+              foreach ($terms as $term) : ?>
+                <li class="category-tab__list <?php if (is_tax('voice_category') && get_queried_object()->slug == $term->slug) echo 'current'; ?>">
+                  <a href="<?php echo esc_url(get_term_link($term)); ?>"><?php echo esc_html($term->name); ?></a>
+                </li>
+              <?php endforeach;
+            endif; ?>
         </ul>
       </div>
       <!-- タブのコンテンツ -->
@@ -95,7 +87,6 @@
             <a href="<?php echo esc_url(get_previous_posts_page_link()); ?>" class="previouspostslink">
             </a>
           <?php endif; ?>
-
           <?php if (function_exists('wp_pagenavi')) {
             wp_pagenavi();
           }
