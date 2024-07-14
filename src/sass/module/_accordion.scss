@@ -13,13 +13,13 @@
 .accordion__title {
   position: relative;
   font-size: rem(16);
-  padding: rem(16);
+  padding: rem(16) rem(48) rem(16) rem(16);
   cursor: pointer;
   color: $white;
   background-color: $main-blue;
   @include mq("md") {
     font-size: rem(20);
-    padding: rem(24) rem(40);
+    padding: rem(24) rem(64) rem(24) rem(40);
   }
 }
 .accordion__title::before,

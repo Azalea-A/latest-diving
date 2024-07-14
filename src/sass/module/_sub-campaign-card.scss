@@ -96,6 +96,14 @@
   }
 }
 
+.sub-campaign-card__date-range {
+  @include mq("md") {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 .sub-campaign-card__price-text {
   font-size: rem(14);
   text-align: center;

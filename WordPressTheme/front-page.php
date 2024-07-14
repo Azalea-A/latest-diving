@@ -6,10 +6,16 @@
     <!-- メインビュー -->
     <div class="fv__inner">
       <div class="fv__swiper swiper js-fvSwiper">
-        <div class="swiper-wrapper">
-          <?php for ($i = 1; $i <= 4; $i++) :
-          $main_visual_pc = get_field('main_visual_pc_' . $i);
-          $main_visual_sp = get_field('main_visual_sp_' . $i);
+      <div class="swiper-wrapper">
+        <?php
+        $i = 1;
+        while (true) {
+          $main_visual = get_field('main_visual_' . $i);
+          if (!$main_visual) {
+            break;
+          }
+          $main_visual_pc = $main_visual['pc_image'];
+          $main_visual_sp = $main_visual['sp_image'];
           if ($main_visual_pc && $main_visual_sp) : ?>
             <div class="swiper-slide">
               <picture>
@@ -18,8 +24,11 @@
               </picture>
             </div>
           <?php endif;
-          endfor; ?>
-        </div><!-- swiper-wrapper -->
+          $i++;
+        }
+        ?>
+      </div><!-- swiper-wrapper -->
+
         <!-- タイトルたち -->
         <div class="fv__title-wrap">
           <p class="fv__title-large">
@@ -294,7 +303,6 @@
         endif;
         ?>
       </ul>
-
       <div class="top-voice__button-wrapper">
         <?php
         // カスタムポストタイプ 'voice' のアーカイブページURLを取得
@@ -306,7 +314,6 @@
       </div>
     </div>
   </section>
-
   <!-- top price  -->
   <section class="top-price-section top-price">
     <div class="top-price__inner inner">

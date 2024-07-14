@@ -83,8 +83,10 @@
                       </div>
                       <div class="sub-campaign-card__bottom u-desktop">
                         <div class="sub-campaign-card__period-wrap">
-                          <time datetime="<?php echo get_field('start_year') . '-' . get_field('start_month') . '-' . get_field('start_date'); ?>"><?php the_field('start_year') ?>/<?php the_field('start_month') ?>/<?php the_field('start_date') ?></time> -
-                          <time datetime="<?php echo get_field('end_year') . '-' . get_field('end_month') . '-' . get_field('end_date'); ?>"><?php the_field('end_year') ?><?php the_field('end_month') ?>/<?php the_field('end_date') ?></time>
+                          <div class="sub-campaign-card__date-range">
+                              <span class="sub-campaign-card__start-date"><?php the_field('start_year') ?>/<?php the_field('start_month') ?>/<?php the_field('start_date') ?></span> -
+                              <span class="sub-campaign-card__end-date"><?php the_field('end_year') ?>/<?php the_field('end_month') ?>/<?php the_field('end_date') ?></span>
+                          </div>
                           <p class="sub-campaign-card__cta-text">ご予約・お問い合わせはコチラ</p>
                         </div>
                         <div class="sub-campaign-card__button-wrapper">

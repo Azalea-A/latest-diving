@@ -279,7 +279,7 @@ a {
 	color: #fff;
 	cursor: pointer;
 	font-size: 1rem;
-	padding: 1rem;
+	padding: 1rem 3rem 1rem 1rem;
 	position: relative;
 }
 
@@ -3062,7 +3062,7 @@ html {
 
 .accordion__title {
 	font-size: 1.25rem;
-	padding: 1.5rem 2.5rem;
+	padding: 1.5rem 4rem 1.5rem 2.5rem;
 }
 
 .accordion__title::before,
@@ -3897,6 +3897,12 @@ html {
 	margin-top: 0.5rem;
 	padding: 0;
 	text-align: center;
+}
+
+.sub-campaign-card__date-range {
+	align-items: center;
+	display: flex;
+	justify-content: center;
 }
 
 .sub-campaign-card__price-text {
