@@ -399,4 +399,4 @@ function change_post_object_label()
   $labels->name_admin_bar = 'ブログ';
 }
 add_action('init', 'change_post_object_label');
-?>
+
