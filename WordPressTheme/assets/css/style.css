@@ -4086,6 +4086,7 @@ html {
 
 .table-block {
 	display: flex;
+	min-height: 11.125rem;
 }
 
 .table-block__heading {

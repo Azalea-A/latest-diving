@@ -36,6 +36,31 @@
       </div>
     </div>
   </section>
+  <!--ここからギャラリーセクション  -->
+  <?php
+  // 現在の投稿のIDを取得
+  $post_id = get_the_ID();
+  // SCFからギャラリー画像を取得
+  $gallery_images = SCF::get('gallery_images', $post_id);
+  // ギャラリー画像が存在するか確認
+  $has_valid_image = false;
+  if (is_array($gallery_images) && !empty($gallery_images)) {
+      foreach ($gallery_images as $gallery_image) {
+          // 各ギャラリーアイテムの画像IDを取得
+          $image_id = $gallery_image['gallery_img'];
+          // 画像IDが正しいかどうか確認
+          if (is_numeric($image_id)) {
+              // ここでギャラリー画像のURLを取得
+              $image_url = wp_get_attachment_image_src($image_id, 'full');
+              if (!empty($image_url) && isset($image_url[0])) {
+                  $has_valid_image = true;
+                  break;
+              }
+          }
+      }
+  }
+  if ($has_valid_image) {
+  ?>
   <section class="page-aboutus-gallery sub-aboutus-gallery">
     <div class="sub-aboutus-gallery__inner inner">
       <div class="sub-aboutus-gallery__section-title section-title">
@@ -46,39 +71,34 @@
         <!-- モーダル -->
         <div class="gallery-grid__modal js-modal"></div>
         <!-- ここからSCF使ったギャラリー -->
-        <?php
-        // 現在の投稿のIDを取得
-        $post_id = get_the_ID();
-        // SCFからギャラリー画像を取得
-        $gallery_images = SCF::get('gallery_images', $post_id);
-        if (is_array($gallery_images) && !empty($gallery_images)) {
-        ?>
-          <div class="gallery-grid__items">
-            <?php
-            foreach ($gallery_images as $gallery_image) {
-              // 各ギャラリーアイテムの画像IDを取得
-              $image_id = $gallery_image['gallery_img'];
-              // 画像IDが正しいかどうか確認
-              if (is_numeric($image_id)) {
-                // ここでギャラリー画像のURLを取得
-                $image_url = wp_get_attachment_image_src($image_id, 'full')[0];
-                if (!empty($image_url)) {
-            ?>
-              <div class="gallery-grid__item js-modal-img">
-                <img src="<?php echo esc_url($image_url); ?>" alt="">
-              </div>
-            <?php
-                }
+        <div class="gallery-grid__items">
+          <?php
+          foreach ($gallery_images as $gallery_image) {
+            // 各ギャラリーアイテムの画像IDを取得
+            $image_id = $gallery_image['gallery_img'];
+            // 画像IDが正しいかどうか確認
+            if (is_numeric($image_id)) {
+              // ここでギャラリー画像のURLを取得
+              $image_url = wp_get_attachment_image_src($image_id, 'full');
+              if (!empty($image_url) && isset($image_url[0])) {
+          ?>
+            <div class="gallery-grid__item js-modal-img">
+              <img src="<?php echo esc_url($image_url[0]); ?>" alt="">
+            </div>
+          <?php
               }
             }
-            ?>
-          </div><!-- gallery-grid__items -->
-        <?php
-        } else {
-          echo '<p>No gallery images found.</p>';
-        }
-        ?>
+          }
+          ?>
+        </div><!-- gallery-grid__items -->
       </div><!-- gallery-grid -->
     </div><!-- inner -->
   </section>
+  <?php
+  } else {
+    // デバッグ用ログ出力
+    error_log('No valid gallery images found for post ID: ' . $post_id);
+  }
+  ?>
+
   <?php get_footer(); ?>
