@@ -91,6 +91,7 @@
   font-weight: $bold;
   color: $main-blue;
   font-family: $english-font-family01;
+  text-align: center;
   @include mq("md") {
     font-size: rem(40);
   }
