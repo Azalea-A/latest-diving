@@ -161,12 +161,14 @@ function get_post_views($postID)
                   </div>
                   <div class="sub-campaign-card__price-wrapper">
                     <p class="sub-campaign-card__price-text sub-campaign-card__price-text--aside">全部コミコミ(お一人様)</p>
-                    <p class="sub-campaign-card__price sub-campaign-card__price--aside">
-                      <span class="sub-campaign-card__price-center">
-                        <span class="sub-campaign-card__price-before--aside sub-campaign-card__price-before">¥<?php the_field('price_before') ?></span>
-                        ¥<?php the_field('special_price') ?>
-                      </span>
-                    </p>
+                    	<p class="sub-campaign-card__price sub-campaign-card__price--aside">
+								  <span class="sub-campaign-card__price-center">
+									<?php if (get_field('price_before')): ?>
+									  <span class="sub-campaign-card__price-before--aside sub-campaign-card__price-before">¥<?php the_field('price_before') ?></span>
+									<?php endif; ?>
+									¥<?php the_field('special_price') ?>
+								  </span>
+								</p>
                   </div>
                 </div>
               </a>

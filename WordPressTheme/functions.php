@@ -262,7 +262,7 @@ function custom_redirect_after_submission()
   ?>
   <script type="text/javascript">
     document.addEventListener('wpcf7mailsent', function(event) {
-      location = '/contact/thanks';
+      location = '/cu-divingwp/contact/thanks';
     }, false);
   </script>
 <?php
