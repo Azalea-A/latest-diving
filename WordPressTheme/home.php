@@ -76,7 +76,7 @@
           </div>
           <!-- WP-PageNaviで出力される部分 ここまで -->
         </div><!-- sub-blog__main -->
-        <aside class="sub-blog__aside aside">
+        <aside class="sub-blog__aside">
           <!-- サイドバー sidebar.phpを呼び出す -->
           <?php get_sidebar(); ?>
         </aside>

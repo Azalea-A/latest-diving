@@ -82,48 +82,24 @@
                           </div>
                           <div class="sub-campaign-card__bottom u-desktop">
                               <div class="sub-campaign-card__period-wrap">
-                                  <?php
-                                  $start_date = get_field('start_date');
-                                  $end_date = get_field('end_date');
+                              <?php
+                              $start_date = get_field('start_date');
+                              $end_date = get_field('end_date');
 
-                                  if ($start_date || $end_date): 
-                                      $start_year = $start_date ? date('Y', strtotime($start_date)) : null;
-                                      $end_year = $end_date ? date('Y', strtotime($end_date)) : null;
+                              if ($start_date || $end_date):
+                              ?>
+                                  <div class="sub-campaign-card__date-range">
+                                      <?php if ($start_date): ?>
+                                          <span class="sub-campaign-card__start-date"><?php echo esc_html($start_date); ?></span>
+                                      <?php endif; ?>
+                                      
+                                      <span class="sub-campaign-card__separator">-</span>
 
-                                      $start_month_day = $start_date ? date('m/d', strtotime($start_date)) : null;
-                                      $end_month_day = $end_date ? date('m/d', strtotime($end_date)) : null;
-                                      $end_full = $end_date ? date('Y/m/d', strtotime($end_date)) : null;
-                                      ?>
-                                      <div class="sub-campaign-card__date-range">
-                                          <?php if ($start_date): ?>
-                                              <span class="sub-campaign-card__start-date"><?php echo esc_html($start_date); ?></span>
-                                              <?php if (!$end_date): ?>
-                                                  -
-                                              <?php endif; ?>
-                                          <?php endif; ?>
-
-                                          <?php if ($start_date && $end_date): ?>
-                                              -
-                                          <?php endif; ?>
-
-                                          <?php if ($end_date): ?>
-                                              <?php if (!$start_date): ?>
-                                                  -
-                                              <?php endif; ?>
-                                              <span class="sub-campaign-card__end-date">
-                                                  <?php 
-                                                  if ($start_date && $start_year != $end_year) {
-                                                      echo esc_html($end_year . '-' . $end_month_day);
-                                                  } elseif (!$start_date) {
-                                                      echo esc_html($end_full);
-                                                  } else {
-                                                      echo esc_html($end_month_day);
-                                                  }
-                                                  ?>
-                                              </span>
-                                          <?php endif; ?>
-                                      </div>
-                                  <?php endif; ?>
+                                      <?php if ($end_date): ?>
+                                          <span class="sub-campaign-card__end-date"><?php echo esc_html($end_date); ?></span>
+                                      <?php endif; ?>
+                                  </div>
+                              <?php endif; ?>
                                   <p class="sub-campaign-card__cta-text">ご予約・お問い合わせはコチラ</p>
                               </div><!-- sub-campaign-card__period-wrap-->
                               <div class="sub-campaign-card__button-wrapper">
@@ -160,7 +136,6 @@
             wp_pagenavi();
           endif;
           ?>
-
           <?php if (get_next_posts_link()) : ?>
             <a href="<?php echo esc_url(get_next_posts_page_link()); ?>" class="nextpostslink">
             </a>
