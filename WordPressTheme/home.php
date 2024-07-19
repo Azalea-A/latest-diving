@@ -36,14 +36,14 @@
                         <p class="blog-card__text">
                           <?php
                           // 投稿の抜粋を表示する
-                          if (has_excerpt()) {
+                          if (has_excerpt()) :
                             the_excerpt();
-                          } else {
+                          else :
                             // 投稿の冒頭部分をカスタムで表示する場合
                             $content = get_the_content();
                             $content = wp_trim_words($content, 98, '...'); // 40語まで表示
                             echo $content;
-                          }
+                          endif;
                           ?>
                         </p>
                       </div>
@@ -64,9 +64,9 @@
                   <a href="<?php echo esc_url(get_previous_posts_page_link()); ?>" class="previouspostslink">
                   </a>
                 <?php endif; ?>
-                <?php if (function_exists('wp_pagenavi')) {
+                <?php if (function_exists('wp_pagenavi')) :
                   wp_pagenavi();
-                } ?>
+                endif; ?>
                 <?php if (get_next_posts_link()) : ?>
                   <a href="<?php echo esc_url(get_next_posts_page_link()); ?>" class="nextpostslink">
                   </a>

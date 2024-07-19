@@ -20,12 +20,12 @@
             $post_id = get_the_ID();
             // SCFプラグインを使ってカスタムフィールドグループを取得
             $faq_qa_group = SCF::get('faq_qa', $post_id);
-            if (!empty($faq_qa_group)) {
-                foreach ($faq_qa_group as $faq_qa) {
+            if (!empty($faq_qa_group)) :
+                foreach ($faq_qa_group as $faq_qa) :
                     $faq_question = $faq_qa['faq_question'];
                     $faq_answer = $faq_qa['faq_answer'];
                     // 質問と回答が両方存在する場合のみ表示
-                    if (!empty($faq_question) && !empty($faq_answer)) {
+                    if (!empty($faq_question) && !empty($faq_answer)) :
             ?>
             <div class="accordion__item js-accordion__item">
                 <h2 class="accordion__title js-accordion__title is-open">
@@ -38,11 +38,11 @@
                 </div>
             </div>
             <?php
-                    }
-                }
-            } else {
+                    endif;
+                  endforeach;
+            else :
                 echo '<p>No FAQ items found.</p>';
-            }
+            endif;
             ?>
         </div>
       </div>

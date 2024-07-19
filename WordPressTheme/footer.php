@@ -53,103 +53,154 @@
       </section>
     <?php endif; ?>
     </main>
-    <footer class="footer<?php
-        if (is_404()) {
-            echo ' footer--mt0';
-        }
-    ?>">
+    <footer class="footer<?php echo is_404() ? ' footer--mt0' : ''; ?>">
       <div class="footer__inner inner">
         <div class="footer__top">
           <div class="footer__logo">
             <a href="<?php echo home_url(); ?>"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/CodeUps_logo.svg" alt="CodeUps" loading="lazy" decoding="async"></a>
           </div>
           <div class="footer__sns-wrap">
-            <a class="fooer__sns-icon sns-icon" href="https://www.facebook.com/?locale=ja_JP" target=" _blank">
+            <a class="footer__sns-icon sns-icon" href="https://www.facebook.com/?locale=ja_JP" target=" _blank">
               <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/facebook.svg" alt="facebookのアイコン" loading="lazy" decoding="async">
             </a>
-            <a class="fooer__sns-icon sns-icon" href="https://www.instagram.com/" target="_blank">
+            <a class="footer__sns-icon sns-icon" href="https://www.instagram.com/" target="_blank">
               <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/instagram.svg" alt="インスタグラムのアイコン" loading="lazy" decoding="async">
             </a>
           </div>
         </div>
         <nav class="global-navigation--footer global-navigation">
           <div class="global-navigation__columns">
-            <?php
-            // メニューIDを取得
-            $menu_name = 'global-nav';
-            $locations = get_nav_menu_locations();
-            $menu_id = $locations[$menu_name];
-            $menus = wp_get_nav_menu_items($menu_id);
-            // メニューアイテムを構造化するための配列を作成
-            $menu_structure = array();
-
-            foreach ($menus as $menu_item) {
-              if (!$menu_item->menu_item_parent) {
-                $menu_structure[$menu_item->ID] = array(
-                  'item' => $menu_item,
-                  'children' => array()
-                );
-              } else {
-                $menu_structure[$menu_item->menu_item_parent]['children'][] = $menu_item;
-              }
-            }
-            // メニューを表示
-            function render_menu_items($items){
-              foreach ($items as $menu_item) {
-                echo '<li class="global-navigation__item">';
-                echo '<a href="' . esc_url($menu_item['item']->url) . '">' . esc_html($menu_item['item']->title) . '</a>';
-                if (!empty($menu_item['children'])) {
-                  echo '<ul class="global-navigation__sub-items">';
-                  foreach ($menu_item['children'] as $child_item) {
-                    echo '<li class="global-navigation__sub-item">';
-                    echo '<a href="' . esc_url($child_item->url) . '">' . esc_html($child_item->title) . '</a>';
-                    echo '</li>';
-                  }
-                  echo '</ul>';
-                }
-                echo '</li>';
-              }
-            }
-            ?>
-
-            <ul class="global-navigation__items">
-              <?php render_menu_items(array_slice($menu_structure, 0, 2)); // 1列目
-              ?>
-            </ul>
-            <ul class="global-navigation__items">
-              <?php render_menu_items(array_slice($menu_structure, 2, 2)); // 2列目
-              ?>
-            </ul>
-            <ul class="global-navigation__items">
-              <?php render_menu_items(array_slice($menu_structure, 4, 2)); // 3列目
-              ?>
-            </ul>
-            <ul class="global-navigation__items">
-              <?php
-              // 最後の列のアイテムを取得
-              $last_column_items = array_slice($menu_structure, 6);
-              // 必要なアイテムを追加
-              $required_items = ['利用規約', 'お問い合わせ', 'サイトマップ'];
-              foreach ($required_items as $required_item) {
-                $found = false;
-                foreach ($last_column_items as $item) {
-                  if ($item['item']->title == $required_item) {
-                    $found = true;
-                    break;
-                  }
-                }
-                if (!$found) {
-                  foreach ($menu_structure as $item) {
-                    if ($item['item']->title == $required_item) {
-                      $last_column_items[] = $item;
-                      break;
-                    }
-                  }
-                }
-              }
-              render_menu_items($last_column_items); // 4列目
-              ?>
-            </ul>
+          <ul class="global-navigation__items">
+                <li class="global-navigation__item">
+                  <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>">キャンペーン</a>
+                  <ul class="global-navigation__sub-items">
+                    <li class="global-navigation__sub-item">
+                    <?php 
+                    // 'licence' タームのリンクを取得する
+                    $licence_term = get_term_by('slug', 'licence', 'campaign_category');
+                    if ($licence_term) :
+                        $licence_link = get_term_link($licence_term);
+                    endif;
+                    ?>
+                        <a href="<?php echo esc_url($licence_link); ?>">ライセンス取得</a>
+                    </li>
+                    <li class="global-navigation__sub-item">
+                    <?php 
+                    // 'trial-diving' タームのリンクを取得する
+                    $trial_diving_term = get_term_by('slug', 'trial-diving', 'campaign_category');
+                    if ($trial_diving_term) :
+                        $trial_diving_link = get_term_link($trial_diving_term);
+                    endif;
+                    ?>
+                        <a href="<?php echo esc_url($trial_diving_link); ?>">体験ダイビング</a>
+                    </li>
+                    <li class="global-navigation__sub-item">
+                      <?php
+                      // 'fun-diving' タームのリンクを取得する
+                      $fun_diving_term = get_term_by('slug', 'fun-diving', 'campaign_category');
+                      if ($fun_diving_term) :
+                          $fun_diving_link = get_term_link($fun_diving_term);
+                      endif;
+                      ?>
+                        <a href="<?php echo esc_url($fun_diving_link); ?>">ファンダイビング</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="global-navigation__item">
+                  <a href="<?php echo esc_url(get_permalink(get_page_by_path('about-us'))); ?>">私たちについて</a>
+                </li>
+              </ul>
+              <ul class="global-navigation__items">
+                <li class="global-navigation__item">
+                  <a href="<?php echo esc_url(get_permalink(get_page_by_path('information'))); ?>">ダイビング情報</a>
+                  <ul class="global-navigation__sub-items">
+                    <?php
+                    // スラッグ名が 'information' のページのURLを取得
+                    $information_page_url = get_permalink(get_page_by_path('information'));
+                    ?>
+                    <li class="global-navigation__sub-item">
+                      <a href="<?php echo esc_url($information_page_url); ?>?tab=1">ライセンス講習</a>
+                    </li>
+                    <li class="global-navigation__sub-item">
+                      <a href="<?php echo esc_url($information_page_url); ?>?tab=3">体験ダイビング</a>
+                    </li>
+                    <li class="global-navigation__sub-item">
+                      <a href="<?php echo esc_url($information_page_url); ?>?tab=2">ファンダイビング</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="global-navigation__item">
+                  <?php
+                  // 投稿ページ（ブログページ）のURLを取得
+                  $blog_page_url = get_permalink(get_option('page_for_posts'));
+                  ?>
+                  <a href="<?php echo esc_url($blog_page_url); ?>">ブログ</a>
+                </li>
+              </ul>
+              <ul class="global-navigation__items">
+                <li class="global-navigation__item">
+                  <a href="<?php echo get_post_type_archive_link('voice'); ?>">お客様の声</a>
+                </li>
+                <li class="global-navigation__item">
+                  <?php
+                  // スラッグ名が 'price' のページのURLを取得
+                  $price_page_url = get_permalink(get_page_by_path('price'));
+                  ?>
+                  <a href="<?php echo esc_url($price_page_url); ?>">料金一覧</a>
+                  <ul class="global-navigation__sub-items">
+                    <?php
+                    // スラッグ名が 'price' のページのURLを取得
+                    $price_page_url = get_permalink(get_page_by_path('price'));
+                    ?>
+                    <li class="global-navigation__sub-item">
+                      <a href="<?php echo esc_url($price_page_url); ?>#license-course">ライセンス講習</a>
+                    </li>
+                    <li class="global-navigation__sub-item">
+                      <a href="<?php echo esc_url($price_page_url); ?>#trial-diving">体験ダイビング</a>
+                    </li>
+                    <li class="global-navigation__sub-item">
+                      <a href="<?php echo esc_url($price_page_url); ?>#fun-diving">ファンダイビング</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="global-navigation__items">
+                <li class="global-navigation__item">
+                  <?php
+                  // スラッグ名が 'faq' のページのURLを取得
+                  $faq_page_url = get_permalink(get_page_by_path('faq'));
+                  ?>
+                  <a href="<?php echo esc_url($faq_page_url); ?>">よくある質問</a>
+                </li>
+                <li class="global-navigation__item">
+                  <?php
+                  // スラッグ名が 'privacy-policy' のページのURLを取得
+                  $privacy_policy_page_url = get_permalink(get_page_by_path('privacypolicy'));
+                  ?>
+                  <a href="<?php echo esc_url($privacy_policy_page_url); ?>">プライバシー<br class="u-mobile">ポリシー</a>
+                </li>
+                <li class="global-navigation__item">
+                  <?php
+                  // スラッグ名が 'terms-of-service' のページのURLを取得
+                  $terms_of_service_page_url = get_permalink(get_page_by_path('terms-of-service'));
+                  ?>
+                  <a href="<?php echo esc_url($terms_of_service_page_url); ?>">利用規約</a>
+                </li>
+                <li class="global-navigation__item">
+                  <?php
+                  // スラッグ名が 'contact' のページのURLを取得
+                  $contact_page_url = get_permalink(get_page_by_path('contact'));
+                  ?>
+                  <a href="<?php echo esc_url($contact_page_url); ?>">お問い合わせ</a>
+                </li>
+                <li class="global-navigation__item">
+                  <?php
+                  // スラッグ名が 'sitemap' のページのURLを取得
+                  $sitemap_page_url = get_permalink(get_page_by_path('sitemap'));
+                  ?>
+                  <a href="<?php echo esc_url($sitemap_page_url); ?>">サイトマップ</a>
+                </li>
+              </ul>
           </div>
         </nav>
 

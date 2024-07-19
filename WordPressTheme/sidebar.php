@@ -4,24 +4,24 @@ function set_post_views($postID)
 {
   $count_key = 'post_views_count';
   $count = get_post_meta($postID, $count_key, true);
-  if ($count == '') {
+  if ($count == '') :
     $count = 0;
     delete_post_meta($postID, $count_key);
     add_post_meta($postID, $count_key, '0');
-  } else {
+   else :
     $count++;
     update_post_meta($postID, $count_key, $count);
-  }
+   endif;
 }
 
 // 投稿が表示されたときにビュー数を更新する関数
 function track_post_views($post_id)
 {
   if (!is_single()) return;
-  if (empty($post_id)) {
+  if (empty($post_id)) :
     global $post;
     $post_id = $post->ID;
-  }
+  endif;
   set_post_views($post_id);
 }
 add_action('wp_head', 'track_post_views');
@@ -31,11 +31,11 @@ function get_post_views($postID)
 {
   $count_key = 'post_views_count';
   $count = get_post_meta($postID, $count_key, true);
-  if ($count == '') {
+  if ($count == '') :
     delete_post_meta($postID, $count_key);
     add_post_meta($postID, $count_key, '0');
     return "0 View";
-  }
+  endif;
   return $count . ' Views';
 }
 ?>
@@ -55,7 +55,7 @@ function get_post_views($postID)
           'post_status' => 'publish'
         ));
 
-        if ($popular_posts->have_posts()) {
+        if ($popular_posts->have_posts()) :
           while ($popular_posts->have_posts()) : $popular_posts->the_post();
             $post_id = get_the_ID();
             $post_thumbnail = get_the_post_thumbnail_url($post_id, 'thumbnail');
@@ -81,7 +81,7 @@ function get_post_views($postID)
         <?php
           endwhile;
           wp_reset_postdata();
-        }
+        endif;
         ?>
       </ul>
     </div>
@@ -98,16 +98,16 @@ function get_post_views($postID)
         'post_status' => 'publish' // 公開済みの記事のみ
       ));
 
-      if ($latest_voice_post->have_posts()) {
-        while ($latest_voice_post->have_posts()) {
+      if ($latest_voice_post->have_posts()) :
+        while ($latest_voice_post->have_posts()) :
           $latest_voice_post->the_post();
       ?>
           <div class="aside-voice__image">
-            <?php if (has_post_thumbnail()) {
+            <?php if (has_post_thumbnail()) :
               the_post_thumbnail('medium', array('alt' => get_the_title(), 'loading' => 'lazy', 'decoding' => 'async'));
-            } else { ?>
+            else : ?>
               <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/aside-voice.jpg" alt="お客様の写真" loading="lazy" decoding="async">
-            <?php } ?>
+            <?php endif; ?>
           </div>
           <div class="aside-voice__body">
             <p class="aside-voice__customer-info"><?php the_field('age') ?>代(<?php the_field('gender') ?>)</p>
@@ -119,11 +119,11 @@ function get_post_views($postID)
             </div>
           </div>
       <?php
-        }
+        endwhile;
         wp_reset_postdata();
-      } else {
+       else :
         echo '<p>No voice posts found.</p>';
-      }
+       endif;
       ?>
     </div>
   </section>
@@ -140,19 +140,19 @@ function get_post_views($postID)
           'post_status' => 'publish' // 公開済みの記事のみ
         ));
 
-        if ($latest_campaign_posts->have_posts()) {
-          while ($latest_campaign_posts->have_posts()) {
+        if ($latest_campaign_posts->have_posts()) :
+          while ($latest_campaign_posts->have_posts()) :
             $latest_campaign_posts->the_post();
         ?>
             <li class="aside-campaign__item">
               <a href="#" class="aside-campaign__sub-campaign-card sub-campaign-card sub-campaign-card--aside">
                 <div class="sub-campaign-card__img sub-campaign-card__img--aside">
                   <figure>
-                    <?php if (has_post_thumbnail()) {
+                    <?php if (has_post_thumbnail()) :
                       the_post_thumbnail('medium', array('alt' => get_the_title(), 'loading' => 'lazy', 'decoding' => 'async'));
-                    } else { ?>
+                    else : ?>
                       <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign01.jpg" alt="<?php echo esc_attr(get_the_title()); ?>" loading="lazy" decoding="async">
-                    <?php } ?>
+                    <?php endif; ?>
                   </figure>
                 </div>
                 <div class="sub-campaign-card__body sub-campaign-card__body--aside">
@@ -161,24 +161,24 @@ function get_post_views($postID)
                   </div>
                   <div class="sub-campaign-card__price-wrapper">
                     <p class="sub-campaign-card__price-text sub-campaign-card__price-text--aside">全部コミコミ(お一人様)</p>
-                    	<p class="sub-campaign-card__price sub-campaign-card__price--aside">
-								  <span class="sub-campaign-card__price-center">
-									<?php if (get_field('price_before')): ?>
-									  <span class="sub-campaign-card__price-before--aside sub-campaign-card__price-before">¥<?php the_field('price_before') ?></span>
-									<?php endif; ?>
-									¥<?php the_field('special_price') ?>
-								  </span>
-								</p>
+                    <p class="sub-campaign-card__price sub-campaign-card__price--aside">
+								    <span class="sub-campaign-card__price-center">
+                      <?php if (get_field('price_before')): ?>
+                        <span class="sub-campaign-card__price-before--aside sub-campaign-card__price-before">¥<?php the_field('price_before') ?></span>
+                      <?php endif; ?>
+                      ¥<?php the_field('special_price') ?>
+								    </span>
+								    </p>
                   </div>
                 </div>
               </a>
             </li>
         <?php
-          }
+          endwhile;
           wp_reset_postdata();
-        } else {
+         else :
           echo '<p>No campaign posts found.</p>';
-        }
+         endif;
         ?>
       </ul>
       <div class="aside-campaign__button-wrapper">
@@ -200,30 +200,30 @@ function get_post_views($postID)
         WHERE post_status = 'publish' AND post_type = 'post'
         ORDER BY post_date DESC
       ");
-      if ($years) {
+      if ($years) :
       ?>
         <ul class="aside-archive__container">
           <?php
           $current_year = 0;
-          foreach ($years as $year) {
-            if ($current_year != $year->year) {
-              if ($current_year != 0) {
+          foreach ($years as $year) :
+            if ($current_year != $year->year) :
+              if ($current_year != 0) :
                 echo '</ul></li>';
-              }
+              endif;
               $current_year = $year->year;
               echo '<li class="aside-archive__item js-aside-archive__item">
                       <h3 class="aside-archive__year js-aside-archive__year">' . esc_html($year->year) . '</h3>
                       <ul class="aside-archive__content js-aside-archive__content">';
-            }
+            endif;
             $month_name = date_i18n('F', mktime(0, 0, 0, $year->month, 10));
             echo '<li class="aside-archive__month">
                     <a href="' . esc_url(get_month_link($year->year, $year->month)) . '">' . esc_html($month_name) . '</a>
                   </li>';
-          }
+          endforeach;
           echo '</ul></li>';
           ?>
         </ul>
-      <?php } ?>
+      <?php endif; ?>
     </div>
   </section>
 <!-- </aside> -->

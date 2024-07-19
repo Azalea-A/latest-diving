@@ -11,9 +11,9 @@
   <div class="breadcrumb">
     <div class="breadcrumb__inner inner">
       <div class="breadcrumb__body">
-        <?php if (function_exists('bcn_display')) {
+        <?php if (function_exists('bcn_display')) :
           bcn_display();
-        } ?></div>
+        endif; ?></div>
     </div>
   </div>
   <!-- 全体のコンテナー -->
@@ -53,10 +53,10 @@
                         <span class="voice-card__label category-label category-label--voice">
                           <?php
                           $terms = get_the_terms(get_the_ID(), 'voice_category');
-                          if ($terms && !is_wp_error($terms)) {
+                          if ($terms && !is_wp_error($terms)) :
                             $term = array_shift($terms);
                             echo esc_html($term->name);
-                          }
+                          endif;
                           ?>
                         </span>
                       </div>
@@ -94,9 +94,9 @@
             <a href="<?php echo esc_url(get_previous_posts_page_link()); ?>" class="previouspostslink">
             </a>
           <?php endif; ?>
-          <?php if (function_exists('wp_pagenavi')) {
+          <?php if (function_exists('wp_pagenavi')) :
             wp_pagenavi();
-          } ?>
+          endif; ?>
           <?php if (get_next_posts_link()) : ?>
             <a href="<?php echo esc_url(get_next_posts_page_link()); ?>" class="nextpostslink">
             </a>

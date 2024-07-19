@@ -21,10 +21,7 @@
   <?php wp_head(); ?>
 </head>
 
-<body class="<?php if (is_404()) {
-                echo 'error404';
-              }
-              ?>">
+<body class="<?php echo is_404() ? 'error404' : ''; ?>">
   <header class="header js-header">
     <div class="header__inner">
       <h1 class="header__logo">
@@ -49,13 +46,30 @@
                   <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>">キャンペーン</a>
                   <ul class="global-navigation__sub-items">
                     <li class="global-navigation__sub-item">
-                      <a href="<?php echo esc_url(get_post_type_archive_link('campaign') . '#campaign-license'); ?>">ライセンス取得</a>
+                    <?php
+                    // 'licence' タームのリンクを取得する
+                    $licence_term = get_term_by('slug', 'licence', 'campaign_category');
+                    $licence_link = $licence_term ? get_term_link($licence_term) : null;
+                    ?>
+                        <a href="<?php echo esc_url($licence_link); ?>">ライセンス取得</a>
                     </li>
                     <li class="global-navigation__sub-item">
-                      <a href="<?php echo esc_url(get_post_type_archive_link('campaign') . '#campaign-chartered-trial'); ?>">貸切体験ダイビング</a>
+                    <?php
+                    // 'trial-diving' タームのリンクを取得する
+                    $trial_diving_term = get_term_by('slug', 'trial-diving', 'campaign_category');
+
+                    // 三項演算子を使用してタームのリンクを取得。タームが存在しない場合は null を返す
+                    $trial_diving_link = $trial_diving_term ? get_term_link($trial_diving_term) : null;
+                    ?>
+                        <a href="<?php echo esc_url($trial_diving_link); ?>">体験ダイビング</a>
                     </li>
                     <li class="global-navigation__sub-item">
-                      <a href="<?php echo esc_url(get_post_type_archive_link('campaign') . '#campaign-night'); ?>">ナイトダイビング</a>
+                    <?php
+                    // 'fun-diving' タームのリンクを取得する
+                    $fun_diving_term = get_term_by('slug', 'fun-diving', 'campaign_category');
+                    $fun_diving_link = $fun_diving_term ? get_term_link($fun_diving_term) : null;
+                    ?>
+                        <a href="<?php echo esc_url($fun_diving_link); ?>">ファンダイビング</a>
                     </li>
                   </ul>
                 </li>
@@ -96,7 +110,7 @@
                 </li>
                 <li class="global-navigation__item">
                   <?php
-                  // スラッグ名が 'contact' のページのURLを取得
+                  // スラッグ名が 'price' のページのURLを取得
                   $price_page_url = get_permalink(get_page_by_path('price'));
                   ?>
                   <a href="<?php echo esc_url($price_page_url); ?>">料金一覧</a>
@@ -161,17 +175,49 @@
       <!-- ここからPC 用メニュー-->
       <div class="header__pc-nav u-desktop">
         <nav class="header__header-nav header-nav">
-          <?php
-          wp_nav_menu(array(
-            'theme_location' => 'header-menu',
-            'container' => false,
-            'menu_class' => 'header-nav__items',
-            'items_wrap' => '<ul class="%2$s">%3$s</ul>',
-            'fallback_cb' => false,
-            'walker' => new Custom_Walker_Nav_Menu()
-          ));
-          ?>
-        </nav>
+          <ul class="header-nav__items">
+                <li class="header-nav__item">
+                  <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>">Campaign<span>キャンペーン</span></a>
+                </li>
+                <li class="header-nav__item">
+                  <a href="<?php echo esc_url(get_permalink(get_page_by_path('about-us'))); ?>">About us<span>私たちについて</span></a>
+                </li>
+                <li class="header-nav__item">
+                  <a href="<?php echo esc_url(get_permalink(get_page_by_path('information'))); ?>">Information<span>ダイビング情報</span></a>
+                </li>
+                <li class="header-nav__item">
+                <?php
+                  // 投稿ページ（ブログページ）のURLを取得
+                  $blog_page_url = get_permalink(get_option('page_for_posts'));
+                  ?>
+                  <a href="<?php echo esc_url($blog_page_url); ?>">Blog<span>ブログ</span></a>
+                </li>
+                <li class="header-nav__item">
+                  <a href="<?php echo get_post_type_archive_link('voice'); ?>">Voice<span>お客様の声</span></a>
+                </li>
+                <li class="header-nav__item">
+                  <?php
+                  // スラッグ名が 'price' のページのURLを取得
+                  $price_page_url = get_permalink(get_page_by_path('price'));
+                  ?>
+                  <a href="<?php echo esc_url($price_page_url); ?>">Price<span>料金一覧</span></a>
+                </li>
+                <li class="header-nav__item">
+                  <?php
+                  // スラッグ名が 'faq' のページのURLを取得
+                  $faq_page_url = get_permalink(get_page_by_path('faq'));
+                  ?>
+                  <a href="<?php echo esc_url($faq_page_url); ?>">FAQ<span>よくある質問</span></a>
+                </li>
+                <li class="header-nav__item">
+                  <?php
+                  // スラッグ名が 'contact' のページのURLを取得
+                  $contact_page_url = get_permalink(get_page_by_path('contact'));
+                  ?>
+                  <a href="<?php echo esc_url($contact_page_url); ?>">Contact<span>お問い合わせ</span></a>
+                </li>
+              </ul>
+          </nav>
       </div>
     </div>
   </header>

@@ -92,13 +92,13 @@ function add_theme_scripts()
     true
   );
 
-  // wp_enqueue_script(
-  //   'theme-script',
-  //   get_theme_file_uri('/assets/js/script.js'),
-  //   array('jquery', 'jquery-inview', 'swiper'),
-  //   null,
-  //   true
-  // );
+  wp_enqueue_script(
+    'theme-script',
+    get_theme_file_uri('/assets/js/script.js'),
+    array('jquery', 'jquery-inview', 'swiper'),
+    null,
+    true
+  );
 }
 
 // 管理画面用スクリプトの読み込み
@@ -113,12 +113,6 @@ function enqueue_admin_scripts()
   );
 }
 
-// ヴィジットの人気投稿の数字のスタイル用
-function enqueue_custom_scripts()
-{
-  wp_enqueue_script('custom-date-format', get_template_directory_uri() . '/assets/js/script.js', array(), null, true);
-}
-
 // 全てのスタイルとスクリプトを追加する関数
 function add_all_theme_assets()
 {
@@ -128,14 +122,11 @@ function add_all_theme_assets()
   add_jquery();
   add_swiper_script();
   add_theme_scripts();
-  enqueue_custom_scripts(); // 人気投稿のスタイル用スクリプトを追加
 }
 
 // フックを使ってテーマのスタイルとスクリプトを読み込む
 add_action('wp_enqueue_scripts', 'add_all_theme_assets');
 add_action('admin_enqueue_scripts', 'enqueue_admin_scripts');
-
-
 
 /* ========================================
   //アイキャッチ
@@ -214,7 +205,6 @@ function restrict_taxonomy_terms($terms, $taxonomy, $object_id)
   if (in_array($taxonomy, $restricted_taxonomies) && count($terms) > 1) {
     return new WP_Error('too_many_terms', '1つのタームしか選択できません。');
   }
-
   return $terms;
 }
 add_filter('wp_set_object_terms', 'restrict_taxonomy_terms', 10, 3);
@@ -269,99 +259,6 @@ function custom_redirect_after_submission()
 }
 add_action('wp_footer', 'custom_redirect_after_submission');
 
-
-/* ========================================
-  メニューの設定 //header
-  ======================================== */
-class Custom_Walker_Nav_Menu extends Walker_Nav_Menu
-{
-  // Starts the element output.
-  public function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
-  {
-    $classes = empty($item->classes) ? array() : (array) $item->classes;
-    $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
-    $class_names = $class_names ? ' class="header-nav__item ' . esc_attr($class_names) . '"' : ' class="header-nav__item"';
-
-    $output .= '<li' . $class_names . '>';
-
-    $attributes  = !empty($item->attr_title) ? ' title="'  . esc_attr($item->attr_title) . '"' : '';
-    $attributes .= !empty($item->target)     ? ' target="' . esc_attr($item->target) . '"' : '';
-    $attributes .= !empty($item->xfn)        ? ' rel="'    . esc_attr($item->xfn) . '"' : '';
-    $attributes .= !empty($item->url)        ? ' href="'   . esc_attr($item->url) . '"' : '';
-
-    $title = apply_filters('the_title', $item->title, $item->ID);
-
-    // Wrap the title in a span tag for styling
-    $item_output = $args->before;
-    $item_output .= '<a' . $attributes . '>';
-    $item_output .= $args->link_before . $title . '<span>' . $item->description . '</span>' . $args->link_after;
-    $item_output .= '</a>';
-    $item_output .= $args->after;
-
-    $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
-  }
-}
-
-function register_my_menus()
-{
-  register_nav_menus(
-    array(
-      'header-menu' => __('Header Menu'),
-      'global-nav' => __('Global Navigation')
-    )
-  );
-}
-add_action('init', 'register_my_menus');
-
-
-/* ========================================
-  メニューの設定 //global navigation
-  footer
-  カスタムウォーカークラス
-  ======================================== */
-class Custom_Footer_Walker_Nav_Menu extends Walker_Nav_Menu
-{
-  // Start Level
-  public function start_lvl(&$output, $depth = 0, $args = null)
-  {
-    $indent = str_repeat("\t", $depth);
-    $submenu = ($depth == 0) ? 'global-navigation__sub-items' : 'sub-menu';
-    $output .= "\n$indent<ul class=\"$submenu depth_$depth\">\n";
-  }
-
-  // Start Element
-  public function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
-  {
-    $indent = ($depth) ? str_repeat("\t", $depth) : '';
-    $li_attributes = '';
-    $class_names = $value = '';
-
-    $classes = empty($item->classes) ? array() : (array) $item->classes;
-    $classes[] = ($args->walker->has_children) ? 'global-navigation__item--has-children' : '';
-    $classes[] = 'global-navigation__item';
-
-    $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
-    $class_names = ' class="' . esc_attr($class_names) . '"';
-
-    $id = apply_filters('nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args);
-    $id = $id ? ' id="' . esc_attr($id) . '"' : '';
-
-    $output .= $indent . '<li' . $id . $value . $class_names . $li_attributes . '>';
-
-    $attributes  = !empty($item->attr_title) ? ' title="'  . esc_attr($item->attr_title) . '"' : '';
-    $attributes .= !empty($item->target)     ? ' target="' . esc_attr($item->target) . '"' : '';
-    $attributes .= !empty($item->xfn)        ? ' rel="'    . esc_attr($item->xfn) . '"' : '';
-    $attributes .= !empty($item->url)        ? ' href="'   . esc_attr($item->url) . '"' : '';
-
-    $item_output = $args->before;
-    $item_output .= '<a' . $attributes . '>';
-    $item_output .= $args->link_before . apply_filters('the_title', $item->title, $item->ID) . $args->link_after;
-    $item_output .= '</a>';
-    $item_output .= $args->after;
-
-    $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
-  }
-}
 
 /* ========================================
     管理画面で、「投稿」を「ブログ」に変更

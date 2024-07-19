@@ -38,17 +38,17 @@
                   <div class='wp-pagenavi' role='navigation'>
                     <?php
                     $prev_post = get_previous_post();
-                    if (!empty($prev_post)) {
+                    if (!empty($prev_post)) :
                       $prev_post_url = get_permalink($prev_post->ID);
                       echo '<a class="previouspostslink" href="' . esc_url($prev_post_url) . '"></a>';
-                    }
+                    endif;
                     ?>
                     <?php
                     $next_post = get_next_post();
-                    if (!empty($next_post)) {
+                    if (!empty($next_post)) :
                       $next_post_url = get_permalink($next_post->ID);
                       echo '<a class="nextpostslink" href="' . esc_url($next_post_url) . '"></a>';
-                    }
+                    endif;
                     ?>
                   </div>
                 </div>

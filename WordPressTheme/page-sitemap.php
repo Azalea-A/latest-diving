@@ -19,13 +19,34 @@
                     <a href="<?php echo esc_url(site_url('/campaign')); ?>">キャンペーン</a>
                     <ul class="global-navigation__sub-items">
                         <li class="global-navigation__sub-item">
-                            <a href="<?php echo esc_url(site_url('/campaign#campaign-license')); ?>">ライセンス取得</a>
+                        <?php
+                        // 'licence' タームのリンクを取得する
+                        $licence_term = get_term_by('slug', 'licence', 'campaign_category');
+                        if ($licence_term) :
+                            $licence_link = get_term_link($licence_term);
+                        endif;
+                        ?>
+                            <a href="<?php echo esc_url($licence_link); ?>">ライセンス取得</a>
                         </li>
                         <li class="global-navigation__sub-item">
-                            <a href="<?php echo esc_url(site_url('/campaign#campaign-chartered-trial')); ?>">貸切体験ダイビング</a>
+                        <?php 
+                        // 'trial-diving' タームのリンクを取得する
+                        $trial_diving_term = get_term_by('slug', 'trial-diving', 'campaign_category');
+                        if ($trial_diving_term) :
+                            $trial_diving_link = get_term_link($trial_diving_term);
+                        endif;
+                        ?>
+                            <a href="<?php echo esc_url($trial_diving_link); ?>">体験ダイビング</a>
                         </li>
                         <li class="global-navigation__sub-item">
-                            <a href="<?php echo esc_url(site_url('/campaign#campaign-night')); ?>">ナイトダイビング</a>
+                        <?php
+                        // 'fun-diving' タームのリンクを取得する
+                        $fun_diving_term = get_term_by('slug', 'fun-diving', 'campaign_category');
+                        if ($fun_diving_term) :
+                            $fun_diving_link = get_term_link($fun_diving_term);
+                        endif;
+                        ?>
+                            <a href="<?php echo esc_url($fun_diving_link); ?>">ファンダイビング</a>
                         </li>
                     </ul>
                 </li>

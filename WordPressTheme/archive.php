@@ -14,7 +14,6 @@
     <div class="sub-blog__inner inner">
       <div class="sub-blog__flex">
         <div class="sub-blog__main">
-
           <ul class="sub-blog__blog-cards blog-cards blog-cards--sub-blog">
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                 <li class="blog-cards__item blog-card">
@@ -37,14 +36,14 @@
                         <p class="blog-card__text">
                           <?php
                           // 投稿の抜粋を表示する
-                          if (has_excerpt()) {
-                            the_excerpt();
-                          } else {
+                          if (has_excerpt()) :
+                              the_excerpt();
+                          else :
                             // 投稿の冒頭部分をカスタムで表示する場合
                             $content = get_the_content();
-                            $content = wp_trim_words($content, 98, '...'); // 40語まで表示
+                            $content = wp_trim_words($content, 98, '...'); // 98語まで表示
                             echo $content;
-                          }
+                          endif;
                           ?>
                         </p>
                       </div>
@@ -53,7 +52,7 @@
                 </li>
             <?php endwhile;
             else :
-              echo '<p>投稿が見つかりませんでした。</p>';
+              echo '<li>投稿が見つかりませんでした。</li>';
             endif; ?>
           </ul>
 

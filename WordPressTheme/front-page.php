@@ -7,26 +7,32 @@
     <div class="fv__inner">
       <div class="fv__swiper swiper js-fvSwiper">
       <div class="swiper-wrapper">
-        <?php
-        $i = 1;
-        while (true) {
+      <?php
+      $i = 1;
+      while (true) :
+          // カスタムフィールド 'main_visual_' によるデータ取得
           $main_visual = get_field('main_visual_' . $i);
+          // データが存在しない場合ループを終了
           if (!$main_visual) {
-            break;
+              break;
           }
+          // PC用とSP用の画像を取得
           $main_visual_pc = $main_visual['pc_image'];
           $main_visual_sp = $main_visual['sp_image'];
+          // 画像データが両方とも存在する場合
           if ($main_visual_pc && $main_visual_sp) : ?>
-            <div class="swiper-slide">
-              <picture>
-                <source srcset="<?php echo esc_url($main_visual_sp); ?>" media="(max-width: 767px)">
-                <img src="<?php echo esc_url($main_visual_pc); ?>" alt="メインビジュアル<?php echo $i; ?>">
-              </picture>
-            </div>
+              <div class="swiper-slide">
+                  <picture>
+                      <source srcset="<?php echo esc_url($main_visual_sp); ?>" media="(max-width: 767px)">
+                      <img src="<?php echo esc_url($main_visual_pc); ?>" alt="メインビジュアル<?php echo $i; ?>">
+                  </picture>
+              </div>
           <?php endif;
+          // カウンタを増加
           $i++;
-        }
-        ?>
+      endwhile;
+      ?>
+
       </div><!-- swiper-wrapper -->
 
         <!-- タイトルたち -->
@@ -116,7 +122,6 @@
       </div>
     </div>
   </section>
-
   <!-- top about -->
   <section class="top-about-section top-about">
     <div class="top-about__inner inner">
@@ -201,7 +206,6 @@
           'posts_per_page' => 3,
         );
         $latest_posts = new WP_Query($args);
-
         if ($latest_posts->have_posts()) :
         while ($latest_posts->have_posts()) : $latest_posts->the_post();
         ?>
@@ -244,7 +248,6 @@
       </div>
     </div>
   </section>
-
   <!-- top voice -->
   <section class="top-voice-section top-voice">
     <div class="top-voice__inner inner">
@@ -334,77 +337,77 @@
             <?php
             $licence_category = SCF::get('licence_category', 109);
             $licence_lists = SCF::get('licence_lists', 109);
-            
             $has_valid_licence = false;
-            if (!empty($licence_lists) && is_array($licence_lists)) {
-                foreach ($licence_lists as $licence) {
-                    if (!empty($licence['licence_course_name']) && !empty($licence['licence_course_price'])) {
-                        $has_valid_licence = true;
-                        break;
-                    }
-                }
-            }
-            if ($has_valid_licence) {
+            if (!empty($licence_lists) && is_array($licence_lists)) :
+              // 各ライセンスをループ処理
+              foreach ($licence_lists as $licence) :
+                  // 'licence_course_name' と 'licence_course_price' が空でないことを確認
+                  if (!empty($licence['licence_course_name']) && !empty($licence['licence_course_price'])) :
+                      $has_valid_licence = true; // 有効なライセンスがある
+                      break; // ループを終了
+                  endif;
+              endforeach;
+            endif;
+            if ($has_valid_licence) :
             ?>
             <li class="top-price__category-item">
                 <h3 class="top-price__category-item-title"><?php echo esc_html($licence_category); ?></h3>
                 <dl class="top-price__menu-lists">
-                    <?php
-                    foreach ($licence_lists as $licence) {
-                        $licence_course_name = $licence['licence_course_name'];
-                        $licence_course_price = $licence['licence_course_price'];
-                        if (!empty($licence_course_name) && !empty($licence_course_price)) {
-                    ?>
-                            <div class="top-price__menu-flexbox">
-                                <dt><?php echo esc_html($licence_course_name); ?></dt>
-                                <dd><?php echo esc_html($licence_course_price); ?></dd>
-                            </div>
-                    <?php
-                        }
-                    }
-                    ?>
+                <?php
+                foreach ($licence_lists as $licence) :
+                    $licence_course_name = $licence['licence_course_name'];
+                    $licence_course_price = $licence['licence_course_price'];
+                    if (!empty($licence_course_name) && !empty($licence_course_price)) :
+                ?>
+                        <div class="top-price__menu-flexbox">
+                            <dt><?php echo esc_html($licence_course_name); ?></dt>
+                            <dd><?php echo esc_html($licence_course_price); ?></dd>
+                        </div>
+                <?php
+                    endif;
+                endforeach;
+                ?>
                 </dl>
             </li>
             <?php
-            }
+            endif;
             ?>
             <!-- 体験ダイビング -->
             <?php
             $trial_diving_category = SCF::get('trial_diving_category', 109);
             $trial_diving_lists = SCF::get('trial_diving_lists', 109);
-            
             $has_valid_trial_diving = false;
-            if (!empty($trial_diving_lists) && is_array($trial_diving_lists)) {
-                foreach ($trial_diving_lists as $trial_diving) {
-                    if (!empty($trial_diving['trial_diving_course_name']) && !empty($trial_diving['trial_diving_course_price'])) {
-                        $has_valid_trial_diving = true;
-                        break;
-                    }
-                }
-            }
-            if ($has_valid_trial_diving) {
+            if (!empty($trial_diving_lists) && is_array($trial_diving_lists)) :
+                foreach ($trial_diving_lists as $trial_diving) :
+                  if (!empty($trial_diving['trial_diving_course_name']) && !empty($trial_diving['trial_diving_course_price'])) :
+                      $has_valid_trial_diving = true;
+                      break;
+                    endif;
+                  endforeach;
+                endif;
+            if ($has_valid_trial_diving) :
             ?>
                 <li class="top-price__category-item">
                     <h3 class="top-price__category-item-title"><?php echo esc_html($trial_diving_category); ?></h3>
                     <dl class="top-price__menu-lists">
                         <?php
-                        foreach ($trial_diving_lists as $trial_diving) {
+                        foreach ($trial_diving_lists as $trial_diving) :
                             $trial_diving_course_name = $trial_diving['trial_diving_course_name'];
                             $trial_diving_course_price = $trial_diving['trial_diving_course_price'];
-                            if (!empty($trial_diving_course_name) && !empty($trial_diving_course_price)) {
+                            if (!empty($trial_diving_course_name) && !empty($trial_diving_course_price)) :
                         ?>
                                 <div class="top-price__menu-flexbox">
                                     <dt><?php echo esc_html($trial_diving_course_name); ?></dt>
                                     <dd><?php echo esc_html($trial_diving_course_price); ?></dd>
                                 </div>
                         <?php
-                            }
-                        }
+                            endif;
+                          endforeach;
                         ?>
                     </dl>
                 </li>
             <?php
-            }
+            endif;
             ?>
             <!-- ファンダイビング -->
             <?php
@@ -412,15 +415,15 @@
             $fun_diving_lists = SCF::get('fun_diving_lists', 109);
             
             $has_valid_fun_diving = false;
-            if (!empty($fun_diving_lists) && is_array($fun_diving_lists)) {
-                foreach ($fun_diving_lists as $fun_diving) {
-                    if (!empty($fun_diving['fun_diving_course_name']) && !empty($fun_diving['fun_diving_course_price'])) {
+            if (!empty($fun_diving_lists) && is_array($fun_diving_lists)) :
+                foreach ($fun_diving_lists as $fun_diving) :
+                    if (!empty($fun_diving['fun_diving_course_name']) && !empty($fun_diving['fun_diving_course_price'])) :
                         $has_valid_fun_diving = true;
                         break;
-                    }
-                }
-            }
-            if ($has_valid_fun_diving) {
+                    endif;
+                endforeach;
+            endif;
+            if ($has_valid_fun_diving) :
             ?>
                 <li class="top-price__category-item">
                     <h3 class="top-price__category-item-title"><?php echo esc_html($fun_diving_category); ?></h3>
@@ -442,45 +445,44 @@
                     </dl>
                 </li>
             <?php
-            }
+            endif;
             ?>
             <!-- スペシャルダイビング -->
             <?php
             $special_diving_category = SCF::get('special_diving_category', 109);
             $special_diving_lists = SCF::get('special_diving_lists', 109);
-            
             $has_valid_special_diving = false;
-            if (!empty($special_diving_lists) && is_array($special_diving_lists)) {
-                foreach ($special_diving_lists as $special_diving) {
-                    if (!empty($special_diving['special_diving_course_name']) && !empty($special_diving['special_diving_course_price'])) {
+            if (!empty($special_diving_lists) && is_array($special_diving_lists)) :
+                foreach ($special_diving_lists as $special_diving) :
+                    if (!empty($special_diving['special_diving_course_name']) && !empty($special_diving['special_diving_course_price'])) :
                         $has_valid_special_diving = true;
                         break;
-                    }
-                }
-            }
-            if ($has_valid_special_diving) {
+                    endif;
+                endforeach;
+            endif;
+            if ($has_valid_special_diving) :
             ?>
                 <li class="top-price__category-item">
                     <h3 class="top-price__category-item-title"><?php echo esc_html($special_diving_category); ?></h3>
                     <dl class="top-price__menu-lists">
                         <?php
-                        foreach ($special_diving_lists as $special_diving) {
+                        foreach ($special_diving_lists as $special_diving) :
                             $special_diving_course_name = $special_diving['special_diving_course_name'];
                             $special_diving_course_price = $special_diving['special_diving_course_price'];
-                            if (!empty($special_diving_course_name) && !empty($special_diving_course_price)) {
+                            if (!empty($special_diving_course_name) && !empty($special_diving_course_price)) :
                         ?>
                                 <div class="top-price__menu-flexbox">
                                     <dt><?php echo esc_html($special_diving_course_name); ?></dt>
                                     <dd><?php echo esc_html($special_diving_course_price); ?></dd>
                                 </div>
                         <?php
-                            }
-                        }
+                            endif;
+                          endforeach;
                         ?>
                     </dl>
                 </li>
             <?php
-            }
+            endif;
             ?>
           </ul>
         </div><!-- top-price__lists-container -->

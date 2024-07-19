@@ -46,10 +46,10 @@
                         <span class="voice-card__label category-label category-label--voice">
                           <?php
                           $terms = get_the_terms(get_the_ID(), 'voice_category');
-                          if ($terms && !is_wp_error($terms)) {
+                          if ($terms && !is_wp_error($terms)) :
                             $term = array_shift($terms);
                             echo esc_html($term->name);
-                          }
+                          endif;
                           ?>
                         </span>
                       </div>
