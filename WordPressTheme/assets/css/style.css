@@ -804,10 +804,13 @@ body.error404 .breadcrumb__body {
 }
 
 .campaign-card__price {
+	align-items: baseline;
 	color: #408f95;
+	display: flex;
 	font-family: "Lato", sans-serif;
 	font-size: 2rem;
 	font-weight: 700;
+	justify-content: center;
 	text-align: center;
 }
 

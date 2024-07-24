@@ -297,3 +297,21 @@ function change_post_object_label()
 }
 add_action('init', 'change_post_object_label');
 
+  /* ========================================
+  　管理画面ログイン画面のロゴと背景img
+  ======================================== */
+  function login_logo() {
+    echo '<style type="text/css">
+      #login h1 a {
+        background: url('.get_template_directory_uri().'/assets/images/common/CodeUps_logo.svg) no-repeat center;
+        background-size: contain;
+        width: 336px;
+        height: 64px;
+      }
+      body {
+        background: url('.get_template_directory_uri().'/assets/images/common/top-fv01.jpg) no-repeat center;
+        background-size: cover;
+      }
+    </style>';
+  }
+  add_action('login_head', 'login_logo');

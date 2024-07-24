@@ -92,6 +92,9 @@
   color: $main-blue;
   font-family: $english-font-family01;
   text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: baseline;
   @include mq("md") {
     font-size: rem(40);
   }

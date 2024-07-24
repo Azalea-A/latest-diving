@@ -5,7 +5,7 @@
     <div class="sub-fv sub-fv--privacy-policy">
       <div class="sub-fv__inner">
         <!-- サブページのメインビュー -->
-        <h1 class="sub-fv__title"><?php the_title(); ?></h1>
+        <h1 class="sub-fv__title">Privacy Policy</h1>
       </div>
     </div>
     <!-- パンくずリスト -->

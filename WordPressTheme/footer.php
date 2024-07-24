@@ -70,140 +70,82 @@
         </div>
         <nav class="global-navigation--footer global-navigation">
           <div class="global-navigation__columns">
-          <ul class="global-navigation__items">
-                <li class="global-navigation__item">
-                  <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>">キャンペーン</a>
-                  <ul class="global-navigation__sub-items">
-                    <li class="global-navigation__sub-item">
-                    <?php 
-                    // 'licence' タームのリンクを取得する
-                    $licence_term = get_term_by('slug', 'licence', 'campaign_category');
-                    if ($licence_term) :
-                        $licence_link = get_term_link($licence_term);
-                    endif;
-                    ?>
-                        <a href="<?php echo esc_url($licence_link); ?>">ライセンス取得</a>
-                    </li>
-                    <li class="global-navigation__sub-item">
-                    <?php 
-                    // 'trial-diving' タームのリンクを取得する
-                    $trial_diving_term = get_term_by('slug', 'trial-diving', 'campaign_category');
-                    if ($trial_diving_term) :
-                        $trial_diving_link = get_term_link($trial_diving_term);
-                    endif;
-                    ?>
-                        <a href="<?php echo esc_url($trial_diving_link); ?>">体験ダイビング</a>
-                    </li>
-                    <li class="global-navigation__sub-item">
-                      <?php
-                      // 'fun-diving' タームのリンクを取得する
-                      $fun_diving_term = get_term_by('slug', 'fun-diving', 'campaign_category');
-                      if ($fun_diving_term) :
-                          $fun_diving_link = get_term_link($fun_diving_term);
-                      endif;
-                      ?>
-                        <a href="<?php echo esc_url($fun_diving_link); ?>">ファンダイビング</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="global-navigation__item">
-                  <a href="<?php echo esc_url(get_permalink(get_page_by_path('about-us'))); ?>">私たちについて</a>
-                </li>
-              </ul>
-              <ul class="global-navigation__items">
-                <li class="global-navigation__item">
-                  <a href="<?php echo esc_url(get_permalink(get_page_by_path('information'))); ?>">ダイビング情報</a>
-                  <ul class="global-navigation__sub-items">
-                    <?php
-                    // スラッグ名が 'information' のページのURLを取得
-                    $information_page_url = get_permalink(get_page_by_path('information'));
-                    ?>
-                    <li class="global-navigation__sub-item">
-                      <a href="<?php echo esc_url($information_page_url); ?>?tab=1">ライセンス講習</a>
-                    </li>
-                    <li class="global-navigation__sub-item">
-                      <a href="<?php echo esc_url($information_page_url); ?>?tab=3">体験ダイビング</a>
-                    </li>
-                    <li class="global-navigation__sub-item">
-                      <a href="<?php echo esc_url($information_page_url); ?>?tab=2">ファンダイビング</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="global-navigation__item">
-                  <?php
-                  // 投稿ページ（ブログページ）のURLを取得
-                  $blog_page_url = get_permalink(get_option('page_for_posts'));
-                  ?>
-                  <a href="<?php echo esc_url($blog_page_url); ?>">ブログ</a>
-                </li>
-              </ul>
-              <ul class="global-navigation__items">
-                <li class="global-navigation__item">
-                  <a href="<?php echo get_post_type_archive_link('voice'); ?>">お客様の声</a>
-                </li>
-                <li class="global-navigation__item">
-                  <?php
-                  // スラッグ名が 'price' のページのURLを取得
-                  $price_page_url = get_permalink(get_page_by_path('price'));
-                  ?>
-                  <a href="<?php echo esc_url($price_page_url); ?>">料金一覧</a>
-                  <ul class="global-navigation__sub-items">
-                    <?php
-                    // スラッグ名が 'price' のページのURLを取得
-                    $price_page_url = get_permalink(get_page_by_path('price'));
-                    ?>
-                    <li class="global-navigation__sub-item">
-                      <a href="<?php echo esc_url($price_page_url); ?>#license-course">ライセンス講習</a>
-                    </li>
-                    <li class="global-navigation__sub-item">
-                      <a href="<?php echo esc_url($price_page_url); ?>#trial-diving">体験ダイビング</a>
-                    </li>
-                    <li class="global-navigation__sub-item">
-                      <a href="<?php echo esc_url($price_page_url); ?>#fun-diving">ファンダイビング</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-              <ul class="global-navigation__items">
-                <li class="global-navigation__item">
-                  <?php
-                  // スラッグ名が 'faq' のページのURLを取得
-                  $faq_page_url = get_permalink(get_page_by_path('faq'));
-                  ?>
-                  <a href="<?php echo esc_url($faq_page_url); ?>">よくある質問</a>
-                </li>
-                <li class="global-navigation__item">
-                  <?php
-                  // スラッグ名が 'privacy-policy' のページのURLを取得
-                  $privacy_policy_page_url = get_permalink(get_page_by_path('privacypolicy'));
-                  ?>
-                  <a href="<?php echo esc_url($privacy_policy_page_url); ?>">プライバシー<br class="u-mobile">ポリシー</a>
-                </li>
-                <li class="global-navigation__item">
-                  <?php
-                  // スラッグ名が 'terms-of-service' のページのURLを取得
-                  $terms_of_service_page_url = get_permalink(get_page_by_path('terms-of-service'));
-                  ?>
-                  <a href="<?php echo esc_url($terms_of_service_page_url); ?>">利用規約</a>
-                </li>
-                <li class="global-navigation__item">
-                  <?php
-                  // スラッグ名が 'contact' のページのURLを取得
-                  $contact_page_url = get_permalink(get_page_by_path('contact'));
-                  ?>
-                  <a href="<?php echo esc_url($contact_page_url); ?>">お問い合わせ</a>
-                </li>
-                <li class="global-navigation__item">
-                  <?php
-                  // スラッグ名が 'sitemap' のページのURLを取得
-                  $sitemap_page_url = get_permalink(get_page_by_path('sitemap'));
-                  ?>
-                  <a href="<?php echo esc_url($sitemap_page_url); ?>">サイトマップ</a>
-                </li>
-              </ul>
+            <ul class="global-navigation__items">
+              <li class="global-navigation__item">
+                <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>">キャンペーン</a>
+                <ul class="global-navigation__sub-items">
+                  <li class="global-navigation__sub-item">
+                    <a href="<?php echo esc_url(home_url('/campaign_category/licence')); ?>">ライセンス取得</a>
+                  </li>
+                  <li class="global-navigation__sub-item">
+                    <a href="<?php echo esc_url(home_url('/campaign_category/trial-diving')); ?>">体験ダイビング</a>
+                  </li>
+                  <li class="global-navigation__sub-item">
+                    <a href="<?php echo esc_url(home_url('/campaign_category/fun-diving')); ?>">ファンダイビング</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="global-navigation__item">
+                <a href="<?php echo esc_url(home_url('/about-us')); ?>">私たちについて</a>
+              </li>
+            </ul>
+            <ul class="global-navigation__items">
+              <li class="global-navigation__item">
+                <a href="<?php echo esc_url(home_url('/information')); ?>">ダイビング情報</a>
+                <ul class="global-navigation__sub-items">
+                  <li class="global-navigation__sub-item">
+                    <a href="<?php echo esc_url(home_url('/information/?tab=1')); ?>">ライセンス講習</a>
+                  </li>
+                  <li class="global-navigation__sub-item">
+                    <a href="<?php echo esc_url(home_url('/information/?tab=3')); ?>">体験ダイビング</a>
+                  </li>
+                  <li class="global-navigation__sub-item">
+                    <a href="<?php echo esc_url(home_url('/information/?tab=2')); ?>">ファンダイビング</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="global-navigation__item">
+                <a href="<?php echo esc_url(home_url('/home')); ?>">ブログ</a>
+              </li>
+            </ul>
+            <ul class="global-navigation__items">
+              <li class="global-navigation__item">
+                <a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>">お客様の声</a>
+              </li>
+              <li class="global-navigation__item">
+                <a href="<?php echo esc_url(home_url('/price')); ?>">料金一覧</a>
+                <ul class="global-navigation__sub-items">
+                  <li class="global-navigation__sub-item">
+                    <a href="<?php echo esc_url(home_url('/price#license-course')); ?>">ライセンス講習</a>
+                  </li>
+                  <li class="global-navigation__sub-item">
+                    <a href="<?php echo esc_url(home_url('/price#trial-diving')); ?>">体験ダイビング</a>
+                  </li>
+                  <li class="global-navigation__sub-item">
+                    <a href="<?php echo esc_url(home_url('/price#fun-diving')); ?>">ファンダイビング</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="global-navigation__items">
+              <li class="global-navigation__item">
+                <a href="<?php echo esc_url(home_url('/faq')); ?>">よくある質問</a>
+              </li>
+              <li class="global-navigation__item">
+                <a href="<?php echo esc_url(home_url('/privacypolicy')); ?>">プライバシー<br class="u-mobile">ポリシー</a>
+              </li>
+              <li class="global-navigation__item">
+                <a href="<?php echo esc_url(home_url('/terms-of-service')); ?>">利用規約</a>
+              </li>
+              <li class="global-navigation__item">
+                <a href="<?php echo esc_url(home_url('/contact')); ?>">お問い合わせ</a>
+              </li>
+              <li class="global-navigation__item">
+                <a href="<?php echo esc_url(home_url('/sitemap')); ?>">サイトマップ</a>
+              </li>
+            </ul>
           </div>
         </nav>
-
         <div class="footer__copyright">
           <small>Copyright &copy; 2021 - 2023 CodeUps LLC. All Rights Reserved.</small>
         </div>

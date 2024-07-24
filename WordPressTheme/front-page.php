@@ -6,35 +6,42 @@
     <!-- メインビュー -->
     <div class="fv__inner">
       <div class="fv__swiper swiper js-fvSwiper">
-      <div class="swiper-wrapper">
-      <?php
-      $i = 1;
-      while (true) :
-          // カスタムフィールド 'main_visual_' によるデータ取得
-          $main_visual = get_field('main_visual_' . $i);
-          // データが存在しない場合ループを終了
-          if (!$main_visual) {
-              break;
-          }
-          // PC用とSP用の画像を取得
-          $main_visual_pc = $main_visual['pc_image'];
-          $main_visual_sp = $main_visual['sp_image'];
-          // 画像データが両方とも存在する場合
-          if ($main_visual_pc && $main_visual_sp) : ?>
-              <div class="swiper-slide">
-                  <picture>
-                      <source srcset="<?php echo esc_url($main_visual_sp); ?>" media="(max-width: 767px)">
-                      <img src="<?php echo esc_url($main_visual_pc); ?>" alt="メインビジュアル<?php echo $i; ?>">
-                  </picture>
-              </div>
-          <?php endif;
-          // カウンタを増加
-          $i++;
-      endwhile;
-      ?>
-
-      </div><!-- swiper-wrapper -->
-
+        <div class="swiper-wrapper">
+        <?php
+        // PC用メインビジュアルの表示
+        if (have_rows('mv_pc')) :
+            while (have_rows('mv_pc')) : the_row();
+                // グループフィールド内のすべてのサブフィールドを取得
+                $sub_fields = get_fields();
+                
+                if ($sub_fields && is_array($sub_fields)) :
+                    // 'mv_pc' グループ内のサブフィールドをループ
+                    foreach ($sub_fields['mv_pc'] as $key => $value):
+                        if (strpos($key, 'mv_pc_img') === 0) : // 'mv_pc_img' で始まるフィールド名か確認
+                            // 対応するSP用の画像フィールド名を取得
+                            $sp_img_key = str_replace('mv_pc_img', 'mv_sp_img', $key);
+                            $sp_img_url = isset($sub_fields['mv_sp'][$sp_img_key]) ? $sub_fields['mv_sp'][$sp_img_key] : '';
+          ?>
+          <div class="swiper-slide">
+              <picture>
+                  <?php if ($sp_img_url) : // SP用画像が存在する場合 ?>
+                      <source srcset="<?php echo esc_url($sp_img_url); ?>" media="(max-width: 767px)">
+                  <?php endif; ?>
+                  <img src="<?php echo esc_url($value); ?>" alt="メインビジュアル画像">
+              </picture>
+          </div><!-- swiper-slide -->
+        <?php
+                        endif;
+                    endforeach;
+                else :
+                    echo 'サブフィールドが見つかりません。';
+                endif;
+            endwhile;
+        else :
+            echo 'メインビジュアルが設定されていません。';
+        endif;
+        ?>
+        </div><!-- swiper-wrapper -->
         <!-- タイトルたち -->
         <div class="fv__title-wrap">
           <p class="fv__title-large">
@@ -47,7 +54,6 @@
       </div><!-- fv__slider swiper -->
     </div><!-- fv__inner -->
   </div>
-
   <!-- top page campaign -->
   <section class="top-campaign-section top-campaign">
     <div class="top-campaign__inner inner">
@@ -99,8 +105,22 @@
                     <div class="campaign-card__price-wrapper">
                       <p class="campaign-card__price-text">全部コミコミ(お一人様)</p>
                       <p class="campaign-card__price">
-                        <?php if ($price_before) : ?><span class="campaign-card__price-before">¥<?php echo number_format(floatval(preg_replace('/[^0-9.]/', '', $price_before))); ?></span><?php endif; ?>¥<?php echo number_format(floatval(preg_replace('/[^0-9.]/', '', $special_price))); ?>
+                        <?php 
+                          $price_before = get_field('price_before'); // ACFからprice_beforeの値を取得
+                          $special_price = get_field('special_price'); // ACFからspecial_priceの値を取得
+                        ?>
+                        <?php if ($price_before || $special_price) : ?>
+                          <?php if ($price_before) : ?>
+                            <span class="campaign-card__price-before">¥<?php echo number_format(floatval(preg_replace('/[^0-9.]/', '', $price_before))); ?></span>
+                          <?php endif; ?>
+                          <?php if ($special_price) : ?>
+                            ¥<?php echo number_format(floatval(preg_replace('/[^0-9.]/', '', $special_price))); ?>
+                          <?php endif; ?>
+                        <?php else : ?>
+                          ¥-
+                        <?php endif; ?>
                       </p>
+
                     </div>
                   </div> <!-- campaign-card__body -->
                 </div> <!-- campaign-card -->
