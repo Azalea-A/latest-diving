@@ -62,45 +62,68 @@
                           <h3 class="sub-campaign-card__title"><?php the_title(); ?></h3>
                       </div>
                       <div class="sub-campaign-card__content-wrapper">
+                          <!-- 値段グループ変更ずみここから -->
                           <div class="sub-campaign-card__price-wrapper">
-                              <?php if (get_field('price_before') || get_field('special_price')) : ?>
-                                  <p class="sub-campaign-card__price-text">全部コミコミ(お一人様)</p>
-                              <?php endif; ?>
-                              <p class="sub-campaign-card__price">
-                                  <span class="sub-campaign-card__price-center">
-                                      <?php if (get_field('price_before')) : ?>
-                                          <span class="sub-campaign-card__price-before">¥<?php the_field('price_before'); ?></span>
-                                      <?php endif; ?>
-                                      <?php if (get_field('special_price')) : ?>
-                                          ¥<?php the_field('special_price'); ?>
-                                      <?php endif; ?>
-                                  </span>
-                              </p>
+                            <?php 
+                            // 新しい構造：グループフィールドから取得
+                            $campaign_price = get_field('campaign_price');
+                            if ($campaign_price) {
+                                $price_before = isset($campaign_price['price_before']) ? $campaign_price['price_before'] : null;
+                                $special_price = isset($campaign_price['special_price']) ? $campaign_price['special_price'] : null;
+                            } else {
+                                // 古い構造：直接フィールドから取得
+                                $price_before = get_field('price_before');
+                                $special_price = get_field('special_price');
+                            }
+
+                            if ($price_before || $special_price) : ?>
+                              <p class="sub-campaign-card__price-text">全部コミコミ(お一人様)</p>
+                            <?php endif; ?>
+                            <p class="sub-campaign-card__price">
+                              <span class="sub-campaign-card__price-center">
+                                <?php if ($price_before) : ?>
+                                  <span class="sub-campaign-card__price-before">¥<?php echo number_format(floatval(preg_replace('/[^0-9.]/', '', $price_before))); ?></span>
+                                <?php endif; ?>
+                                <?php if ($special_price) : ?>
+                                  ¥<?php echo number_format(floatval(preg_replace('/[^0-9.]/', '', $special_price))); ?>
+                                <?php endif; ?>
+                              </span>
+                            </p>
                           </div>
+                          <!-- 値段グループ変更ずみここまで -->
                           <div class="sub-campaign-card__desktop-info u-desktop">
                               <p class="sub-campaign-card__text"><?php the_content(); ?></p>
                           </div>
                           <div class="sub-campaign-card__bottom u-desktop">
                               <div class="sub-campaign-card__period-wrap">
-                              <?php
-                              $start_date = get_field('start_date');
-                              $end_date = get_field('end_date');
+                                <!-- 期間グループ化変更ここから -->
+                                  <?php
+                                  // 新しい構造：グループフィールドから取得
+                                  $campaign_schedule = get_field('campaign_schedule');
+                                  if ($campaign_schedule) {
+                                      $start_date = isset($campaign_schedule['start_date']) ? $campaign_schedule['start_date'] : null;
+                                      $end_date = isset($campaign_schedule['end_date']) ? $campaign_schedule['end_date'] : null;
+                                  } else {
+                                      // 古い構造：直接フィールドから取得
+                                      $start_date = get_field('start_date');
+                                      $end_date = get_field('end_date');
+                                  }
 
-                              if ($start_date || $end_date):
-                              ?>
-                                  <div class="sub-campaign-card__date-range">
-                                      <?php if ($start_date): ?>
-                                          <span class="sub-campaign-card__start-date"><?php echo esc_html($start_date); ?></span>
-                                      <?php endif; ?>
-                                      
-                                      <span class="sub-campaign-card__separator">-</span>
+                                  if ($start_date || $end_date):
+                                  ?>
+                                      <div class="sub-campaign-card__date-range">
+                                          <?php if ($start_date): ?>
+                                              <span class="sub-campaign-card__start-date"><?php echo esc_html($start_date); ?></span>
+                                          <?php endif; ?>
+                                          <span class="sub-campaign-card__separator">-</span>
 
-                                      <?php if ($end_date): ?>
-                                          <span class="sub-campaign-card__end-date"><?php echo esc_html($end_date); ?></span>
-                                      <?php endif; ?>
-                                  </div>
-                              <?php endif; ?>
-                                  <p class="sub-campaign-card__cta-text">ご予約・お問い合わせはコチラ</p>
+                                          <?php if ($end_date): ?>
+                                              <span class="sub-campaign-card__end-date"><?php echo esc_html($end_date); ?></span>
+                                          <?php endif; ?>
+                                      </div>
+                                  <?php endif; ?>
+                                <!-- 期間グループに変更ここまで -->
+                                <p class="sub-campaign-card__cta-text">ご予約・お問い合わせはコチラ</p>
                               </div><!-- sub-campaign-card__period-wrap-->
                               <div class="sub-campaign-card__button-wrapper">
                                   <?php

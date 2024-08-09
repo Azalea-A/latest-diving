@@ -49,7 +49,16 @@
                   <div class="voice-card__top">
                     <div class="voice-card__title-wrapper">
                       <div class="voice-card__title-flex-box">
-                        <p class="voice-card__personal-info"><?php the_field('age') ?>代(<?php the_field('gender') ?>)</p>
+                        <!-- お客様の分類をグループにここから -->
+                        <?php
+                        $customer_info = get_field('customer_info');
+                        if ($customer_info) {
+                            $age = isset($customer_info['age']) ? $customer_info['age'] : '';
+                            $gender = isset($customer_info['gender']) ? $customer_info['gender'] : '';
+                        ?>
+                        <p class="voice-card__personal-info"><?php echo esc_html($age); ?>(<?php echo esc_html($gender); ?>)</p>
+                        <?php } ?>
+                          <!-- お客様の分類をグループにここまで -->
                         <span class="voice-card__label category-label category-label--voice">
                           <?php
                           $terms = get_the_terms(get_the_ID(), 'voice_category');

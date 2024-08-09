@@ -54,6 +54,7 @@
       </div><!-- fv__slider swiper -->
     </div><!-- fv__inner -->
   </div>
+
   <!-- top page campaign -->
   <section class="top-campaign-section top-campaign">
     <div class="top-campaign__inner inner">
@@ -68,67 +69,74 @@
         </div>
         <!-- Swiper -->
         <div class="top-campaign__swiper swiper js-topCampaignSwiper">
-          <div class="swiper-wrapper">
-            <?php
-            // カスタム投稿タイプ 'campaign' の投稿を取得
-            $args = array(
-              'post_type' => 'campaign',
-              'posts_per_page' => -1, // すべての投稿を取得
-            );
-            $campaign_query = new WP_Query($args);
-            if ($campaign_query->have_posts()) :
-              while ($campaign_query->have_posts()) : $campaign_query->the_post();
-              $price_before = get_field('price_before'); // ACFフィールド 'price_before' から取得
-              $special_price = get_field('special_price'); // ACFフィールド 'special_price' から取得
-            ?>
-              <div class="swiper-slide top-campaign__swiper-slide">
-                <div class="campaign-card">
-                  <div class="campaign-card__img">
-                    <figure>
-                      <?php if (has_post_thumbnail()) : ?>
-                        <?php the_post_thumbnail('full'); ?>
-                      <?php else : ?>
-                        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/default.jpg" alt="デフォルト画像">
-                      <?php endif; ?>
-                    </figure>
-                  </div>
-                  <div class="campaign-card__body">
-                    <div class="campaign-card__title-wrapper">
-                      <?php $categories = get_the_terms(get_the_ID(), 'campaign_category'); ?>
-                      <?php if ($categories && !is_wp_error($categories)) : ?>
-                        <?php foreach ($categories as $category) : ?>
-                          <span class="campaign-card__label category-label"><?php echo esc_html($category->name); ?></span>
-                        <?php endforeach; ?>
-                      <?php endif; ?>
-                      <h3 class="campaign-card__title"><?php the_title(); ?></h3>
-                    </div>
-                    <div class="campaign-card__price-wrapper">
-                      <p class="campaign-card__price-text">全部コミコミ(お一人様)</p>
-                      <p class="campaign-card__price">
-                        <?php 
-                          $price_before = get_field('price_before'); // ACFからprice_beforeの値を取得
-                          $special_price = get_field('special_price'); // ACFからspecial_priceの値を取得
-                        ?>
-                        <?php if ($price_before || $special_price) : ?>
-                          <?php if ($price_before) : ?>
-                            <span class="campaign-card__price-before">¥<?php echo number_format(floatval(preg_replace('/[^0-9.]/', '', $price_before))); ?></span>
-                          <?php endif; ?>
-                          <?php if ($special_price) : ?>
-                            ¥<?php echo number_format(floatval(preg_replace('/[^0-9.]/', '', $special_price))); ?>
-                          <?php endif; ?>
-                        <?php else : ?>
-                          ¥-
-                        <?php endif; ?>
-                      </p>
+            <!-- 値段グループ変更済みここから -->
+            <div class="swiper-wrapper">
+              <?php
+              // カスタム投稿タイプ 'campaign' の投稿を取得
+              $args = array(
+                'post_type' => 'campaign',
+                'posts_per_page' => -1, // すべての投稿を取得
+              );
+              $campaign_query = new WP_Query($args);
+              if ($campaign_query->have_posts()) :
+                while ($campaign_query->have_posts()) : $campaign_query->the_post();
+                  
+                  // 新しい構造: グループフィールドから取得
+                  $campaign_price = get_field('campaign_price');
+                  if ($campaign_price) {
+                      $price_before = isset($campaign_price['price_before']) ? $campaign_price['price_before'] : null;
+                      $special_price = isset($campaign_price['special_price']) ? $campaign_price['special_price'] : null;
+                  } else {
+                      // 古い構造: 直接フィールドから取得
+                      $price_before = get_field('price_before');
+                      $special_price = get_field('special_price');
+                  }
 
-                    </div>
-                  </div> <!-- campaign-card__body -->
-                </div> <!-- campaign-card -->
-              </div><!-- swiper-slide -->
-            <?php endwhile;
-              wp_reset_postdata();
-            endif;?>
-          </div> <!-- swiper-wrapper -->
+              ?>
+                  <div class="swiper-slide top-campaign__swiper-slide">
+                    <div class="campaign-card">
+                      <div class="campaign-card__img">
+                        <figure>
+                          <?php if (has_post_thumbnail()) : ?>
+                            <?php the_post_thumbnail('full'); ?>
+                          <?php else : ?>
+                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no_image.jpeg" alt="no-image">
+                          <?php endif; ?>
+                        </figure>
+                      </div>
+                      <div class="campaign-card__body">
+                        <div class="campaign-card__title-wrapper">
+                          <?php $categories = get_the_terms(get_the_ID(), 'campaign_category'); ?>
+                          <?php if ($categories && !is_wp_error($categories)) : ?>
+                            <?php foreach ($categories as $category) : ?>
+                              <span class="campaign-card__label category-label"><?php echo esc_html($category->name); ?></span>
+                            <?php endforeach; ?>
+                          <?php endif; ?>
+                          <h3 class="campaign-card__title"><?php the_title(); ?></h3>
+                        </div>
+                        <div class="campaign-card__price-wrapper">
+                          <p class="campaign-card__price-text">全部コミコミ(お一人様)</p>
+                          <p class="campaign-card__price">
+                            <?php if ($price_before || $special_price) : ?>
+                              <?php if ($price_before) : ?>
+                                <span class="campaign-card__price-before">¥<?php echo number_format(floatval(preg_replace('/[^0-9.]/', '', $price_before))); ?></span>
+                              <?php endif; ?>
+                              <?php if ($special_price) : ?>
+                                ¥<?php echo number_format(floatval(preg_replace('/[^0-9.]/', '', $special_price))); ?>
+                              <?php endif; ?>
+                            <?php else : ?>
+                              ¥-
+                            <?php endif; ?>
+                          </p>
+                        </div>
+                      </div> <!-- campaign-card__body -->
+                    </div> <!-- campaign-card -->
+                  </div><!-- swiper-slide -->
+              <?php endwhile;
+                wp_reset_postdata();
+              endif;?>
+            </div> <!-- swiper-wrapper -->
+          <!-- 値段グループ変更済みここまで -->
         </div><!-- swiper-->
       </div> <!-- top-campaign__swiper-container -->
       <div class="top-campaign__button-wrapper">
@@ -285,9 +293,16 @@
         $latest_voice_posts = new WP_Query($args);
         if ($latest_voice_posts->have_posts()) :
           while ($latest_voice_posts->have_posts()) : $latest_voice_posts->the_post();
-            // ACF フィールドからデータを取得
-            $age = get_field('age'); // 年齢
-            $gender = get_field('gender'); // 性別
+            // ACF グループフィールド 'customer_info' からデータを取得
+            $customer_info = get_field('customer_info');
+            if ($customer_info) {
+                $age = isset($customer_info['age']) ? $customer_info['age'] : '';
+                $gender = isset($customer_info['gender']) ? $customer_info['gender'] : '';
+            } else {
+                $age = '';
+                $gender = '';
+            }
+
             $category_terms = get_the_terms(get_the_ID(), 'voice_category'); // カテゴリー
             $voice_content = get_field('voice-content'); // ACF フィールド 'voice-content' から取得
         ?>
@@ -296,7 +311,7 @@
             <div class="voice-card__top">
               <div class="voice-card__title-wrapper">
                 <div class="voice-card__title-flex-box">
-                  <p class="voice-card__personal-info"><?php echo esc_html($age); ?>代(<?php echo esc_html($gender); ?>)</p>
+                  <p class="voice-card__personal-info"><?php echo esc_html($age); ?>(<?php echo esc_html($gender); ?>)</p>
                   <?php if ($category_terms && !is_wp_error($category_terms)) : ?>
                     <?php foreach ($category_terms as $category_term) : ?>
                       <span class="voice-card__label category-label category-label--voice"><?php echo esc_html($category_term->name); ?></span>
@@ -310,7 +325,7 @@
                   <?php if (has_post_thumbnail()) : ?>
                     <?php the_post_thumbnail('full', array('loading' => 'lazy', 'decoding' => 'async')); ?>
                   <?php else : ?>
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/default.jpg" alt="<?php the_title(); ?>" loading="lazy" decoding="async">
+                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no_image.jpeg" alt="<?php the_title(); ?>" loading="lazy" decoding="async">
                   <?php endif; ?>
                 </figure>
               </div>

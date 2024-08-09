@@ -315,3 +315,161 @@ add_action('init', 'change_post_object_label');
     </style>';
   }
   add_action('login_head', 'login_logo');
+
+  /* ========================================
+ダッシュボードトップに投稿へのショートカットを設定
+======================================== */
+function add_dashboard_widgets() {
+  wp_add_dashboard_widget(
+      'quick_action_dashboard_widget', // ウィジェットのスラッグ名
+      'クイックアクション', // ウィジェットに表示するタイトル
+      'dashboard_widget_function' // 実行する関数
+  );
+}
+add_action('wp_dashboard_setup', 'add_dashboard_widgets');
+
+// ここからクイックアクションの中身
+function dashboard_widget_function() {
+  // 固定ページのスラッグからIDを取得
+  $top_page = get_page_by_path('top');
+  $top_page_id = $top_page ? $top_page->ID : null;
+
+  $price_page = get_page_by_path('price');
+  $price_page_id = $price_page ? $price_page->ID : null;
+
+  $faq_page = get_page_by_path('faq');
+  $faq_page_id = $faq_page ? $faq_page->ID : null;
+  ?>
+  <p>追加・変更したい項目をクリックしてください</p>
+  <ul class="quick-action">
+      <li>
+          <a href="<?php echo admin_url('post-new.php?post_type=post'); ?>" class="quick-action-button">
+              <span class="dashicons-before dashicons-admin-post"></span>
+              ブログ
+          </a>
+      </li>
+      <?php if (current_user_can('administrator')) : ?>
+          <li>
+              <a href="<?php echo admin_url('post-new.php?post_type=voice'); ?>" class="quick-action-button">
+                  <span class="dashicons-before dashicons-admin-users"></span>
+                  お客様の声
+              </a>
+          </li>
+          <li>
+              <a href="<?php echo admin_url('post-new.php?post_type=campaign'); ?>" class="quick-action-button">
+                  <span class="dashicons-before dashicons-pressthis"></span>
+                  キャンペーン
+              </a>
+          </li>
+          <?php if ($top_page_id): ?>
+              <li>
+                  <a href="<?php echo get_edit_post_link($top_page_id); ?>" class="quick-action-button">
+                      <span class="dashicons-before dashicons-welcome-view-site"></span>
+                      メインビジュアル
+                  </a>
+              </li>
+          <?php endif; ?>
+          <?php if ($price_page_id): ?>
+              <li>
+                  <a href="<?php echo get_edit_post_link($price_page_id); ?>" class="quick-action-button">
+                      <span class="dashicons-before dashicons-money-alt"></span>
+                      料金表
+                  </a>
+              </li>
+          <?php endif; ?>
+          <?php if ($faq_page_id): ?>
+              <li>
+                  <a href="<?php echo get_edit_post_link($faq_page_id); ?>" class="quick-action-button">
+                      <span class="dashicons-before dashicons-editor-help"></span>
+                      よくある質問
+                  </a>
+              </li>
+          <?php endif; ?>
+      <?php endif; ?>
+  </ul>
+  <?php
+}
+
+// 管理画面にカスタムCSSを追加する関数
+function my_admin_dashboard_css() {
+  echo '<style>
+      .quick-action {
+          width: 100%;
+          list-style: none;
+          padding-top: 24px;
+          padding-bottom: 24px;
+          margin-inline: auto;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 24px;
+          justify-content: center;
+      }
+      .quick-action li {
+          height: 100%;
+      }
+      .quick-action .quick-action-button {
+          display: flex;
+          align-items: center;
+          padding: 10px 15px;
+          border: 1px solid #0073aa;
+          background-color: #fff;
+          color: #0073aa;
+          text-decoration: none;
+          border-radius: 4px;
+          height: 100%;
+          transition: transform 0.3s ease, background-color 0.3s ease;
+      }
+      .quick-action .quick-action-button:hover {
+          background-color: #0073aa;
+          color: #fff;
+      }
+      .dashicons-before {
+          margin-right: 5px;
+      }
+  </style>';
+}
+add_action('admin_head', 'my_admin_dashboard_css');
+
+  /* ========================================
+    管理画面の投稿タイプ3つ(デフォルトとCPT UI)の
+    アイキャッチを設定し、
+    不要な投稿者とコメントの列が非表示にする
+  ======================================== */
+// 管理画面の投稿一覧にアイキャッチ画像の列を追加
+function add_thumbnail_column($columns) {
+  $columns['thumbnail'] = __('アイキャッチ画像');
+  return $columns;
+}
+add_filter('manage_posts_columns', 'add_thumbnail_column');
+
+// アイキャッチ画像の列に画像を表示
+function show_thumbnail_column($column_name, $post_id) {
+  if ($column_name === 'thumbnail') {
+      $thumbnail = get_the_post_thumbnail($post_id, array(180, 120));
+      echo $thumbnail ? $thumbnail : __('なし');
+  }
+}
+add_action('manage_posts_custom_column', 'show_thumbnail_column', 10, 2);
+
+// 投稿一覧から投稿者とコメントの列を削除
+function remove_unwanted_columns($columns) {
+  unset($columns['author']);
+  unset($columns['comments']);
+  return $columns;
+}
+add_filter('manage_posts_columns', 'remove_unwanted_columns');
+
+// CSSで列の幅と画像のスタイルを調整
+function thumbnail_column_width() {
+  echo '<style>
+      .column-thumbnail {
+          width: 180px;
+          text-align: center;
+      }
+      .column-thumbnail img {
+          max-width: 100%;
+          height: auto;
+      }
+  </style>';
+}
+add_action('admin_head', 'thumbnail_column_width');
